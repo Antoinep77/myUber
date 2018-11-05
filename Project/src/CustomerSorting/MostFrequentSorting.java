@@ -1,4 +1,4 @@
-package Pacjage1;
+package CustomerSorting;
 
 public class MostFrequentSorting implements CustomerSorting{
 

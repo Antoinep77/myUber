@@ -1,4 +1,4 @@
-package Pacjage1;
+package DriverSorting;
 
 public interface DriverSorting {
 

@@ -1,57 +1,37 @@
 package Pacjage1;
 
 public class GPScoordiantes {
-	private double latitude;
-	private double longitude;
+	private double x;
+	private double y;
 	
-	public GPScoordiantes(double latitude, double longitude) {
+	// constructor method
+	public GPScoordiantes(double x, double y) {
 		super();
-		this.latitude = latitude;
-		this.longitude = longitude;
+		this.x = x;
+		this.y = y;
 	}
-	
-	public double getLatitude() {
-		return latitude;
+	// Setter & getters
+	public double getX() {
+		return x;
 	}
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
+	public void setX(double x) {
+		this.x = x;
 	}
-	public double getLongitude() {
-		return longitude;
+	public double getY() {
+		return y;
 	}
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
+	public void setY(double y) {
+		this.y = y;
 	}
-	
-	@Override
-	public String toString() {
-		return "GPScoordiantes : latitude=" + latitude + ", longitude=" + longitude;
+	// method calculating the distance between 2 positions.
+	public double distance(GPScoordiantes point1, GPScoordiantes point2) {
+		double dist, x1, x2, y1, y2;
+		x1 = point1.getX();
+		y1 = point2.getY();
+		x2 = point1.getX();
+		y2 = point2.getY();	
+		dist = Math.sqrt( Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+		return dist;
 	}
-
-	public static double length(GPScoordiantes point1, GPScoordiantes point2) {
-		double lat1 = point1.getLatitude(); // in degrees 
-		double lat2 = point2.getLatitude(); // in degrees
-		double longit1 = point1.getLongitude();
-		double longit2 = point2.getLongitude();
-		double angulardistance; // angulardistance is in radians
-		angulardistance = Math.acos(Math.cos(Math.toRadians(lat1))
-	            * Math.cos(Math.toRadians(lat2))
-	            * Math.cos(Math.toRadians((longit1) - (longit2)))
-	            + Math.sin(Math.toRadians(lat1))
-	            * Math.sin(Math.toRadians(lat2)));
-			
-		double distance = 6371.01*angulardistance;
-		return distance;
-		
- 	}
-	// tester 
-	/*
-	public static void main(String[] args) {
-		GPScoordiantes paris = new GPScoordiantes(48.856614, 2.3522219000000177);
-		GPScoordiantes marseille = new GPScoordiantes(43.300000, 5.400000);
-		System.out.println(length(paris, marseille)); // à vérifier sur https://www.lexilogos.com/calcul_distances.htm
-	}
-	*/
-	
 	
 }

@@ -8,17 +8,17 @@ public class Driver {
 	
 	public static ArrayList<Driver> driversList;    // list of all drivers 
 	public static int biggestDriverID;  // Integer : number of drivers in the myUber system
-	private String driverName;   //
-	private String driverSurName;
-	private int driverID;
-	private DriverState driverState;
-	private double driverAmount;
-	private double numOfRides;
+	private String driverName;   // the name of the driver
+	private String driverSurName;  // the surname of the driver
+	private int driverID;            // numerical ID of the driver
+	private DriverState driverState;  // the state of the driver --> off-duty, on-duty, off-line on on-a-ride
+	private double driverAmount;  // total amount cashed by the driver
+	private double numOfRides;    // number of rides done by the driver
 	private Map<String, Integer> driversTimes;
 	
 	
 	
-	////////////////////////////////  Constructor ///////////////////////////////////////////
+	//  Constructor 
 	public Driver(String driverName, String driverSurName, DriverState driverState) {
 		super();
 		this.driverName = driverName;
@@ -34,7 +34,7 @@ public class Driver {
 		driversTimes.put("on-a-ride", 0);
 		driversList.add(this);
 			}
-	////////////////////////////////   Setters and getters   ///////////////////////////////////////////
+	//   Setters and getters 
 	public String getDriverName() {
 		return driverName;
 	}
@@ -93,23 +93,23 @@ public class Driver {
 	public void setNumOfRides(double numOfRides) {
 		this.numOfRides = numOfRides;
 	}
-	////////////////////////////////toString   ///////////////////////////////////////////
+	//toString   
 	@Override
 	public String toString() {
 		return "Driver : driverName=" + driverName + ", driverSurName=" + driverSurName + ", driverID=" + driverID
 				+ ", driverState=" + driverState;
 	}
-	////////////////////////////   addAmount  ////////////////////////
+	//  method for adding a new amount
 	public void addAmount(double amount) {
 		
 		this.setDriverAmount(this.getDriverAmount() + amount);
 	} 
 	
-	
+	// method for adding a new ride to the number of ride
 	public void addNewRide() {
 		this.setNumOfRides(this.getNumOfRides() +1 );
 	}
-
+	// method to add extra on-duty time
 	public void addOnDutyTime(int onDutyTime) {
 		int newOnDutyTime = this.driversTimes.get("on-dutty");
 		this.driversTimes.put("on-dutty", newOnDutyTime);

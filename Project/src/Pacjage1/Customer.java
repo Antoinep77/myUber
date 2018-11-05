@@ -3,17 +3,17 @@ package Pacjage1;
 import java.util.ArrayList;
 
 public class Customer {
-	private String customerName;
-	private String customerSurName;
-	private int cusotmerID;
-	private GPScoordiantes customerPosition;
-	private int creditCardNumber;
-	private ArrayList<String> Messagebox = null;
+	private String customerName;   // the name of the customer
+	private String customerSurName;  // the surname of the customer
+	private int cusotmerID;  // numerical ID of the customer
+	private GPScoordiantes customerPosition;  // the current position of the costumer
+	private int creditCardNumber;  // the number of the credit card
+	private ArrayList<String> Messagebox = null;   // ArrayList of strings containing the received messages  
 	public static int biggestCustomerID;
 	
-	//private int NumOfPerson;
+	//private int NumOfPerson; ??
 	
-	////////////////////////   constructor  //////////////////////////
+	//   constructor  
 	
 	public Customer(String customerName, String customerSurName, GPScoordiantes customerPosition,
 			int creditCardNumber, ArrayList<String> messagebox) {
@@ -26,7 +26,7 @@ public class Customer {
 		Messagebox = messagebox;
 		biggestCustomerID++;
 	}
-	//////////////////////// Setters and getters  //////////////////////////
+	// Setters and getters  
 	
 
 	public String getCustomerName() {
@@ -89,8 +89,10 @@ public class Customer {
 	}
 	//////////////////////// add a message to the box  //////////////////////////
 	public void addMessageToBox(String message){
-		
-		}
+		ArrayList<String> newListMessage = this.getMessagebox();
+		newListMessage.add(message);
+		this.setMessagebox(newListMessage);
+	}
 
 
 

@@ -146,4 +146,14 @@ public class Driver {
 		}
 	}
 	
+	public double getOccupationRate() {
+		double numerator = this.driversTimes.get("on-dutty");
+		double denominator = this.driversTimes.get("on-a-ride") ;
+		if(denominator != 0) {
+			return numerator/denominator;
+		}else {
+			return 0.0;
+		}
+	}
+	
 }

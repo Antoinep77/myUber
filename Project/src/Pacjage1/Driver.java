@@ -6,11 +6,9 @@ import java.util.Map;
 
 public class Driver {
 	
-	public static ArrayList<Driver> driversList;
-	public static int biggestDriverID;
-	
-	
-	private String driverName;
+	public static ArrayList<Driver> driversList;    // list of all drivers 
+	public static int biggestDriverID;  // Integer : number of drivers in the myUber system
+	private String driverName;   //
 	private String driverSurName;
 	private int driverID;
 	private DriverState driverState;
@@ -146,6 +144,6 @@ public class Driver {
 		}else {
 			return 0.0;
 		}
-		
 	}
+	
 }

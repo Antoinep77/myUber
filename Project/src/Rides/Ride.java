@@ -1,4 +1,5 @@
-package Pacjage1;
+package Rides;
+
 //Element interface
 public interface Ride {
 	public void accept(CostVisitor costVisitor);

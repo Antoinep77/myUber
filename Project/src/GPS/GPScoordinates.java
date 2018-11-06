@@ -1,4 +1,4 @@
-package Pacjage1;
+package GPS;
 
 public class GPScoordinates {
 	private double x;

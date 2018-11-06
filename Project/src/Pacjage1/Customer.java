@@ -2,6 +2,8 @@ package Pacjage1;
 
 import java.util.ArrayList;
 
+import GPS.GPScoordinates;
+
 public class Customer {
 	private String customerName;   // the name of the customer
 	private String customerSurName;  // the surname of the customer

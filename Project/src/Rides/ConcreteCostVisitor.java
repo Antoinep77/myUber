@@ -1,4 +1,4 @@
-package Pacjage1;
+package Rides;
 
 public abstract class ConcreteCostVisitor implements CostVisitor{
 	@Override

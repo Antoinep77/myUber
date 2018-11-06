@@ -1,13 +1,18 @@
-package Pacjage1;
-//concrete element
-public class UberPool implements Ride{
+package Rides;
+
+import Cars.Car;
+import Pacjage1.Customer;
+
+// concrete element
+public class UberX implements Ride{
 	private Car car;
 	private Customer customer;
-	public UberPool(Car car, Customer customer) {
+	public UberX(Car car, Customer customer) {
 		super();
 		this.car = car;
 		this.customer = customer;
 	}
+	
 	public Car getCar() {
 		return car;
 	}
@@ -24,4 +29,5 @@ public class UberPool implements Ride{
 	public void accept(CostVisitor costVisitor) {
 		costVisitor.visit(this);
 	}
+
 }

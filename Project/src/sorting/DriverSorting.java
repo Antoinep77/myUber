@@ -1,4 +1,4 @@
-package DriverSorting;
+package sorting;
 
 import java.util.List;
 

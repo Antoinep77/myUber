@@ -1,4 +1,4 @@
-package CustomerSorting;
+package sorting;
 
 public class MostChargedSorting implements CustomerSorting{
 

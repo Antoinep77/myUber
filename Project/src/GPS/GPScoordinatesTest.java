@@ -1,4 +1,4 @@
-package Pacjage1;
+package GPS;
 
 import static org.junit.jupiter.api.Assertions.*;
 

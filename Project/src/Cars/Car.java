@@ -1,4 +1,7 @@
-package Pacjage1;
+package Cars;
+
+import GPS.GPScoordinates;
+import Pacjage1.Driver;
 
 public class Car {
 	private Driver driver;

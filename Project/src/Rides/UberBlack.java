@@ -1,4 +1,8 @@
-package Pacjage1;
+package Rides;
+
+import Cars.Car;
+import Pacjage1.Customer;
+
 // concrete element
 public class UberBlack implements Ride{
 	private Car car;

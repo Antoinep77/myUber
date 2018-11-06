@@ -1,4 +1,4 @@
-package Pacjage1;
+package Rides;
 
 public interface CostVisitor {
 	public void visit(UberX uberX);

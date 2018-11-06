@@ -1,4 +1,4 @@
-package DriverSorting;
+package sorting;
 
 public class MostAppreciatedSorting implements DriverSorting{
 	

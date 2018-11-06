@@ -1,8 +1,17 @@
-package Pacjage1;
+package Rides;
+
+import Cars.Car;
+import Pacjage1.Customer;
+
 //concrete element
-public class UberVan implements Ride{
+public class UberPool implements Ride{
 	private Car car;
 	private Customer customer;
+	public UberPool(Car car, Customer customer) {
+		super();
+		this.car = car;
+		this.customer = customer;
+	}
 	public Car getCar() {
 		return car;
 	}
@@ -13,11 +22,6 @@ public class UberVan implements Ride{
 		return customer;
 	}
 	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-	public UberVan(Car car, Customer customer) {
-		super();
-		this.car = car;
 		this.customer = customer;
 	}
 	@Override

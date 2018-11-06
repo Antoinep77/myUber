@@ -1,4 +1,4 @@
-package CustomerSorting;
+package sorting;
 
 import java.util.List;
 

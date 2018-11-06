@@ -6,7 +6,7 @@ public class Customer {
 	private String customerName;   // the name of the customer
 	private String customerSurName;  // the surname of the customer
 	private int cusotmerID;  // numerical ID of the customer
-	private GPScoordiantes customerPosition;  // the current position of the costumer
+	private GPScoordinates customerPosition;  // the current position of the costumer
 	private int creditCardNumber;  // the number of the credit card
 	private ArrayList<String> Messagebox = null;   // ArrayList of strings containing the received messages  
 	public static int biggestCustomerID;
@@ -15,7 +15,7 @@ public class Customer {
 	
 	//   constructor  
 	
-	public Customer(String customerName, String customerSurName, GPScoordiantes customerPosition,
+	public Customer(String customerName, String customerSurName, GPScoordinates customerPosition,
 			int creditCardNumber, ArrayList<String> messagebox) {
 		super();
 		this.customerName = customerName;
@@ -59,12 +59,12 @@ public class Customer {
 	}
 */
 
-	public GPScoordiantes getCustomerPosition() {
+	public GPScoordinates getCustomerPosition() {
 		return customerPosition;
 	}
 
 
-	public void setCustomerPosition(GPScoordiantes customerPosition) {
+	public void setCustomerPosition(GPScoordinates customerPosition) {
 		this.customerPosition = customerPosition;
 	}
 

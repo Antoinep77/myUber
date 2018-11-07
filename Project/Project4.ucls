@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="Pacjage1.Driver" project="Project" file="/Project/src/Pacjage1/Driver.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="customersAndDrivers.Driver" project="Project" 
+    file="/Project/src/customersAndDrivers/Driver.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="167" y="148"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,9 +10,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="Pacjage1.Customer" project="Project" file="/Project/src/Pacjage1/Customer.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="483" y="166"/>    
+  <class id="2" language="java" name="customersAndDrivers.Customer" project="Project" 
+    file="/Project/src/customersAndDrivers/Customer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="694" y="95"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

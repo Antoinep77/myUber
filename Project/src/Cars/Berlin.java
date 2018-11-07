@@ -1,7 +1,7 @@
 package Cars;
 
 import GPS.GPScoordinates;
-import Pacjage1.Driver;
+import customersAndDrivers.Driver;
 
 public class Berlin extends Car{
 	static int BerlinNumber = 0;

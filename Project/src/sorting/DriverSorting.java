@@ -2,7 +2,7 @@ package sorting;
 
 import java.util.List;
 
-import Pacjage1.Driver;
+import customersAndDrivers.Driver;
 
 public interface DriverSorting {
 	public abstract List<Driver> sort();

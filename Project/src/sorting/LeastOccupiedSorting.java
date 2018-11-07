@@ -3,7 +3,7 @@ package sorting;
 import java.util.ArrayList;
 import java.util.List;
 
-import Pacjage1.Driver;
+import customersAndDrivers.Driver;
 
 public class LeastOccupiedSorting implements DriverSorting{
 	public List<Driver> sort(){

@@ -1,7 +1,7 @@
 package Rides;
 
 import Cars.Car;
-import Pacjage1.Customer;
+import customersAndDrivers.Customer;
 
 // concrete element
 public class UberX implements Ride{

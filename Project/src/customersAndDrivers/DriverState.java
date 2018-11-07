@@ -1,4 +1,4 @@
-package Pacjage1;
+package customersAndDrivers;
 
 public enum DriverState {
 	OFFLINE("offline"),

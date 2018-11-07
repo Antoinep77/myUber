@@ -1,4 +1,4 @@
-package Pacjage1;
+package customersAndDrivers;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import GPS.GPScoordinates;
 public class Customer {
 	private String customerName;   // the name of the customer
 	private String customerSurName;  // the surname of the customer
-	private int cusotmerID;  // numerical ID of the customer
+	private int customerID;  // numerical ID of the customer
 	private GPScoordinates customerPosition;  // the current position of the costumer
 	private int creditCardNumber;  // the number of the credit card
 	private ArrayList<String> Messagebox = null;   // ArrayList of strings containing the received messages  
@@ -18,14 +18,13 @@ public class Customer {
 	//   constructor  
 	
 	public Customer(String customerName, String customerSurName, GPScoordinates customerPosition,
-			int creditCardNumber, ArrayList<String> messagebox) {
+			int creditCardNumber) {
 		super();
 		this.customerName = customerName;
 		this.customerSurName = customerSurName;
-		this.cusotmerID = biggestCustomerID +1;
+		this.customerID = biggestCustomerID +1;
 		this.customerPosition = customerPosition;
 		this.creditCardNumber = creditCardNumber;
-		Messagebox = messagebox;
 		biggestCustomerID++;
 	}
 	// Setters and getters  
@@ -51,8 +50,8 @@ public class Customer {
 	}
 
 
-	public int getCusotmerID() {
-		return cusotmerID;
+	public int getCustomerID() {
+		return customerID;
 	}
 
 /*  pas besoin

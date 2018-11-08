@@ -24,7 +24,7 @@ public class GPScoordinates {
 		this.y = y;
 	}
 	// method calculating the distance between 2 positions.
-	public double distance(GPScoordinates point1, GPScoordinates point2) {
+	public static double distance(GPScoordinates point1, GPScoordinates point2) {
 		double dist, x1, x2, y1, y2;
 		x1 = point1.getX();
 		y1 = point1.getY();
@@ -33,4 +33,5 @@ public class GPScoordinates {
 		dist = Math.sqrt( Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
 		return dist;
 	}
+	
 }

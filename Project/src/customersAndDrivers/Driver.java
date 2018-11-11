@@ -14,6 +14,7 @@ public class Driver {
 	private DriverState driverState;  // the state of the driver --> off-duty, on-duty, off-line on on-a-ride
 	private double driverAmount;  // total amount cashed by the driver
 	private double numOfRides;    // number of rides done by the driver
+	private ArrayList<Double> driverMarks;
 	private Map<String, Integer> driversTimes;
 	
 	
@@ -28,12 +29,14 @@ public class Driver {
 		this.driverState = driverState;
 		this.driverAmount = 0.0;
 		this.numOfRides = 0;
+		this.driverMarks = new ArrayList<Double>();
 		driversTimes.put("on-dutty", 0);   
-	
 		driversTimes.put("off-duty", 0);
 		driversTimes.put("on-a-ride", 0);
 		driversList.add(this);
-			}
+		}
+	
+	
 	//   Setters and getters 
 	public String getDriverName() {
 		return driverName;
@@ -93,6 +96,17 @@ public class Driver {
 	public void setNumOfRides(double numOfRides) {
 		this.numOfRides = numOfRides;
 	}
+	
+	public ArrayList<Double> getDriverMarks() {
+		return driverMarks;
+	}
+
+
+	public void setDriverMarks(ArrayList<Double> driverMarks) {
+		this.driverMarks = driverMarks;
+	}
+
+
 	//toString   
 	@Override
 	public String toString() {
@@ -154,6 +168,18 @@ public class Driver {
 		}else {
 			return 0.0;
 		}
+	}
+	
+	public void addOneMark(double newMark) {
+		driverMarks.add(newMark);
+	}
+	
+	public double avrageOfMarks() {
+		int sum = 0;
+	      for (int i=0; i< driverMarks.size(); i++) {
+	            sum += driverMarks.get(i);
+	      }
+	      return sum / driverMarks.size();
 	}
 	
 }

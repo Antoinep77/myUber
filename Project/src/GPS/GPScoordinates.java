@@ -23,7 +23,7 @@ public class GPScoordinates {
 	public void setY(double y) {
 		this.y = y;
 	}
-	// method calculating the distance between 2 positions.
+	// method calculating the distance between 2 positions (points) .
 	public static double distance(GPScoordinates point1, GPScoordinates point2) {
 		double dist, x1, x2, y1, y2;
 		x1 = point1.getX();

@@ -4,10 +4,10 @@ import GPS.GPScoordinates;
 import customersAndDrivers.Driver;
 
 public class Car {
-	private Driver driver;
-	private GPScoordinates carPosition;
-	private int NumberFreeSeats;
-	private String carID;
+	private Driver driver;   // each car as a driver
+	private GPScoordinates carPosition;   // the current position of the car
+	private int NumberFreeSeats;  // number of seats
+	private String carID;   // an alphanumerical ID
 	public Car(Driver driver, GPScoordinates carPosition, int numberFreeSeats, String carID) {
 		super();
 		this.driver = driver;

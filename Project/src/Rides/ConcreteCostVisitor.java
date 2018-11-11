@@ -74,5 +74,8 @@ public abstract class ConcreteCostVisitor implements CostVisitor{
 		double rate = uberPool.basicRates();
 		return length*rate*trafficFactor;
 	}
+	public static void main(String[] args) {
+		Car car1 = new 
+	}
 	
 }

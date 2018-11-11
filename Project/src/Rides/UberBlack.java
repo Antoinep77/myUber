@@ -8,11 +8,11 @@ import customersAndDrivers.Customer;
 
 // concrete element
 public class UberBlack implements Ride{
-	private Car car;
+	private Car car;    
 	private Customer customer;
 	private GPScoordinates startingPoint;
 	private GPScoordinates destinationPoint;
-	private Time time;
+	private Time time;   
 	
 	public UberBlack(Car car, Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
 			Time time) {
@@ -28,12 +28,13 @@ public class UberBlack implements Ride{
 	public Time getTime() {
 		return time;
 	}
-
+		// getLength return the the length of the ride
 	public double getLentgh() {
 		return GPScoordinates.distance(startingPoint, destinationPoint);
 	}
 
-
+	
+	//basicRates returns the the basic rate in Euro/Km 
 	public double basicRates() {
 		double length = GPScoordinates.distance(startingPoint, destinationPoint);
 		if(length < 5) {

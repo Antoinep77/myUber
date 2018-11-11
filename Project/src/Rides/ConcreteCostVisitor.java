@@ -1,6 +1,6 @@
 package Rides;
 
-public abstract class ConcreteCostVisitor implements CostVisitor{
+public class ConcreteCostVisitor implements CostVisitor{
 	@Override
 	public void visit(UberX uberX) {
 		// à remplir

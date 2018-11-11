@@ -4,6 +4,10 @@ import java.sql.Driver;
 import java.util.List;
 
 import Cars.Car;
+import GPS.GPScoordinates;
+import Rides.ConcreteCostVisitor;
+import Rides.CostVisitor;
+import Rides.RideSearching;
 import customersAndDrivers.Customer;
 
 public class MyUber {
@@ -22,7 +26,7 @@ public class MyUber {
 	}
 
 	
-	//
+	//return null if the id doesn't correspond with a customer in customerList
 	public Customer getUserWithId(int i) {
 		for(Customer cust: customerList) {
 			if (cust.getCustomerID() == i) {
@@ -30,7 +34,13 @@ public class MyUber {
 			}
 		}
 		return null;
-		
 	}
+	
+	public RideSearching requireRide(Customer cust, GPScoordinates coords, Time t ) {
+		CostVisitor visitor = new ConcreteCostVisitor();
+		visitor
+	}
+	
+	
 
 }

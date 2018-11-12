@@ -61,6 +61,7 @@ public class MyUber {
 
 	private void findClosestAvailableDriver(Ride ride) {
 		// TODO Auto-generated method stub
+		GPScoordinates startingPoint = ride
 		
 	}
 	

@@ -1,7 +1,6 @@
 package Rides;
 
 import Cars.Car;
-import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
 
 // concrete element
@@ -20,8 +19,9 @@ public class UberBlack implements Ride{
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public UberBlack(Customer customer,GPScoordinates startingPoint, 
-			GPScoordinates endingPoint) {
+	public UberBlack(Car car, Customer customer) {
+		super();
+		this.car = car;
 		this.customer = customer;
 	}
 	@Override

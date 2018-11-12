@@ -25,6 +25,11 @@ public class UberX implements Ride{
 	public Time getTime() {
 		return time;
 	}
+	
+
+	public Customer getCustomer() {
+		return customer;
+	}
 
 	public double getLentgh() {
 		return GPScoordinates.distance(startingPoint, destinationPoint);

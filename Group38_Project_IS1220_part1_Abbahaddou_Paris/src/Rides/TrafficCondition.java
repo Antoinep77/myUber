@@ -1,3 +1,4 @@
+package Rides;
 import java.sql.Time;
 
 public enum TrafficCondition {

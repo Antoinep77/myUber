@@ -26,6 +26,10 @@ public class UberVan implements Ride{
 		return time;
 	}
 	
+	public Customer getCustomer() {
+		return customer;
+	}
+
 	public double getLentgh() {
 		return GPScoordinates.distance(startingPoint, destinationPoint);
 	}

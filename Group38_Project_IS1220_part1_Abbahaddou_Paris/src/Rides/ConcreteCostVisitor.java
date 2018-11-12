@@ -1,8 +1,12 @@
 package Rides;
 
+import java.sql.Time;
+
+import customersAndDrivers.Customer;
+
 public class ConcreteCostVisitor implements CostVisitor{
 	@Override
-	public double visit(UberX uberX) {
+	public void visit(UberX uberX) {
 		Time time = uberX.getTime();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
@@ -16,12 +20,15 @@ public class ConcreteCostVisitor implements CostVisitor{
 		}
 		double length = uberX.getLentgh();
 		double rate = uberX.basicRates();
-		return length*rate*trafficFactor;
+		Customer cust = uberX.getCustomer();
+		double rideFare = length*rate*trafficFactor;
+		cust.addMessageToBox("the price of a uberX ride to yout destination is  : " + Double.toString(rideFare) + "  Euro");
+		
 		
 		
 	}
 	@Override
-	public double visit(UberBlack uberBlack) {
+	public void visit(UberBlack uberBlack) {
 		Time time = uberBlack.getTime();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
@@ -35,10 +42,12 @@ public class ConcreteCostVisitor implements CostVisitor{
 		}
 		double length= uberBlack.getLentgh();
 		double rate = uberBlack.basicRates();
-		return length*rate*trafficFactor;
+		Customer cust = uberBlack.getCustomer();
+		double rideFare = length*rate*trafficFactor;
+		cust.addMessageToBox("the price of a uberBlack ride to yout destination is  : " + Double.toString(rideFare) + "  Euro");
 	}
 	@Override
-	public double visit(UberVan uberVan) {
+	public void visit(UberVan uberVan) {
 		Time time = uberVan.getTime();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
@@ -52,10 +61,12 @@ public class ConcreteCostVisitor implements CostVisitor{
 		}
 		double length =  uberVan.getLentgh();
 		double rate = uberVan.basicRates();
-		return length*rate*trafficFactor;
+		Customer cust = uberVan.getCustomer();
+		double rideFare = length*rate*trafficFactor;
+		cust.addMessageToBox("the price of a uberVan ride to yout destination is  : " + Double.toString(rideFare) + "  Euro");
 	}
 	@Override
-	public double visit(UberPool uberPool) {
+	public void visit(UberPool uberPool) {
 		Time time = uberPool.getTime();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
@@ -69,9 +80,9 @@ public class ConcreteCostVisitor implements CostVisitor{
 		}
 		double length = uberPool.getLentgh();
 		double rate = uberPool.basicRates();
-		return length*rate*trafficFactor;
+		Customer cust = uberPool.getCustomer();
+		double rideFare = length*rate*trafficFactor;
+		cust.addMessageToBox("the price of a uberPool ride to yout destination is  : " + Double.toString(rideFare) + "  Euro");
 	}
-	public static void main(String[] args) {
-		Car car1 = new 
-	}
+	
 }

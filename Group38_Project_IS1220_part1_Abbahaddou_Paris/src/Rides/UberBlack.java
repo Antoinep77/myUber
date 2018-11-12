@@ -23,6 +23,11 @@ public class UberBlack implements Ride{
 	}
 	
 	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+
 	public Time getTime() {
 		return time;
 	}
@@ -30,7 +35,7 @@ public class UberBlack implements Ride{
 	public double getLentgh() {
 		return GPScoordinates.distance(startingPoint, destinationPoint);
 	}
-
+	
 	
 	//basicRates returns the the basic rate in Euro/Km 
 	public double basicRates() {

@@ -29,6 +29,11 @@ public class UberPool implements Ride{
 	public double getLentgh() {
 		return GPScoordinates.distance(startingPoint, destinationPoint);
 	}
+	
+
+	public Customer getCustomer() {
+		return customer;
+	}
 
 	public double basicRates() {
 		double length = GPScoordinates.distance(startingPoint, destinationPoint);

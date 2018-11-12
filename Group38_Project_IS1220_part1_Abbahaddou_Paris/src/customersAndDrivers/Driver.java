@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import Cars.Car;
+
 public class Driver {
 	
 	public static ArrayList<Driver> driversList;    // list of all drivers 
 	public static int biggestDriverID;  // Integer : number of drivers in the myUber system
+	private Car car;
 	private String driverName;   // the name of the driver
 	private String driverSurName;  // the surname of the driver
 	private int driverID;            // numerical ID of the driver
@@ -20,13 +23,14 @@ public class Driver {
 	
 	
 	//  Constructor 
-	public Driver(String driverName, String driverSurName, DriverState driverState) {
+	public Driver(Car car, String driverName, String driverSurName) {
 		super();
+		this.car = car;
 		this.driverName = driverName;
 		this.driverSurName = driverSurName;
 		this.driverID = biggestDriverID + 1;
 		biggestDriverID++;
-		this.driverState = driverState;
+		this.driverState = DriverState.OFFDUTY;
 		this.driverAmount = 0.0;
 		this.numOfRides = 0;
 		driversTimes.put("on-dutty", 0);   
@@ -36,9 +40,21 @@ public class Driver {
 		driversList.add(this);
 			}
 	//   Setters and getters 
+	
+	
 	public String getDriverName() {
 		return driverName;
 	}
+
+	public Car getCar() {
+		return car;
+	}
+
+
+	public void setCar(Car car) {
+		this.car = car;
+	}
+
 
 	public void setDriverName(String driverName) {
 		this.driverName = driverName;

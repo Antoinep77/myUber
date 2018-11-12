@@ -5,6 +5,8 @@ import java.sql.Time;
 import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
 import customersAndDrivers.Driver;
+import GPS.GPScoordinates;
+
 
 //Element interface
 public abstract class Ride {
@@ -46,4 +48,5 @@ public abstract class Ride {
 	public abstract void accept(CostVisitor costVisitor);
 	
 	public abstract double basicRates();
+
 }

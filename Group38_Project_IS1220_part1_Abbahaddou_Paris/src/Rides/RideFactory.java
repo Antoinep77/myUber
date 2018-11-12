@@ -13,9 +13,16 @@ public class RideFactory {
 	Time time;
 	Customer cust;
 	
+	public RideFactory(Customer cust2, GPScoordinates startingPoint2, GPScoordinates endingPoint2, Time time2) {
+		cust = cust2;
+		startingPoint = startingPoint2;
+		endingPoint = endingPoint2;
+		time = time2;
+	}
+
 	//Return an ArrayList with all type of rides available
 	//The parameters are the parameters passes to the constructors
-	static ArrayList<Ride> createAllRides(Customer cust, GPScoordinates startingPoint,
+	public static ArrayList<Ride> createAllRides(Customer cust, GPScoordinates startingPoint,
 			GPScoordinates endingPoint,Time time){
 		ArrayList<Ride> listOfRides = new ArrayList<Ride>();
 		listOfRides.add(new UberX(cust,startingPoint,endingPoint,time));

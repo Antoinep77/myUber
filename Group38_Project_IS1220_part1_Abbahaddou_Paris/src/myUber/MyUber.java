@@ -1,6 +1,7 @@
 package myUber;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 import Cars.Car;
@@ -42,11 +43,13 @@ public class MyUber {
 	public RideFactory requireRide(Customer cust, GPScoordinates startingPoint,
 			GPScoordinates endingPoint, Time t ) {
 		CostVisitor visitor = new ConcreteCostVisitor();
-		Ride uberX = new UberX(cust, startingPoint, endingPoint,t);
-		uberX.accept(visitor);
+		ArrayList<Ride> listOfRides = RideFactory.createAllRides(cust, startingPoint, endingPoint, t);
 		
+		for(Ride ride: listOfRides) {
+			ride.accept(visitor);
+		}
 		
-		return null;
+		return new RideFactory(cust, startingPoint, endingPoint, t);
 	}
 	
 	

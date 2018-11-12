@@ -1,12 +1,15 @@
 package myUber;
 
+import java.sql.Time;
 import java.util.List;
 
 import Cars.Car;
 import GPS.GPScoordinates;
 import Rides.ConcreteCostVisitor;
 import Rides.CostVisitor;
-import Rides.RideSearching;
+import Rides.Ride;
+import Rides.RideFactory;
+import Rides.UberX;
 import customersAndDrivers.Customer;
 import customersAndDrivers.Driver;
 
@@ -36,10 +39,13 @@ public class MyUber {
 		return null;
 	}
 	
-	public RideSearching requireRide(Customer cust, GPScoordinates coords, Time t ) {
+	public RideFactory requireRide(Customer cust, GPScoordinates coords, Time t ) {
 		CostVisitor visitor = new ConcreteCostVisitor();
+		Ride uberX = new UberX(null, cust);
+		uberX.accept(visitor);
 		
 		
+		return null;
 	}
 	
 	

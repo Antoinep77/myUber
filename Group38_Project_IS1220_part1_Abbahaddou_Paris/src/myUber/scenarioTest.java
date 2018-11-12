@@ -3,11 +3,13 @@ package myUber;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Driver;
+import java.sql.Time;
 
 import org.junit.jupiter.api.Test;
 
 import GPS.GPScoordinates;
 import Rides.Ride;
+import Rides.RideFactory;
 import Rides.RideSearching;
 import customersAndDrivers.Customer;
 
@@ -28,8 +30,10 @@ class scenarioTest {
 		
 		//requireRide send a message in the user messageBox with all prices
 		// the function should also return a RideSearching object
-		RideSearching rideReq = myUber.requireRide(cust, new GPScoordinates(3,7),new Time(8,27,00));
-		Ride ride = rideReq.require("UberX");
+		@SuppressWarnings("deprecation")
+		RideFactory rideReq = myUber.requireRide(cust, new GPScoordinates(3,7),
+				new GPScoordinates(10,8),new Time(8,27,00));
+		Ride ride = rideReq.require("UberX");)
 		
 		Driver driver1 = myUber.notifiedDriver(ride);
 		myUber.unconfirm(driver1,ride);

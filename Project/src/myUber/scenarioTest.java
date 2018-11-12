@@ -28,7 +28,7 @@ class scenarioTest {
 		
 		//requireRide send a message in the user messageBox with all prices
 		// the function should also return a RideSearching object
-		RideSearching rideReq = myUber.requireRide(cust, new GPScoordinates(3,7),new Time(8,27,00)):
+		RideSearching rideReq = myUber.requireRide(cust, new GPScoordinates(3,7),new Time(8,27,00));
 		Ride ride = rideReq.require("UberX");
 		
 		Driver driver1 = myUber.notifiedDriver(ride);
@@ -41,6 +41,7 @@ class scenarioTest {
 		driver2.finished(ride);
 		
 		cust.mark(driver,4);
+		
 		
 		
 	}

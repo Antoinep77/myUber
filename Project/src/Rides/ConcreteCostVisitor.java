@@ -1,9 +1,13 @@
 package Rides;
 
+<<<<<<< HEAD
 import java.sql.Time;
 
 public abstract class ConcreteCostVisitor implements CostVisitor{
 	
+=======
+public class ConcreteCostVisitor implements CostVisitor{
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
 	@Override
 	public double visit(UberX uberX) {
 		Time time = uberX.getTime();

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="Cars.Standard" project="Project" file="/Project/src/Cars/Standard.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="Cars.Standard" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Cars/Standard.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="153" width="201" x="55" y="262"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="Cars.Berlin" project="Project" file="/Project/src/Cars/Berlin.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="Cars.Berlin" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Cars/Berlin.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="153" width="184" x="296" y="262"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="Cars.Van" project="Project" file="/Project/src/Cars/Van.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="Cars.Van" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Cars/Van.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="153" width="176" x="520" y="262"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="Cars.Car" project="Project" file="/Project/src/Cars/Car.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="Cars.Car" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Cars/Car.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="225" width="205" x="296" y="-3"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -38,15 +38,15 @@
     </display>  
   </class>  
   <generalization id="5">    
-    <end type="SOURCE" refId="3"/>    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
   <generalization id="6">    
-    <end type="SOURCE" refId="1"/>    
+    <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
   <generalization id="7">    
-    <end type="SOURCE" refId="2"/>    
+    <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

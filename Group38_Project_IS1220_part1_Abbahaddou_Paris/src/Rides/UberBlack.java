@@ -5,41 +5,20 @@ import java.sql.Time;
 import Cars.Car;
 import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
+import customersAndDrivers.Driver;
 
 // concrete element
-public class UberBlack implements Ride{
-	private Car car;    
-	private Customer customer;
-	private GPScoordinates startingPoint;
-	private GPScoordinates destinationPoint;
-	private Time time;   
+public class UberBlack extends Ride{
 	
 	public UberBlack(Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
 			Time time) {
-		this.customer = customer;
-		this.startingPoint = startingPoint;
-		this.destinationPoint = destinationPoint;
-		this.time = time;
+		super(customer,startingPoint,destinationPoint,time);
 	}
 	
-	
-	public Customer getCustomer() {
-		return customer;
-	}
-
-
-	public Time getTime() {
-		return time;
-	}
-		// getLength return the the length of the ride
-	public double getLentgh() {
-		return GPScoordinates.distance(startingPoint, destinationPoint);
-	}
-	
-	
-	//basicRates returns the the basic rate in Euro/Km 
+	//basicRates returns the the basic rate in Euro/Km
+	@Override
 	public double basicRates() {
-		double length = GPScoordinates.distance(startingPoint, destinationPoint);
+		double length = GPScoordinates.distance(getStartingPoint(), getDestinationPoint());
 		if(length < 5) {
 			return 6.2;
 		}else if(length >=5 && length <10) {

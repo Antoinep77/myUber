@@ -7,35 +7,16 @@ import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
 
 // concrete element
-public class UberX implements Ride{
-	private Car car;
-	private Customer customer;
-	private GPScoordinates startingPoint;
-	private GPScoordinates destinationPoint;
-	private Time time;
+public class UberX extends Ride{
 	
 	public UberX(Customer customer, GPScoordinates startingPoint,
 			GPScoordinates destinationPoint, Time time) {
-		this.customer = customer;
-		this.startingPoint = startingPoint;
-		this.destinationPoint = destinationPoint;
-		this.time = time;
+		super(customer,startingPoint,destinationPoint,time);
 	}
 	
-	public Time getTime() {
-		return time;
-	}
-	
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public double getLentgh() {
-		return GPScoordinates.distance(startingPoint, destinationPoint);
-	}
+	@Override
 	public double basicRates() {
-		double length = GPScoordinates.distance(startingPoint, destinationPoint);
+		double length = GPScoordinates.distance(getStartingPoint(), getDestinationPoint());
 		if(length < 5) {
 			return 3.3;
 		}else if(length >=5 && length <10) {

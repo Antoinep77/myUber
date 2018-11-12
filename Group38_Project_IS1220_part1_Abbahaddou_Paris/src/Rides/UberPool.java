@@ -5,38 +5,19 @@ import java.sql.Time;
 import Cars.Car;
 import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
+import customersAndDrivers.Driver;
 
 //concrete element
-public class UberPool implements Ride{
-	private Car car;
-	private Customer customer;
-	private GPScoordinates startingPoint;
-	private GPScoordinates destinationPoint;
-	private Time time;
+public class UberPool extends Ride{
 	
 	public UberPool(Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
 			Time time) {
-		this.customer = customer;
-		this.startingPoint = startingPoint;
-		this.destinationPoint = destinationPoint;
-		this.time = time;
+		super(customer,startingPoint,destinationPoint,time);
 	}
 	
-	public Time getTime() {
-		return time;
-	}
-	
-	public double getLentgh() {
-		return GPScoordinates.distance(startingPoint, destinationPoint);
-	}
-	
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
+	@Override
 	public double basicRates() {
-		double length = GPScoordinates.distance(startingPoint, destinationPoint);
+		double length = GPScoordinates.distance(getStartingPoint(), getDestinationPoint());
 		if(length < 5) {
 			return 2.4;
 		}else if(length >=5 && length <10) {

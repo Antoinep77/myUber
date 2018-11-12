@@ -10,6 +10,7 @@ import Rides.ConcreteCostVisitor;
 import Rides.CostVisitor;
 import Rides.Ride;
 import Rides.RideFactory;
+import Rides.UberPool;
 import Rides.UberX;
 import customersAndDrivers.Customer;
 import customersAndDrivers.Driver;
@@ -56,10 +57,17 @@ public class MyUber {
 	
 	public void register(Ride ride) {
 		this.rideList.add(ride);
-		this.findClosestAvailableDriver(ride);
+		if(ride instanceof UberPool) {
+			// TODO
+		}
+		else {
+			Driver driver = this.findClosestAvailableDriver(ride);
+			
+			
+		}
 	}
 
-	private void findClosestAvailableDriver(Ride ride) {
+	private Driver findClosestAvailableDriver(Ride ride) {
 		// TODO Auto-generated method stub
 		
 	}

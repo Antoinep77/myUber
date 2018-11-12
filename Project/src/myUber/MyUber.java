@@ -1,6 +1,5 @@
 package myUber;
 
-import java.sql.Driver;
 import java.util.List;
 
 import Cars.Car;
@@ -9,6 +8,7 @@ import Rides.ConcreteCostVisitor;
 import Rides.CostVisitor;
 import Rides.RideSearching;
 import customersAndDrivers.Customer;
+import customersAndDrivers.Driver;
 
 public class MyUber {
 	
@@ -38,7 +38,8 @@ public class MyUber {
 	
 	public RideSearching requireRide(Customer cust, GPScoordinates coords, Time t ) {
 		CostVisitor visitor = new ConcreteCostVisitor();
-		visitor
+		
+		
 	}
 	
 	

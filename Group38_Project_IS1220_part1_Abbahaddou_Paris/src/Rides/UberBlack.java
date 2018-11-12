@@ -14,10 +14,8 @@ public class UberBlack implements Ride{
 	private GPScoordinates destinationPoint;
 	private Time time;   
 	
-	public UberBlack(Car car, Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
+	public UberBlack(Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
 			Time time) {
-		super();
-		this.car = car;
 		this.customer = customer;
 		this.startingPoint = startingPoint;
 		this.destinationPoint = destinationPoint;

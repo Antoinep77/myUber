@@ -14,9 +14,8 @@ public class UberX implements Ride{
 	private GPScoordinates destinationPoint;
 	private Time time;
 	
-	public UberX(Car car, Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint, Time time) {
-		super();
-		this.car = car;
+	public UberX(Customer customer, GPScoordinates startingPoint,
+			GPScoordinates destinationPoint, Time time) {
 		this.customer = customer;
 		this.startingPoint = startingPoint;
 		this.destinationPoint = destinationPoint;

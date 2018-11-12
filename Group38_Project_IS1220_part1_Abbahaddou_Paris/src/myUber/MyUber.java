@@ -39,9 +39,10 @@ public class MyUber {
 		return null;
 	}
 	
-	public RideFactory requireRide(Customer cust, GPScoordinates coords, Time t ) {
+	public RideFactory requireRide(Customer cust, GPScoordinates startingPoint,
+			GPScoordinates endingPoint, Time t ) {
 		CostVisitor visitor = new ConcreteCostVisitor();
-		Ride uberX = new UberX(null, cust);
+		Ride uberX = new UberX(cust, startingPoint, endingPoint,t);
 		uberX.accept(visitor);
 		
 		

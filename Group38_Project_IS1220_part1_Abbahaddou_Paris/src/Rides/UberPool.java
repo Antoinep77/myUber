@@ -14,10 +14,8 @@ public class UberPool implements Ride{
 	private GPScoordinates destinationPoint;
 	private Time time;
 	
-	public UberPool(Car car, Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
+	public UberPool(Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
 			Time time) {
-		super();
-		this.car = car;
 		this.customer = customer;
 		this.startingPoint = startingPoint;
 		this.destinationPoint = destinationPoint;

@@ -16,12 +16,14 @@ import customersAndDrivers.Driver;
 
 public class MyUber {
 	
-	private static List<Customer> customerList;
-	private static List<Driver> driverList;
-	private static List<Car> carList;
+	private List<Customer> customerList;
+	private List<Driver> driverList;
+	private List<Car> carList;
+	private List<Ride> rideList;
 
 	public MyUber(int nc, int nd, int nu) {
 		// TODO Auto-generated constructor stub
+		rideList = new ArrayList<Ride>();
 	}
 	
 	//Generate a myUber instance with a text file as scenario
@@ -50,6 +52,16 @@ public class MyUber {
 		}
 		
 		return new RideFactory(cust, startingPoint, endingPoint, t);
+	}
+	
+	public void register(Ride ride) {
+		this.rideList.add(ride);
+		this.findClosestAvailableDriver(ride);
+	}
+
+	private void findClosestAvailableDriver(Ride ride) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

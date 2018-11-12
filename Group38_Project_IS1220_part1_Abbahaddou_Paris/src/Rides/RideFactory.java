@@ -5,8 +5,9 @@ import java.util.ArrayList;
 
 import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
+import myUber.MyUber;
 
-//kind of Ride Factory but with more functionality (
+//this class looks like a factory pattern to create Rides but isn't actually one
 public class RideFactory {
 	GPScoordinates startingPoint;
 	GPScoordinates endingPoint;
@@ -32,20 +33,30 @@ public class RideFactory {
 		return listOfRides;
 	}
 	
-	public Ride create(String nameOfRide) {
+	
+	public Ride require(MyUber myUber,String nameOfRide) throws Exception{
 		if (nameOfRide.equals("uberX")) {
-			return new UberX(cust, startingPoint, endingPoint, time);
+			Ride ride = new UberX(cust, startingPoint, endingPoint, time);
+			myUber.register(ride);
+			return ride;
 		}
 		if (nameOfRide.equals("uberPool")) {
-			return new UberPool(cust, startingPoint, endingPoint, time);
+			Ride ride = new UberPool(cust, startingPoint, endingPoint, time);
+			myUber.register(ride);
+			return ride;
 		}
 		if (nameOfRide.equals("uberBlack")) {
-			return new UberBlack(cust, startingPoint, endingPoint, time);
+			Ride ride = new UberBlack(cust, startingPoint, endingPoint, time);
+			myUber.register(ride);
+			return ride;
 		}
 		if (nameOfRide.equals("uberVan")) {
-			return new UberVan(cust, startingPoint, endingPoint, time);
+			Ride ride = new UberVan(cust, startingPoint, endingPoint, time);
+			myUber.register(ride);
+			return ride;
 		}
-		return null;
+		cust.addMessageToBox("Invalid type of ride");
+		throw new Exception("Invalid Type of Ride");
 		
 	}
 

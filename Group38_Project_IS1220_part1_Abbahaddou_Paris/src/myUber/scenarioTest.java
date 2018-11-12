@@ -33,12 +33,13 @@ class scenarioTest {
 		@SuppressWarnings("deprecation")
 		RideFactory rideReq = myUber.requireRide(cust, new GPScoordinates(3,7),
 				new GPScoordinates(10,8),new Time(8,27,00));
-		Ride ride = rideReq.require("UberX");)
+		try {
+		Ride ride = rideReq.require(myUber,"UberX");
 		
-		Driver driver1 = myUber.notifiedDriver(ride);
+		Driver driver1 = myUber.getNotifiedDriver(ride);
 		myUber.unconfirm(driver1,ride);
 		
-		Driver driver2 = myUber.notifiedDriver(ride);
+		Driver driver2 = myUber.getNotifiedDriver(ride);
 		myUber.confirm(driver2,ride);
 		
 		driver2.start(ride);
@@ -46,7 +47,10 @@ class scenarioTest {
 		
 		cust.mark(driver,4);
 		
-		
+		}
+		catch(Exception e) {
+			
+		}
 		
 	}
 

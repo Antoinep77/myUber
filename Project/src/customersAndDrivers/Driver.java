@@ -29,12 +29,14 @@ public class Driver {
 		this.driverState = driverState;
 		this.driverAmount = 0.0;
 		this.numOfRides = 0;
+		this.driverMarks = new ArrayList<Double>();
 		driversTimes.put("on-dutty", 0);   
-	
 		driversTimes.put("off-duty", 0);
 		driversTimes.put("on-a-ride", 0);
 		driversList.add(this);
-			}
+		}
+	
+	
 	//   Setters and getters 
 	public String getDriverName() {
 		return driverName;
@@ -103,6 +105,8 @@ public class Driver {
 	public void setDriverMarks(ArrayList<Double> driverMarks) {
 		this.driverMarks = driverMarks;
 	}
+
+
 	//toString   
 	@Override
 	public String toString() {
@@ -165,6 +169,7 @@ public class Driver {
 			return 0.0;
 		}
 	}
+	
 	public void addOneMark(double newMark) {
 		driverMarks.add(newMark);
 	}

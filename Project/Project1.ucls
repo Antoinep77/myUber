@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<<<<<<< HEAD
+  <class id="1" language="java" name="Rides.UberBlack" project="Project" file="/Project/src/Rides/UberBlack.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="25" y="363"/>    
+=======
+  <class id="1" language="java" name="Rides.UberBlack" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/UberBlack.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="193" y="368"/>    
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+<<<<<<< HEAD
+  <interface id="2" language="java" name="Rides.CostVisitor" project="Project" 
+    file="/Project/src/Rides/CostVisitor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="976" y="361"/>    
+=======
+  <interface id="2" language="java" name="Rides.CostVisitor" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/CostVisitor.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="788" y="347"/>    
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+<<<<<<< HEAD
+  <class id="3" language="java" name="Rides.UberVan" project="Project" file="/Project/src/Rides/UberVan.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="379" y="364"/>    
+=======
+  <class id="3" language="java" name="Rides.UberVan" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/UberVan.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="367" y="369"/>    
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+<<<<<<< HEAD
+  <interface id="4" language="java" name="Rides.Ride" project="Project" file="/Project/src/Rides/Ride.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="209" y="69"/>    
+=======
+  <interface id="4" language="java" name="Rides.Ride" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/Ride.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="273" y="106"/>    
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+<<<<<<< HEAD
+  <class id="5" language="java" name="Rides.UberPool" project="Project" file="/Project/src/Rides/UberPool.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="719" y="367"/>    
+=======
+  <class id="5" language="java" name="Rides.UberPool" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/UberPool.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="540" y="370"/>    
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+<<<<<<< HEAD
+  <class id="6" language="java" name="Rides.ConcreteCostVisitor" project="Project" 
+    file="/Project/src/Rides/ConcreteCostVisitor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="984" y="130"/>    
+=======
+  <class id="6" language="java" name="Rides.ConcreteCostVisitor" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/ConcreteCostVisitor.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="776" y="151"/>    
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+<<<<<<< HEAD
+  <class id="7" language="java" name="Rides.UberX" project="Project" file="/Project/src/Rides/UberX.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-329" y="363"/>    
+=======
+  <class id="7" language="java" name="Rides.UberX" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/UberX.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="24" y="369"/>    
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="8">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <realization id="9">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <realization id="10">    
+<<<<<<< HEAD
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="2"/>  
+=======
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <realization id="11">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
+  </realization>  
+  <realization id="11">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <realization id="12">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

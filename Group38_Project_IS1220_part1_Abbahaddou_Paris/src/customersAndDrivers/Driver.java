@@ -8,7 +8,7 @@ import Cars.Car;
 
 public class Driver {
 	
-	public static ArrayList<Driver> driversList;    // list of all drivers 
+	public static ArrayList<Driver> listOfDivers;    // list of all drivers 
 	public static int biggestDriverID;  // Integer : number of drivers in the myUber system
 	private Car car;
 	private String driverName;   // the name of the driver
@@ -34,10 +34,9 @@ public class Driver {
 		this.driverAmount = 0.0;
 		this.numOfRides = 0;
 		driversTimes.put("on-dutty", 0);   
-	
 		driversTimes.put("off-duty", 0);
 		driversTimes.put("on-a-ride", 0);
-		driversList.add(this);
+		listOfDivers.add(this);
 			}
 	//   Setters and getters 
 	

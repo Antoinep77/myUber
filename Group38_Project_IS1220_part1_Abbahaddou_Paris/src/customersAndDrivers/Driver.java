@@ -118,6 +118,7 @@ public class Driver {
 	public void setDriverMarks(ArrayList<Double> driverMarks) {
 		this.driverMarks = driverMarks;
 	}
+	
 	//toString   
 	@Override
 	public String toString() {

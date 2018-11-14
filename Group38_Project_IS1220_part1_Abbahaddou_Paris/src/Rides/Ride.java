@@ -3,6 +3,10 @@ package Rides;
 import java.sql.Time;
 import java.util.ArrayList;
 
+import Cars.Berlin;
+import Cars.Car;
+import Cars.Standard;
+import Cars.Van;
 import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
 import customersAndDrivers.Driver;
@@ -48,7 +52,22 @@ public abstract class Ride {
 	public Customer getCustomer() {
 		return customer;
 	}
-	
+	// check if the ride and the car are compatible 
+	public static boolean isCompatibleWithTheRide(Ride ride, Car car) {
+		if(ride instanceof UberBlack && car instanceof Standard) {
+			return true;
+		}else if(ride instanceof UberX && car instanceof Berlin) {
+			return true;
+		}else if(ride instanceof UberVan && car instanceof Van) {
+			return true;
+		}else if(ride instanceof UberPool && car instanceof Standard) {
+			return true;
+		}else {
+			return false;
+		}
+				
+	}
+
 	public RideStatus getStatus() {
 		return status;
 	}

@@ -79,6 +79,8 @@ public class MyUber {
 		}
 		return onDutyList;
 	}
+	
+	
 	// method for finding the closest on-duty driver
 	private Driver findClosestAvailableDriver(Ride ride) {
 		// TODO Auto-generated method stub

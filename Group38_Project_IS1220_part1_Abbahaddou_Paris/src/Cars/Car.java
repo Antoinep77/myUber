@@ -35,21 +35,9 @@ public class Car {
 	public void setCarState(CarState carState) {
 		this.carState = carState;
 	}
-	// check if the ride and the car are compatible 
-	public boolean isCompatibleWithTheRide(Ride ride) {
-		if(ride instanceof UberBlack && this instanceof Standard) {
-			return true;
-		}else if(ride instanceof UberX && this instanceof Berlin) {
-			return true;
-		}else if(ride instanceof UberVan && this instanceof Van) {
-			return true;
-		}else if(ride instanceof UberPool && this instanceof Standard) {
-			return true;
-		}else {
-			return false;
-		}
+	
 			
-	}
+	
 
 	
 

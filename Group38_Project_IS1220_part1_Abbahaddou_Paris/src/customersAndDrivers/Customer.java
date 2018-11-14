@@ -74,6 +74,7 @@ public class Customer {
 
 	//////////////////////// add a message to the box  //////////////////////////
 	public void addMessageToBox(String message){
+		System.out.println(message);
 		this.Messagebox.add(message);
 	}
 	

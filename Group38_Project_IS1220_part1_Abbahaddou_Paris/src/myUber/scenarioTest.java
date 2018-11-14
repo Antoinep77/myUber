@@ -23,12 +23,13 @@ class scenarioTest {
 	void getARide() {
 		MyUber myUber = new MyUber();
 
-		Customer cust = myUber.getUserWithId(0);
+		Customer cust = myUber.createCustomer("Antoine", "Paris", 
+				new GPScoordinates(5, 3), 534);
 		
 		//requireRide send a message in the user messageBox with all prices
 		// the function should also return a RideSearching object
 		@SuppressWarnings("deprecation")
-		RideFactory rideReq = myUber.requireRide(cust, new GPScoordinates(3,7),
+		RideFactory rideReq = myUber.requireRide(cust,
 				new GPScoordinates(10,8),new Time(8,27,00));
 		try {
 		Ride ride = rideReq.require(myUber,"UberX");

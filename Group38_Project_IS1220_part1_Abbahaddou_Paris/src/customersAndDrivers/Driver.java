@@ -114,6 +114,7 @@ public class Driver {
 				&& this.changeStateTo(DriverState.ONARIDE,ride.getTime())) {
 		ride.setStatus(RideStatus.COMPLETED);
 		this.car.setCarPosition(ride.getDestinationPoint());
+		ride.getCustomer().setCustomerPosition(ride.getDestinationPoint());
 		}
 	}
 	

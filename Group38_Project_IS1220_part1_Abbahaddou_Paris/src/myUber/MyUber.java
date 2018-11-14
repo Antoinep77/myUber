@@ -27,7 +27,10 @@ public class MyUber {
 	
 	//Constructor with no argument to test the other method with a few customer, driver etc...
 	public MyUber() {
-		
+		Car car1 = createCar("Standard",new GPScoordinates(9, 6));
+		Car car2 = createCar("Berlin",new GPScoordinates(3, 2));
+		Driver d1 = createDriver(car1,"D1","NOMD1");
+		Driver d2 = createDriver(car2,"D2","NOMD2");
 	}
 
 	public MyUber(int nc, int nd, int nu) {
@@ -70,8 +73,8 @@ public class MyUber {
 		return null;
 	}
 	
-	public RideFactory requireRide(Customer cust, GPScoordinates startingPoint,
-			GPScoordinates endingPoint, Time t ) {
+	public RideFactory requireRide(Customer cust,GPScoordinates endingPoint, Time t ) {
+		GPScoordinates startingPoint = cust.getCustomerPosition();
 		CostVisitor visitor = new ConcreteCostVisitor();
 		ArrayList<Ride> listOfRides = RideFactory.createAllRides(cust, startingPoint, endingPoint, t);
 		

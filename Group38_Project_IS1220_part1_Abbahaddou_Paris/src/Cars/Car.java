@@ -10,20 +10,12 @@ import customersAndDrivers.Driver;
 
 public class Car {
 	
-<<<<<<< HEAD
 	private GPScoordinates carPosition;  // the GPS coordinates of the car
-	private int NumberFreeSeats;  // the number of seats
+	private int numberFreeSeats;  // the number of seats
 	private String carID;   // the alphanumercial ID
 	private CarState carState;
 	
-	public Car(GPScoordinates carPosition, int numberFreeSeats, String carID) {
-		super();
-=======
-	private GPScoordinates carPosition;
-	private int numberFreeSeats;
-	private String carID;
 	public Car(GPScoordinates carPosition, String carID) {
->>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
 		this.carPosition = carPosition;
 		this.carID = carID;
 		this.carState = CarState.AVAILABLE;

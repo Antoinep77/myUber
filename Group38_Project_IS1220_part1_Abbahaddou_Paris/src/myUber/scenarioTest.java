@@ -16,14 +16,12 @@ class scenarioTest {
 	
 	@Test
 	void settingUpMyUber() {
-		int nc, nd, nu;
-		MyUber myUber = new MyUber(nc,nd,nu);
+		MyUber myUber = new MyUber();
 	}
 	
 	@Test
 	void getARide() {
-		int nc, nd, nu;
-		MyUber myUber = new MyUber(nc,nd,nu);
+		MyUber myUber = new MyUber();
 
 		Customer cust = myUber.getUserWithId(0);
 		
@@ -42,6 +40,9 @@ class scenarioTest {
 		myUber.confirm(driver2,ride);
 		
 		driver2.start(ride);
+		
+		cust.cancel(ride);
+		
 		driver2.finish(ride);
 		
 		cust.mark(ride,4);

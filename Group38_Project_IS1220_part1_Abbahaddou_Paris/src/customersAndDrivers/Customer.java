@@ -84,6 +84,15 @@ public class Customer {
 			ride.getDriver().addOneMark(newmark);
 		}
 	}
+	
+	//only works if this is the customer of ride and the ride is confirmed or unconfirmed
+	public void cancel(Ride ride) {
+		if(ride.getCustomer() == this && 
+				(ride.getStatus() == RideStatus.CONFIRMED || ride.getStatus() == RideStatus.UNCONFIRMED )) {
+			ride.getDriver().setDriverState(DriverState.ONDUTY);
+			ride.setStatus(RideStatus.CANCELED);
+		}
+	}
 
 
 

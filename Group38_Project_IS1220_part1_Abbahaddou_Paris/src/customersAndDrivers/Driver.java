@@ -99,15 +99,20 @@ public class Driver {
 		return driverMarks;
 	}
 
-
+	//only works if this is the driver of ride and the ride is confirmed
 	public void start(Ride ride) {
-		setDriverState(DriverState.ONARIDE);
-		ride.setStatus(RideStatus.ONGOING);
+		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED) {
+			setDriverState(DriverState.ONARIDE);
+		}
 	}
-	
+	//only works if this is the driver of ride and the ride is confirmed
+	//Also change the position of the driver to the destination postion
 	public void finish(Ride ride) {
+		if(ride.getDriver() == this && ride.getStatus() == RideStatus.ONGOING) {
 		setDriverState(DriverState.ONDUTY);
 		ride.setStatus(RideStatus.COMPLETED);
+		this.car.setCarPosition(ride.getDestinationPoint());
+		}
 	}
 	
 	//toString   

@@ -6,12 +6,10 @@ import customersAndDrivers.Driver;
 public class Car {
 	
 	private GPScoordinates carPosition;
-	private int NumberFreeSeats;
+	private int numberFreeSeats;
 	private String carID;
-	public Car(GPScoordinates carPosition, int numberFreeSeats, String carID) {
-		super();
+	public Car(GPScoordinates carPosition, String carID) {
 		this.carPosition = carPosition;
-		NumberFreeSeats = numberFreeSeats;
 		this.carID = carID;
 	}
 	

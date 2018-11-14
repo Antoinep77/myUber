@@ -126,6 +126,7 @@ public class Driver {
 	}
 	public boolean changeStateTo(DriverState newdriverState, Time timeOfChange) {
 		boolean change;
+		DriverState previousState = this.driverState;
 		if(this.driverState == newdriverState) {
 			change = false;
 		}else if(this.driverState == DriverState.OFFDUTY && newdriverState != DriverState.OFFDUTY && this.car.getCarState() == CarState.TAKED) {
@@ -147,7 +148,7 @@ public class Driver {
 		
 		if(change == true) {
 			this.lastTimeOfLastStateChange = timeOfChange;
-			switch(this.driverState) {
+			switch(previousState) {
 			case OFFLINE:
 				break;
 			case OFFDUTY:driversTimes.put("off-duty", differenceOfTime);

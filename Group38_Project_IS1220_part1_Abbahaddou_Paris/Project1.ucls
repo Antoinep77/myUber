@@ -3,7 +3,7 @@
   associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="Rides.UberBlack" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/UberBlack.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="404" y="616"/>    
+    <position height="-1" width="-1" x="382" y="557"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -13,7 +13,7 @@
   <interface id="2" language="java" name="Rides.CostVisitor" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/CostVisitor.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1330" y="405"/>    
+    <position height="-1" width="-1" x="1323" y="533"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -22,7 +22,7 @@
   </interface>  
   <class id="3" language="java" name="Rides.UberVan" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/UberVan.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="745" y="602"/>    
+    <position height="-1" width="-1" x="701" y="556"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -31,7 +31,7 @@
   </class>  
   <class id="4" language="java" name="Rides.Ride" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/Ride.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="452" y="157"/>    
+    <position height="-1" width="-1" x="390" y="170"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -40,7 +40,7 @@
   </class>  
   <class id="5" language="java" name="Rides.UberPool" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/UberPool.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1130" y="617"/>    
+    <position height="-1" width="-1" x="1014" y="555"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -50,7 +50,7 @@
   <class id="6" language="java" name="Rides.ConcreteCostVisitor" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/ConcreteCostVisitor.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1316" y="139"/>    
+    <position height="-1" width="-1" x="1324" y="114"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -59,7 +59,7 @@
   </class>  
   <class id="7" language="java" name="Rides.UberX" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/Rides/UberX.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="46" y="625"/>    
+    <position height="-1" width="-1" x="73" y="557"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -67,29 +67,29 @@
     </display>  
   </class>  
   <generalization id="8">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="9">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <realization id="9">    
+  <realization id="10">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
-  <generalization id="10">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
   <generalization id="11">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <dependency id="12">    
+  <generalization id="12">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <dependency id="13">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <generalization id="13">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

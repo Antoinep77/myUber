@@ -27,17 +27,18 @@ class scenarioTest {
 		//requireRide send a message in the user messageBox with all prices
 		// the function should also return a RideSearching object
 		@SuppressWarnings("deprecation")
-		RideFactory rideReq = myUber.requireRide(cust,
+		RideFactory rideFac = myUber.requireRide(cust,
 				new GPScoordinates(10,8),new Time(8,27,00));
-		try {
-		Ride ride = rideReq.require(myUber,"UberX");
+		try {		
+		Ride ride = rideFac.require(myUber,"uberX");
 		
-		
-		Driver driver1 = ride.getDriver();
-		myUber.unconfirm(driver1,ride);
+		//Driver driver1 = ride.getDriver();
+		//myUber.unconfirm(driver1,ride);
+
 		
 		Driver driver2 = ride.getDriver();
 		myUber.confirm(driver2,ride);
+		System.out.println(ride.getStatus());
 		
 		driver2.start(ride);
 		
@@ -48,7 +49,7 @@ class scenarioTest {
 		cust.mark(ride,4);
 		}
 		catch(Exception e) {
-			
+			System.out.println(e);
 		}
 		
 	}

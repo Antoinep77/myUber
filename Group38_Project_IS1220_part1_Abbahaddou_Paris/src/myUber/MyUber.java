@@ -3,6 +3,7 @@ package myUber;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import Cars.Car;
 import Cars.CarFactory;
@@ -115,10 +116,12 @@ public class MyUber {
 		// TODO Auto-generated method stub
 		GPScoordinates startingPoint = ride.getStartingPoint();
 		ArrayList<Driver> onDutyList = onDutyDrive(ride);
-		onDutyList.stream().filter(d -> Ride.isCompatibleWithTheRide(ride, d.getCar()) == true && ride.getRefusingDriver().contains(d) == false);
-		Driver closestOnDutyDriver = onDutyList.get(0);
+		List<Driver> filteredList = onDutyList.stream()
+				.filter(d -> Ride.isCompatibleWithTheRide(ride, d.getCar()) == true && ride.getRefusingDriver().contains(d) == false)
+				.collect(Collectors.toList());
+		Driver closestOnDutyDriver = filteredList.get(0);
 		Double minDistance = GPScoordinates.distance(closestOnDutyDriver.getCar().getCarPosition(), startingPoint);
-		for(Driver d : onDutyList) {
+		for(Driver d : filteredList) {
 			Double minDistance2 = GPScoordinates.distance(d.getCar().getCarPosition(), startingPoint);
 			if(minDistance2 < minDistance) {
 				closestOnDutyDriver = d;
@@ -126,6 +129,7 @@ public class MyUber {
 				
 			}
 		}
+		System.out.println(closestOnDutyDriver);
 		return closestOnDutyDriver;
 	}
 	

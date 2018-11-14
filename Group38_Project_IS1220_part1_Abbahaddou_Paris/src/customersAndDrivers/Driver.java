@@ -19,9 +19,9 @@ public class Driver {
 	private String driverName;   // the name of the driver
 	private String driverSurName;  // the surname of the driver
 	private int driverID;            // numerical ID of the driver
-	private DriverState driverState;  // the state of the driver --> off-duty, on-duty, off-line on on-a-ride
-	private double driverAmount;  // total amount cashed by the driver
-	private double numOfRides;    // number of rides done by the driver
+	private DriverState driverState = DriverState.ONDUTY;  // the state of the driver --> off-duty, on-duty, off-line on on-a-ride
+	private double driverAmount = 0.0;  // total amount cashed by the driver
+	private int numOfRides = 0;    // number of rides done by the driver
 	private ArrayList<Double> driverMarks = new ArrayList<Double>();
 	private Map<String, Integer> driversTimes = new HashMap<String, Integer>();
 	
@@ -33,10 +33,7 @@ public class Driver {
 		this.driverName = driverName;
 		this.driverSurName = driverSurName;
 		this.driverID = biggestDriverID + 1;
-		biggestDriverID++;
-		this.driverState = DriverState.OFFDUTY;
-		this.driverAmount = 0.0;
-		this.numOfRides = 0;
+		biggestDriverID++; 
 		driversTimes.put("on-dutty", 0);   
 		driversTimes.put("off-duty", 0);
 		driversTimes.put("on-a-ride", 0);
@@ -85,10 +82,10 @@ public class Driver {
 		return biggestDriverID;
 	}
 
-	public double getNumOfRides() {
+	public int getNumOfRides() {
 		return numOfRides;
 	}
-	public void setNumOfRides(double numOfRides) {
+	public void setNumOfRides(int numOfRides) {
 		this.numOfRides = numOfRides;
 	}
 	
@@ -119,7 +116,9 @@ public class Driver {
 		return 3600*t.getHours() + 60*t.getMinutes() + t.getSeconds();
 	}
 	public boolean changeStateTo(DriverState newdriverState, Time timeOfChange) {
+
 		boolean change;
+
 		DriverState previousState = this.driverState;
 		if(this.driverState == newdriverState) {
 			change = false;
@@ -138,6 +137,8 @@ public class Driver {
 			this.driverState = newdriverState;
 			change = true;
 		}
+		System.out.println(change);
+
 		int differenceOfTime = getTimeInSeconde(this.lastTimeOfLastStateChange) - getTimeInSeconde(timeOfChange);
 		
 		if(change == true) {

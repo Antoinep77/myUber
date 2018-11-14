@@ -34,24 +34,32 @@ public class RideFactory {
 	public Ride require(MyUber myUber,String nameOfRide) throws Exception{
 		if (nameOfRide.equals("uberX")) {
 			//returning first (and only one) element of the list of type UberX
-			return this.rides.stream().filter(ride -> (ride instanceof UberX))
+			Ride ride = this.rides.stream().filter(r -> (r instanceof UberX))
 									.findFirst()
 									.get();
+			myUber.register(ride);
+			return ride;
 		}
 		if (nameOfRide.equals("uberPool")) {
-			return this.rides.stream().filter(ride -> (ride instanceof UberPool))
+			Ride ride = this.rides.stream().filter(r -> (r instanceof UberPool))
 					.findFirst()
 					.get();
+			myUber.register(ride);
+			return ride;
 		}
 		if (nameOfRide.equals("uberBlack")) {
-			return this.rides.stream().filter(ride -> (ride instanceof UberBlack))
+			Ride ride = this.rides.stream().filter(r -> (r instanceof UberBlack))
 					.findFirst()
 					.get();
+			myUber.register(ride);
+			return ride;
 		}
 		if (nameOfRide.equals("uberVan")) {
-			return this.rides.stream().filter(ride -> (ride instanceof UberVan))
+			Ride ride = this.rides.stream().filter(r -> (r instanceof UberVan))
 					.findFirst()
 					.get();
+			myUber.register(ride);
+			return ride;
 		}
 		throw new Exception("Invalid Type of Ride");
 		

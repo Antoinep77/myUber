@@ -93,7 +93,7 @@ public abstract class Ride {
 		return cost;
 	}
 
-	protected void setCost(double cost) {
+	public void setCost(double cost) {
 		this.cost = cost;
 	}
 

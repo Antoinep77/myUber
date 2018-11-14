@@ -12,7 +12,7 @@ public class Customer {
 	private int customerID;  // numerical ID of the customer
 	private GPScoordinates customerPosition;  // the current position of the costumer
 	private int creditCardNumber;  // the number of the credit card
-	private ArrayList<String> Messagebox = null;   // ArrayList of strings containing the received messages  
+	private ArrayList<String> Messagebox = new ArrayList<String>();   // ArrayList of strings containing the received messages  
 	public static int biggestCustomerID;
 	
 	//private int NumOfPerson; ??
@@ -74,7 +74,7 @@ public class Customer {
 
 	//////////////////////// add a message to the box  //////////////////////////
 	public void addMessageToBox(String message){
-		System.out.println(message);
+		System.out.println(this.customerName + " : " +message);
 		this.Messagebox.add(message);
 	}
 	

@@ -32,6 +32,7 @@ class scenarioTest {
 		try {
 		Ride ride = rideReq.require(myUber,"UberX");
 		
+		
 		Driver driver1 = ride.getDriver();
 		myUber.unconfirm(driver1,ride);
 		
@@ -45,7 +46,6 @@ class scenarioTest {
 		driver2.finish(ride);
 		
 		cust.mark(ride,4);
-		
 		}
 		catch(Exception e) {
 			

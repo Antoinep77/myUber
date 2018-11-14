@@ -5,7 +5,7 @@ import java.util.List;
 
 import customersAndDrivers.Driver;
 
-public class LeastOccupiedSorting implements DriverSorting{
+public class LeastOccupiedSorting {
 
 	public Driver LeastOccupiedDriver(ArrayList<Driver> list) {
 		Driver d = list.get(0);
@@ -18,8 +18,9 @@ public class LeastOccupiedSorting implements DriverSorting{
 		}
 		return null;
 		
+		
 	}
-	
+	/*
 	@Override
 	public ArrayList<Driver> sort() {
 		ArrayList<Driver> listDriver = new ArrayList<>(Driver.driversList);
@@ -31,5 +32,5 @@ public class LeastOccupiedSorting implements DriverSorting{
 			listDriver.remove(d);
 		}
 		return listDriverSorted;
-	}
+	}*/
 }

@@ -13,8 +13,7 @@ import Rides.RideStatus;
 
 
 public class Driver {
-	
-	public static ArrayList<Driver> listOfDivers;    // list of all drivers 
+	 
 	public static int biggestDriverID;  // Integer : number of drivers in the myUber system
 	private Car car;
 	private String driverName;   // the name of the driver
@@ -23,14 +22,13 @@ public class Driver {
 	private DriverState driverState;  // the state of the driver --> off-duty, on-duty, off-line on on-a-ride
 	private double driverAmount;  // total amount cashed by the driver
 	private double numOfRides;    // number of rides done by the driver
-	private ArrayList<Double> driverMarks;
-	private Map<String, Integer> driversTimes;
+	private ArrayList<Double> driverMarks = new ArrayList<Double>();
+	private Map<String, Integer> driversTimes = new HashMap<String, Integer>();
 	
 	private Time lastTimeOfLastStateChange;
 	
 	//  Constructor 
 	public Driver(Car car, String driverName, String driverSurName) {
-		super();
 		this.car = car;
 		this.driverName = driverName;
 		this.driverSurName = driverSurName;
@@ -42,7 +40,6 @@ public class Driver {
 		driversTimes.put("on-dutty", 0);   
 		driversTimes.put("off-duty", 0);
 		driversTimes.put("on-a-ride", 0);
-		listOfDivers.add(this);
 		this.lastTimeOfLastStateChange = new Time(0,0,0);
 	}
 	//   Setters and getters 

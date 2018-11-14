@@ -20,7 +20,7 @@ public class MostAppreciatedSorting implements DriverSorting{
 	
 	@Override
 	public ArrayList<Driver> sort() {
-		ArrayList<Driver> listDriver = new ArrayList<>(Driver.driversList);
+		ArrayList<Driver> listDriver = new ArrayList<>();
 		ArrayList<Driver> listDriverSorted = new ArrayList<Driver>();
 		int len = listDriver.size();
 		for(int i = 0; i<len; i++) {

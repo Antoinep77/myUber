@@ -14,13 +14,11 @@ import customersAndDrivers.Driver;
 
 class scenarioTest {
 	
-	@Test
-	void settingUpMyUber() {
-		MyUber myUber = new MyUber();
-	}
+
 	
 	@Test
 	void getARide() {
+		
 		MyUber myUber = new MyUber();
 
 		Customer cust = myUber.createCustomer("Antoine", "Paris", 

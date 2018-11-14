@@ -20,17 +20,17 @@ import customersAndDrivers.DriverState;
 
 public class MyUber {
 	
-	private List<Customer> customerList;
-	private List<Driver> driverList; 
-	private List<Car> carList;
-	private List<Ride> rideList;
+	private List<Customer> customerList= new ArrayList<Customer>();
+	private List<Driver> driverList = new ArrayList<Driver>(); 
+	private List<Car> carList = new ArrayList<Car>();
+	private List<Ride> rideList = new ArrayList<Ride>();
 	
 	//Constructor with no argument to test the other method with a few customer, driver etc...
 	public MyUber() {
 		Car car1 = createCar("Standard",new GPScoordinates(9, 6));
 		Car car2 = createCar("Berlin",new GPScoordinates(3, 2));
-		Driver d1 = createDriver(car1,"D1","NOMD1");
-		Driver d2 = createDriver(car2,"D2","NOMD2");
+		createDriver(car1,"D1","NOMD1");
+		createDriver(car2,"D2","NOMD2");
 	}
 
 	public MyUber(int nc, int nd, int nu) {

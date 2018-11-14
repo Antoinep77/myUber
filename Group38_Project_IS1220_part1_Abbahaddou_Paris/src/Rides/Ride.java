@@ -53,6 +53,15 @@ public abstract class Ride {
 	public Customer getCustomer() {
 		return customer;
 	}
+	
+	public ArrayList<Driver> getRefusingDriver() {
+		return refusingDriver;
+	}
+
+	public void setRefusingDriver(ArrayList<Driver> refusingDriver) {
+		this.refusingDriver = refusingDriver;
+	}
+
 	// check if the ride and the car are compatible 
 	public static boolean isCompatibleWithTheRide(Ride ride, Car car) {
 		if(ride instanceof UberBlack && car instanceof Standard) {

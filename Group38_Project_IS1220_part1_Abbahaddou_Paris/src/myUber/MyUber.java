@@ -115,11 +115,13 @@ public class MyUber {
 		Driver closestOnDutyDriver = onDutyList.get(0);
 		Double minDistance = GPScoordinates.distance(closestOnDutyDriver.getCar().getCarPosition(), startingPoint);
 		for(Driver d : onDutyList) {
-			Double minDistance2 = GPScoordinates.distance(d.getCar().getCarPosition(), startingPoint);
-			if(minDistance2 < minDistance) {
-				closestOnDutyDriver = d;
-				minDistance = GPScoordinates.distance(d.getCar().getCarPosition(), startingPoint);
-				
+			if(Ride.isCompatibleWithTheRide(ride, d.getCar()) == true && ride.getRefusingDriver().contains(d) == false) {
+				Double minDistance2 = GPScoordinates.distance(d.getCar().getCarPosition(), startingPoint);
+				if(minDistance2 < minDistance) {
+					closestOnDutyDriver = d;
+					minDistance = GPScoordinates.distance(d.getCar().getCarPosition(), startingPoint);
+					
+				}
 			}
 		}
 		return closestOnDutyDriver;

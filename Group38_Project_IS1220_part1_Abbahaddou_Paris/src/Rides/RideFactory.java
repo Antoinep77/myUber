@@ -2,23 +2,20 @@ package Rides;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.List;
 
 import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
 import myUber.MyUber;
 
-//this class looks like a factory pattern to create Rides but isn't actually one
+//this class is inspired of a factory pattern but isn't one
 public class RideFactory {
-	GPScoordinates startingPoint;
-	GPScoordinates endingPoint;
-	Time time;
-	Customer cust;
 	
-	public RideFactory(Customer cust2, GPScoordinates startingPoint2, GPScoordinates endingPoint2, Time time2) {
-		cust = cust2;
-		startingPoint = startingPoint2;
-		endingPoint = endingPoint2;
-		time = time2;
+	List<Ride> rides; // list of all possible rides that a customer can order
+					 // in this list the rides are already constructed with Cost, Customer, Coordinates and Time
+	
+	public RideFactory(List<Ride> rides) {
+		this.rides =rides;
 	}
 
 	//Return an ArrayList with all type of rides available
@@ -36,26 +33,26 @@ public class RideFactory {
 	
 	public Ride require(MyUber myUber,String nameOfRide) throws Exception{
 		if (nameOfRide.equals("uberX")) {
-			Ride ride = new UberX(cust, startingPoint, endingPoint, time);
-			myUber.register(ride);
-			return ride;
+			//returning first (and only one) element of the list of type UberX
+			return this.rides.stream().filter(ride -> (ride instanceof UberX))
+									.findFirst()
+									.get();
 		}
 		if (nameOfRide.equals("uberPool")) {
-			Ride ride = new UberPool(cust, startingPoint, endingPoint, time);
-			myUber.register(ride);
-			return ride;
+			return this.rides.stream().filter(ride -> (ride instanceof UberPool))
+					.findFirst()
+					.get();
 		}
 		if (nameOfRide.equals("uberBlack")) {
-			Ride ride = new UberBlack(cust, startingPoint, endingPoint, time);
-			myUber.register(ride);
-			return ride;
+			return this.rides.stream().filter(ride -> (ride instanceof UberBlack))
+					.findFirst()
+					.get();
 		}
 		if (nameOfRide.equals("uberVan")) {
-			Ride ride = new UberVan(cust, startingPoint, endingPoint, time);
-			myUber.register(ride);
-			return ride;
+			return this.rides.stream().filter(ride -> (ride instanceof UberVan))
+					.findFirst()
+					.get();
 		}
-		cust.addMessageToBox("Invalid type of ride");
 		throw new Exception("Invalid Type of Ride");
 		
 	}

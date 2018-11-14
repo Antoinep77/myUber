@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Cars.Car;
-
 import Cars.CarState;
 
 import Rides.Ride;
@@ -71,11 +70,6 @@ public class Driver {
 	public DriverState getDriverState() {
 		return driverState;
 	}
-
-	public void setDriverState(DriverState driverState) {
-		this.driverState = driverState;
-	}
-	
 	
 	public double getDriverAmount() {
 		return driverAmount;
@@ -106,16 +100,18 @@ public class Driver {
 	}
 	
 	//only works if this is the driver of ride and the ride is confirmed
+	//also credit the driver for the ride
 	public void start(Ride ride) {
-		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED) {
-			setDriverState(DriverState.ONARIDE);
+		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED 
+				&& this.changeStateTo(DriverState.ONARIDE,ride.getTime())) {
+			this.addAmount(ride.getCost());
 		}
 	}
 	//only works if this is the driver of ride and the ride is confirmed
 	//Also change the position of the driver to the destination postion
 	public void finish(Ride ride) {
-		if(ride.getDriver() == this && ride.getStatus() == RideStatus.ONGOING) {
-		setDriverState(DriverState.ONDUTY);
+		if(ride.getDriver() == this && ride.getStatus() == RideStatus.ONGOING
+				&& this.changeStateTo(DriverState.ONARIDE,ride.getTime())) {
 		ride.setStatus(RideStatus.COMPLETED);
 		this.car.setCarPosition(ride.getDestinationPoint());
 		}

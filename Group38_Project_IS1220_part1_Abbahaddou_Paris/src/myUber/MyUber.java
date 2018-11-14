@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Cars.Car;
+import Cars.CarFactory;
 import GPS.GPScoordinates;
 import Rides.ConcreteCostVisitor;
 import Rides.CostVisitor;
@@ -39,7 +40,24 @@ public class MyUber {
 		
 	}
 	
-	public
+	public Car createCar(String type,GPScoordinates carPosition) {
+		Car car = CarFactory.create(type, carPosition);
+		this.carList.add(car);
+		return car;
+	}
+	
+	public Customer createCustomer(String customerName, String customerSurName, GPScoordinates customerPosition,
+			int creditCardNumber) {
+		Customer cust = new Customer(customerName, customerSurName, customerPosition, creditCardNumber);
+		this.customerList.add(cust);
+		return cust;
+	}
+	
+	public Driver createDriver(Car car, String driverName, String driverSurName) {
+		Driver driver = new Driver(car, driverName, driverSurName);
+		this.driverList.add(driver);
+		return driver;
+	}
 
 	
 	//return null if the id doesn't correspond with a customer in customerList
@@ -58,10 +76,11 @@ public class MyUber {
 		ArrayList<Ride> listOfRides = RideFactory.createAllRides(cust, startingPoint, endingPoint, t);
 		
 		for(Ride ride: listOfRides) {
+			//accept send a message to cust but also edit also edit ride.cost
 			ride.accept(visitor);
 		}
 		
-		return new RideFactory(cust, startingPoint, endingPoint, t);
+		return new RideFactory(listOfRides);
 	}
 	
 	public void register(Ride ride) {
@@ -116,9 +135,9 @@ public class MyUber {
 	//Change the status of the driver so that he can't receive new rides
 	//only works if driver1 is the driver of ride and the ride is unconfirmed
 	public void confirm(Driver driver, Ride ride) {
-		if(ride.getDriver() == driver && ride.getStatus() == RideStatus.UNCONFIRMED) {
+		if(ride.getDriver() == driver && ride.getStatus() == RideStatus.UNCONFIRMED
+				&& driver.changeStateTo(DriverState.ONARIDE,ride.getTime())) {
 			ride.setStatus(RideStatus.CONFIRMED);
-			driver.setDriverState(DriverState.ONARIDE);
 			ride.getCustomer().addMessageToBox("Your ride as been confirmed. Your driver is arriving soon.");
 		}
 	}

@@ -6,7 +6,7 @@ import customersAndDrivers.Customer;
 
 public class ConcreteCostVisitor implements CostVisitor{
 	@Override
-	public void visit(UberX uberX) {
+	public double visit(UberX uberX) {
 		Time time = uberX.getTime();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
@@ -23,12 +23,11 @@ public class ConcreteCostVisitor implements CostVisitor{
 		Customer cust = uberX.getCustomer();
 		double rideFare = length*rate*trafficFactor;
 		cust.addMessageToBox("the price of a uberX ride to yout destination is  : " + Double.toString(rideFare) + "  Euro");
-		
-		
+		return rideFare;
 		
 	}
 	@Override
-	public void visit(UberBlack uberBlack) {
+	public double visit(UberBlack uberBlack) {
 		Time time = uberBlack.getTime();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
@@ -45,9 +44,11 @@ public class ConcreteCostVisitor implements CostVisitor{
 		Customer cust = uberBlack.getCustomer();
 		double rideFare = length*rate*trafficFactor;
 		cust.addMessageToBox("the price of a uberBlack ride to yout destination is  : " + Double.toString(rideFare) + "  Euro");
+		return rideFare;
 	}
+	
 	@Override
-	public void visit(UberVan uberVan) {
+	public double visit(UberVan uberVan) {
 		Time time = uberVan.getTime();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
@@ -64,9 +65,11 @@ public class ConcreteCostVisitor implements CostVisitor{
 		Customer cust = uberVan.getCustomer();
 		double rideFare = length*rate*trafficFactor;
 		cust.addMessageToBox("the price of a uberVan ride to yout destination is  : " + Double.toString(rideFare) + "  Euro");
+		return rideFare;
 	}
+	
 	@Override
-	public void visit(UberPool uberPool) {
+	public double visit(UberPool uberPool) {
 		Time time = uberPool.getTime();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
@@ -83,6 +86,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 		Customer cust = uberPool.getCustomer();
 		double rideFare = length*rate*trafficFactor;
 		cust.addMessageToBox("the price of a uberPool ride to yout destination is  : " + Double.toString(rideFare) + "  Euro");
+		return rideFare;
 	}
 	
 }

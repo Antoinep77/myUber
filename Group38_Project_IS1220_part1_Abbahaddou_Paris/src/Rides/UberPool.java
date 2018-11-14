@@ -31,6 +31,6 @@ public class UberPool extends Ride{
 
 	@Override
 	public void accept(CostVisitor costVisitor) {
-		costVisitor.visit(this);
+		this.setCost( costVisitor.visit(this));
 	}
 }

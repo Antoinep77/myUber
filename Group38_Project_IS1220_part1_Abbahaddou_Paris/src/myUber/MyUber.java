@@ -115,16 +115,16 @@ public class MyUber {
 		// TODO Auto-generated method stub
 		GPScoordinates startingPoint = ride.getStartingPoint();
 		ArrayList<Driver> onDutyList = onDutyDrive(ride);
+		
+		onDutyList.stream().filter(d -> Ride.isCompatibleWithTheRide(ride, d.getCar()) == true && ride.getRefusingDriver().contains(d) == false);
 		Driver closestOnDutyDriver = onDutyList.get(0);
 		Double minDistance = GPScoordinates.distance(closestOnDutyDriver.getCar().getCarPosition(), startingPoint);
 		for(Driver d : onDutyList) {
-			if(Ride.isCompatibleWithTheRide(ride, d.getCar()) == true && ride.getRefusingDriver().contains(d) == false) {
-				Double minDistance2 = GPScoordinates.distance(d.getCar().getCarPosition(), startingPoint);
-				if(minDistance2 < minDistance) {
-					closestOnDutyDriver = d;
-					minDistance = GPScoordinates.distance(d.getCar().getCarPosition(), startingPoint);
-					
-				}
+			Double minDistance2 = GPScoordinates.distance(d.getCar().getCarPosition(), startingPoint);
+			if(minDistance2 < minDistance) {
+				closestOnDutyDriver = d;
+				minDistance = GPScoordinates.distance(d.getCar().getCarPosition(), startingPoint);
+				
 			}
 		}
 		return closestOnDutyDriver;

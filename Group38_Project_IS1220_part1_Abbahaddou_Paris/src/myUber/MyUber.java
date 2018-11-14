@@ -10,6 +10,7 @@ import Rides.ConcreteCostVisitor;
 import Rides.CostVisitor;
 import Rides.Ride;
 import Rides.RideFactory;
+import Rides.RideStatus;
 import Rides.UberPool;
 import Rides.UberX;
 import customersAndDrivers.Customer;
@@ -22,6 +23,11 @@ public class MyUber {
 	private List<Driver> driverList; 
 	private List<Car> carList;
 	private List<Ride> rideList;
+	
+	//Constructor with no argument to test the other method with a few customer, driver etc...
+	public MyUber() {
+		
+	}
 
 	public MyUber(int nc, int nd, int nu) {
 		// TODO Auto-generated constructor stub
@@ -32,6 +38,8 @@ public class MyUber {
 	public MyUber(String filepath) {
 		
 	}
+	
+	public
 
 	
 	//return null if the id doesn't correspond with a customer in customerList
@@ -63,8 +71,7 @@ public class MyUber {
 		}
 		else {
 			Driver driver = this.findClosestAvailableDriver(ride);
-			
-			
+			ride.setDriver(driver);
 		}
 	}
 	
@@ -97,7 +104,23 @@ public class MyUber {
 			}
 		}
 		return closestOnDutyDriver;
-		
+	}
+	
+	//only works if driver1 is the driver of ride and the ride is unconfirmed
+	public void unconfirm(Driver driver1, Ride ride) {
+		if(ride.getDriver() == driver1 && ride.getStatus() == RideStatus.UNCONFIRMED) {
+			Driver driver2 = findClosestAvailableDriver(ride);
+			ride.setDriver(driver2);
+		}
+	}
+	//Change the status of the driver so that he can't receive new rides
+	//only works if driver1 is the driver of ride and the ride is unconfirmed
+	public void confirm(Driver driver, Ride ride) {
+		if(ride.getDriver() == driver && ride.getStatus() == RideStatus.UNCONFIRMED) {
+			ride.setStatus(RideStatus.CONFIRMED);
+			driver.setDriverState(DriverState.ONARIDE);
+			ride.getCustomer().addMessageToBox("Your ride as been confirmed. Your driver is arriving soon.");
+		}
 	}
 	
 	

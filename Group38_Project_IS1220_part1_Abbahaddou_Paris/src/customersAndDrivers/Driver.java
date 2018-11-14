@@ -5,7 +5,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Cars.Car;
+<<<<<<< HEAD
 import Cars.CarState;
+=======
+import Rides.Ride;
+import Rides.RideStatus;
+>>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
 
 public class Driver {
 	
@@ -49,33 +54,18 @@ public class Driver {
 	public Car getCar() {
 		return car;
 	}
-
-
 	public void setCar(Car car) {
 		this.car = car;
-	}
-
-
-	public void setDriverName(String driverName) {
-		this.driverName = driverName;
 	}
 
 	public String getDriverSurName() {
 		return driverSurName;
 	}
 
-	public void setDriverSurName(String driverSurName) {
-		this.driverSurName = driverSurName;
-	}
-
 	public int getDriverID() {
 		return driverID;
 	}
-/* pas besoin
-	public void setDriverID(int driverID) {
-		this.driverID = driverID;
-	}
-*/
+
 	public DriverState getDriverState() {
 		return driverState;
 	}
@@ -101,9 +91,7 @@ public class Driver {
 	public static int getBiggestDriverID() {
 		return biggestDriverID;
 	}
-	public static void setBiggestDriverID(int biggestDriverID) {
-		Driver.biggestDriverID = biggestDriverID;
-	}
+
 	public double getNumOfRides() {
 		return numOfRides;
 	}
@@ -115,9 +103,20 @@ public class Driver {
 		return driverMarks;
 	}
 
-
-	public void setDriverMarks(ArrayList<Double> driverMarks) {
-		this.driverMarks = driverMarks;
+	//only works if this is the driver of ride and the ride is confirmed
+	public void start(Ride ride) {
+		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED) {
+			setDriverState(DriverState.ONARIDE);
+		}
+	}
+	//only works if this is the driver of ride and the ride is confirmed
+	//Also change the position of the driver to the destination postion
+	public void finish(Ride ride) {
+		if(ride.getDriver() == this && ride.getStatus() == RideStatus.ONGOING) {
+		setDriverState(DriverState.ONDUTY);
+		ride.setStatus(RideStatus.COMPLETED);
+		this.car.setCarPosition(ride.getDestinationPoint());
+		}
 	}
 	
 	public void changeStateTo(DriverState newdriverState) {

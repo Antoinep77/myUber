@@ -2,7 +2,6 @@ package myUber;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.sql.Driver;
 import java.sql.Time;
 
 import org.junit.jupiter.api.Test;
@@ -10,21 +9,19 @@ import org.junit.jupiter.api.Test;
 import GPS.GPScoordinates;
 import Rides.Ride;
 import Rides.RideFactory;
-import Rides.RideSearching;
 import customersAndDrivers.Customer;
+import customersAndDrivers.Driver;
 
 class scenarioTest {
 	
 	@Test
 	void settingUpMyUber() {
-		int nc, nd, nu;
-		MyUber myUber = new MyUber(nc,nd,nu);
+		MyUber myUber = new MyUber();
 	}
 	
 	@Test
 	void getARide() {
-		int nc, nd, nu;
-		MyUber myUber = new MyUber(nc,nd,nu);
+		MyUber myUber = new MyUber();
 
 		Customer cust = myUber.getUserWithId(0);
 		
@@ -36,16 +33,19 @@ class scenarioTest {
 		try {
 		Ride ride = rideReq.require(myUber,"UberX");
 		
-		Driver driver1 = myUber.getNotifiedDriver(ride);
+		Driver driver1 = ride.getDriver();
 		myUber.unconfirm(driver1,ride);
 		
-		Driver driver2 = myUber.getNotifiedDriver(ride);
+		Driver driver2 = ride.getDriver();
 		myUber.confirm(driver2,ride);
 		
 		driver2.start(ride);
-		driver2.finished(ride);
 		
-		cust.mark(driver,4);
+		cust.cancel(ride);
+		
+		driver2.finish(ride);
+		
+		cust.mark(ride,4);
 		
 		}
 		catch(Exception e) {

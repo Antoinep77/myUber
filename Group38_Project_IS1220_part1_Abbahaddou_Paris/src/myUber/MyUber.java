@@ -135,9 +135,9 @@ public class MyUber {
 	//Change the status of the driver so that he can't receive new rides
 	//only works if driver1 is the driver of ride and the ride is unconfirmed
 	public void confirm(Driver driver, Ride ride) {
-		if(ride.getDriver() == driver && ride.getStatus() == RideStatus.UNCONFIRMED) {
+		if(ride.getDriver() == driver && ride.getStatus() == RideStatus.UNCONFIRMED
+				&& driver.changeStateTo(DriverState.ONARIDE,ride.getTime())) {
 			ride.setStatus(RideStatus.CONFIRMED);
-			driver.setDriverState(DriverState.ONARIDE);
 			ride.getCustomer().addMessageToBox("Your ride as been confirmed. Your driver is arriving soon.");
 		}
 	}

@@ -1,5 +1,6 @@
  package customersAndDrivers;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class Driver {
 	private ArrayList<Double> driverMarks;
 	private Map<String, Integer> driversTimes;
 	
-	
+	private Time lastTimeOfLastStateChange;
 	
 	//  Constructor 
 	public Driver(Car car, String driverName, String driverSurName) {
@@ -43,7 +44,8 @@ public class Driver {
 		driversTimes.put("off-duty", 0);
 		driversTimes.put("on-a-ride", 0);
 		listOfDivers.add(this);
-			}
+		this.lastTimeOfLastStateChange = new Time(0,0,0);
+	}
 	//   Setters and getters 
 	
 	
@@ -119,18 +121,48 @@ public class Driver {
 		}
 	}
 	
-	public void changeStateTo(DriverState newdriverState) {
-		if(this.driverState == DriverState.OFFDUTY && newdriverState != DriverState.OFFDUTY && this.car.getCarState() == CarState.AVAILABLE) {
-			car.setCarState(CarState.TAKED);
-			this.driverState = newdriverState;
+	public int getTimeInSeconde(Time t) {
+		return 3600*t.getHours() + 60*t.getMinutes() + t.getSeconds();
+	}
+	public boolean changeStateTo(DriverState newdriverState, Time timeOfChange) {
+		boolean change;
+		if(this.driverState == newdriverState) {
+			change = false;
 		}else if(this.driverState == DriverState.OFFDUTY && newdriverState != DriverState.OFFDUTY && this.car.getCarState() == CarState.TAKED) {
 			this.driverState = DriverState.OFFDUTY;
+			change =  false;
+		}else if(this.driverState == DriverState.OFFDUTY && newdriverState != DriverState.OFFDUTY && this.car.getCarState() == CarState.AVAILABLE) {
+			car.setCarState(CarState.TAKED);
+			this.driverState = newdriverState;
+			change = true;
 		}else if(this.driverState != DriverState.OFFDUTY && newdriverState == DriverState.OFFDUTY) {
 			car.setCarState(CarState.AVAILABLE);
 			this.driverState = newdriverState;
+			change = true;
 		}else {  // no need to search a car
 			this.driverState = newdriverState;
+			change = true;
 		}
+		int differenceOfTime = getTimeInSeconde(this.lastTimeOfLastStateChange) - getTimeInSeconde(timeOfChange);
+		
+		if(change == true) {
+			this.lastTimeOfLastStateChange = timeOfChange;
+			switch(this.driverState) {
+			case OFFLINE:
+				break;
+			case OFFDUTY:driversTimes.put("off-duty", differenceOfTime);
+				break;
+			case ONARIDE:driversTimes.put("on-a-ride", differenceOfTime);
+				break;
+			case ONDUTY:driversTimes.put("on-dutty", differenceOfTime);   
+				break;
+			default:
+				break;
+			
+			}
+		}
+		
+		return change;
 	}
 	//toString   
 	@Override

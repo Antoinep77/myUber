@@ -5,12 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Cars.Car;
-<<<<<<< HEAD
 import Cars.CarState;
-=======
 import Rides.Ride;
 import Rides.RideStatus;
->>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
+
 
 public class Driver {
 	
@@ -104,9 +102,10 @@ public class Driver {
 	}
 
 	//only works if this is the driver of ride and the ride is confirmed
+	//also credit the driver for the ride
 	public void start(Ride ride) {
-		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED) {
-			setDriverState(DriverState.ONARIDE);
+		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED && this.changeStateTo(DriverState.ONARIDE)) {
+			this.addAmount(ride.getCost());
 		}
 	}
 	//only works if this is the driver of ride and the ride is confirmed

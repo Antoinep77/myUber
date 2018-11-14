@@ -20,6 +20,7 @@ public abstract class Ride {
 	private RideStatus status = RideStatus.UNCONFIRMED;
 	private ArrayList<Driver> refusingDriver = new ArrayList<Driver>();
 	private boolean marked = false;
+	private double cost;
 	
 	public Ride(Customer customer, GPScoordinates startingPoint,
 			GPScoordinates destinationPoint,Time time) {
@@ -60,6 +61,14 @@ public abstract class Ride {
 		return GPScoordinates.distance(startingPoint, destinationPoint);
 	}
 	
+	public double getCost() {
+		return cost;
+	}
+
+	protected void setCost(double cost) {
+		this.cost = cost;
+	}
+
 	public boolean isMarked() {
 		return this.marked;
 	}

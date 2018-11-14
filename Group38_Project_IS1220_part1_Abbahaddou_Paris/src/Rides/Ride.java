@@ -1,6 +1,7 @@
 package Rides;
 
 import java.sql.Time;
+import java.util.ArrayList;
 
 import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
@@ -16,7 +17,9 @@ public abstract class Ride {
 	private GPScoordinates startingPoint;
 	private GPScoordinates destinationPoint;
 	private Time time;
-	private RideStatus status;
+	private RideStatus status = RideStatus.UNCONFIRMED;
+	private ArrayList<Driver> refusingDriver = new ArrayList<Driver>();
+	private boolean marked = false;
 	
 	public Ride(Customer customer, GPScoordinates startingPoint,
 			GPScoordinates destinationPoint,Time time) {
@@ -24,12 +27,18 @@ public abstract class Ride {
 		this.startingPoint = startingPoint;
 		this.destinationPoint = destinationPoint;
 		this.time = time;
-		this.status = RideStatus.UNCONFIRMED;
 	}
+	
 	public Time getTime() {
 		return time;
 	}
 
+	public Driver getDriver() {
+		return driver;
+	}
+	public void setDriver(Driver driver) {
+		this.driver = driver;
+	}
 	public GPScoordinates getStartingPoint() {
 		return startingPoint;
 	}
@@ -40,13 +49,24 @@ public abstract class Ride {
 		return customer;
 	}
 	
+	public RideStatus getStatus() {
+		return status;
+	}
+	public void setStatus(RideStatus status) {
+		this.status = status;
+	}
 	// getLength return the the length of the ride
 	public double getLentgh() {
 		return GPScoordinates.distance(startingPoint, destinationPoint);
 	}
 	
+	public boolean isMarked() {
+		return this.marked;
+	}
+	
 	public abstract void accept(CostVisitor costVisitor);
 	
 	public abstract double basicRates();
+
 
 }

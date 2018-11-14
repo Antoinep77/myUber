@@ -3,6 +3,8 @@ package customersAndDrivers;
 import java.util.ArrayList;
 
 import GPS.GPScoordinates;
+import Rides.Ride;
+import Rides.RideStatus;
 
 public class Customer {
 	private String customerName;   // the name of the customer
@@ -34,31 +36,16 @@ public class Customer {
 		return customerName;
 	}
 
-
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-
-
 	public String getCustomerSurName() {
 		return customerSurName;
 	}
 
-
-	public void setCustomerSurName(String customerSurName) {
-		this.customerSurName = customerSurName;
-	}
 
 
 	public int getCustomerID() {
 		return customerID;
 	}
 
-/*  pas besoin
-	public void setCusotmerID(int cusotmerID) {
-		this.cusotmerID = cusotmerID;
-	}
-*/
 
 	public GPScoordinates getCustomerPosition() {
 		return customerPosition;
@@ -85,14 +72,17 @@ public class Customer {
 	}
 
 
-	public void setMessagebox(ArrayList<String> messagebox) {
-		Messagebox = messagebox;
-	}
 	//////////////////////// add a message to the box  //////////////////////////
 	public void addMessageToBox(String message){
-		ArrayList<String> newListMessage = this.getMessagebox();
-		newListMessage.add(message);
-		this.setMessagebox(newListMessage);
+		this.Messagebox.add(message);
+	}
+	
+	//Give a mark to the driver of one of their rides 
+	// work only if the customer has taken the ride, the ride is completed and the ride hasn't already be marked
+	public void mark(Ride ride, double newmark) {
+		if (this == ride.getCustomer() && ride.getStatus() == RideStatus.COMPLETED && !ride.isMarked()) {
+			ride.getDriver().addOneMark(newmark);
+		}
 	}
 
 

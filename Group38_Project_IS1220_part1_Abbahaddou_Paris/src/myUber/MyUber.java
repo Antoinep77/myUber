@@ -10,6 +10,7 @@ import Rides.ConcreteCostVisitor;
 import Rides.CostVisitor;
 import Rides.Ride;
 import Rides.RideFactory;
+import Rides.RideStatus;
 import Rides.UberPool;
 import Rides.UberX;
 import customersAndDrivers.Customer;
@@ -63,8 +64,7 @@ public class MyUber {
 		}
 		else {
 			Driver driver = this.findClosestAvailableDriver(ride);
-			
-			
+			ride.setDriver(driver);
 		}
 	}
 	
@@ -96,6 +96,17 @@ public class MyUber {
 		}
 		return closestOnDutyDriver;
 		
+	}
+
+	public void unconfirm(Driver driver1, Ride ride) {
+		if(ride.getDriver() == driver1) {
+			Driver driver2 = findClosestAvailableDriver(ride);
+			ride.setDriver(driver2);
+		}
+	}
+
+	public void confirm(Driver driver, Ride ride) {
+		ride.setStatus(RideStatus.CONFIRMED);	
 	}
 	
 	

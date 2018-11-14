@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Cars.Car;
+import Cars.CarState;
 
 public class Driver {
 	
@@ -119,6 +120,19 @@ public class Driver {
 		this.driverMarks = driverMarks;
 	}
 	
+	public void changeStateTo(DriverState newdriverState) {
+		if(this.driverState == DriverState.OFFDUTY && newdriverState != DriverState.OFFDUTY && this.car.getCarState() == CarState.AVAILABLE) {
+			car.setCarState(CarState.TAKED);
+			this.driverState = newdriverState;
+		}else if(this.driverState == DriverState.OFFDUTY && newdriverState != DriverState.OFFDUTY && this.car.getCarState() == CarState.TAKED) {
+			this.driverState = DriverState.OFFDUTY;
+		}else if(this.driverState != DriverState.OFFDUTY && newdriverState == DriverState.OFFDUTY) {
+			car.setCarState(CarState.AVAILABLE);
+			this.driverState = newdriverState;
+		}else {  // no need to search a car
+			this.driverState = newdriverState;
+		}
+	}
 	//toString   
 	@Override
 	public String toString() {

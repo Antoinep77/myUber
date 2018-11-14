@@ -83,7 +83,7 @@ public class MyUber {
 	private Driver findClosestAvailableDriver(Ride ride) {
 		// TODO Auto-generated method stub
 		GPScoordinates startingPoint = ride.getStartingPoint();
-		ArrayList<Driver> onDutyList = onDutyDrive();
+		ArrayList<Driver> onDutyList = onDutyDrive(ride);
 		Driver closestOnDutyDriver = onDutyList.get(0);
 		Double minDistance = GPScoordinates.distance(closestOnDutyDriver.getCar().getCarPosition(), startingPoint);
 		for(Driver d : onDutyList) {

@@ -9,10 +9,10 @@ public class MostChargedSorting implements CustomerSorting{
 	public ArrayList<Customer> sortCustomers(ArrayList<Customer> listCustomerToSort){
 		ArrayList<Customer> listCustomer = new ArrayList<Customer>(listCustomerToSort);
 		listCustomer.sort((Customer c1,Customer c2) -> {
-			if(c1.getTotaleAmountRetreived() < c2.getTotaleAmountRetreived() ) {
+			if(c1.getTotaleAmountPaid() < c2.getTotaleAmountPaid() ) {
 				return 1;
 			}
-			if(c1.getTotaleAmountRetreived() > c2.getTotaleAmountRetreived() ) {
+			if(c1.getTotaleAmountPaid() > c2.getTotaleAmountPaid() ) {
 				return -1;
 			}
 			return 0;

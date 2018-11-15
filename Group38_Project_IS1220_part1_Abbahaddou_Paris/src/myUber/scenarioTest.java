@@ -29,7 +29,7 @@ class scenarioTest {
 		// the function should also return a RideSearching object
 		@SuppressWarnings("deprecation")
 		RideFactory rideFac = myUber.requireRide(cust,
-				new GPScoordinates(10,8),new Date(8,27,00));
+				new GPScoordinates(10,8),new Date(2018,8,5,27,00));
 		try {		
 		Ride ride = rideFac.require(myUber,"uberX");
 		

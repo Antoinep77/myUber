@@ -6,12 +6,12 @@ import java.util.List;
 import customersAndDrivers.Driver;
 
 public class LeastOccupiedSorting implements DriverSorting{
-	/*
+	
 	public List<Driver> sortDrivers(){
 		List<Driver> listDriver = new ArrayList<Driver>(Driver.driversList);
 		listDriver.sort((Driver d1,Driver d2) -> {return (int)(d1.getRateOfActivity() - d2.getRateOfActivity());} );
 		return listDriver;
-	}*/
+	}
 	
 	/*
 	public Driver LeastOccupiedDriver(ArrayList<Driver> list) {

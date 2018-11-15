@@ -5,7 +5,7 @@
     project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/sorting/MostFrequentSorting.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="91" y="227"/>    
+    <position height="-1" width="-1" x="60" y="228"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -16,7 +16,7 @@
     project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/sorting/MostChargedSorting.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="273" y="227"/>    
+    <position height="-1" width="-1" x="263" y="228"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -27,7 +27,7 @@
     project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/sorting/LeastOccupiedSorting.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="459" y="227"/>    
+    <position height="-1" width="-1" x="469" y="227"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -37,7 +37,7 @@
   <interface id="4" language="java" name="sorting.DriverSorting" project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/sorting/DriverSorting.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="558" y="72"/>    
+    <position height="-1" width="-1" x="607" y="68"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
     project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/sorting/MostAppreciatedSorting.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="656" y="227"/>    
+    <position height="-1" width="-1" x="735" y="225"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,10 +75,6 @@
     <end type="TARGET" refId="6"/>  
   </realization>  
   <realization id="9">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <realization id="10">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="6"/>  
   </realization>  

@@ -5,29 +5,20 @@ import java.util.ArrayList;
 import customersAndDrivers.Driver;
 
 public class MostAppreciatedSorting implements DriverSorting{
-	public Driver MostAppreciatedDriver(ArrayList<Driver> list) {
-		Driver d = list.get(0);
-		double mark = d.avrageOfMarks();
-		for (Driver driver : list) {
-			if(driver.avrageOfMarks() > mark) {
-				d = driver;
-			}
-			return d;
-		}
-		return null;
-		
-	}
 	
+
 	@Override
-	public ArrayList<Driver> sort() {
-		ArrayList<Driver> listDriver = new ArrayList<>();
-		ArrayList<Driver> listDriverSorted = new ArrayList<Driver>();
-		int len = listDriver.size();
-		for(int i = 0; i<len; i++) {
-			Driver d = MostAppreciatedDriver(listDriver);
-			listDriverSorted.add(d);
-			listDriver.remove(d);
-		}
-		return listDriverSorted;
+	public ArrayList<Driver> sortDrivers(ArrayList<Driver> listDriverToSort){
+		ArrayList<Driver> listDriver = new ArrayList<Driver>(listDriverToSort);
+		listDriver.sort((Driver d1,Driver d2) -> {
+			if(d1.avrageOfMarks() < d2.avrageOfMarks() ) {
+				return 1;
+			}
+			if(d1.avrageOfMarks()  > d2.avrageOfMarks() ) {
+				return -1;
+			}
+			return 0;
+		} );
+		return listDriver;
 	}
 }

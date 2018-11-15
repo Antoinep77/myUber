@@ -14,6 +14,8 @@ public class Customer {
 	private int creditCardNumber;  // the number of the credit card
 	private ArrayList<String> Messagebox = new ArrayList<String>();   // ArrayList of strings containing the received messages  
 	public static int biggestCustomerID;
+	private double totaleAmountRetreived = 0;
+	private int numOfRide = 0;
 	
 	//private int NumOfPerson; ??
 	
@@ -71,11 +73,33 @@ public class Customer {
 		return Messagebox;
 	}
 
+	
+	public int getNumOfRide() {
+		return numOfRide;
+	}
+	
+	
+
+	public double getTotaleAmountRetreived() {
+		return totaleAmountRetreived;
+	}
+
 
 	//////////////////////// add a message to the box  //////////////////////////
 	public void addMessageToBox(String message){
 		System.out.println(this.customerName + " : " +message);
 		this.Messagebox.add(message);
+	}
+	
+	//add one ride to the total number of ride
+	public void addOneRide() {
+		this.numOfRide = this.numOfRide + 1;
+		
+	}
+	
+	//
+	public void retreiveAmount(double amount) {
+		this.totaleAmountRetreived = this.totaleAmountRetreived - amount;
 	}
 	
 	//Give a mark to the driver of one of their rides 

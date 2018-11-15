@@ -68,6 +68,10 @@ public abstract class Ride {
 	public void addRefusingDriver(Driver driver) {
 		refusingDriver.add(driver);
 	}
+	
+	public TrafficCondition getTraffic() {
+		return traffic;
+	}
 
 	// check if the ride and the car are compatible 
 	public static boolean isCompatibleWithTheRide(Ride ride, Car car) {

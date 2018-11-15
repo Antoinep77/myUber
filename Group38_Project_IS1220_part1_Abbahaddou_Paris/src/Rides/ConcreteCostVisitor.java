@@ -9,8 +9,8 @@ import customersAndDrivers.Customer;
 public class ConcreteCostVisitor implements CostVisitor{
 	@Override
 	public double visit(UberX uberX) {
-		Date date = uberX.getStartingDate();
-		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(date);
+		
+		TrafficCondition currentTrafficCondition = uberX.getTraffic();
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
@@ -30,8 +30,8 @@ public class ConcreteCostVisitor implements CostVisitor{
 	}
 	@Override
 	public double visit(UberBlack uberBlack) {
-		Date date = uberBlack.getStartingDate();
-		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(date);
+		
+		TrafficCondition currentTrafficCondition = uberBlack.getTraffic();
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
@@ -51,8 +51,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 	
 	@Override
 	public double visit(UberVan uberVan) {
-		Date date = uberVan.getStartingDate();
-		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(date);
+		TrafficCondition currentTrafficCondition = uberVan.getTraffic();
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
@@ -72,8 +71,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 	
 	@Override
 	public double visit(UberPool uberPool) {
-		Date date = uberPool.getStartingDate();
-		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(date);
+		TrafficCondition currentTrafficCondition = uberPool.getTraffic();
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;

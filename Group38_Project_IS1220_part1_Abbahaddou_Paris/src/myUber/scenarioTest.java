@@ -3,6 +3,7 @@ package myUber;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Time;
+import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +29,7 @@ class scenarioTest {
 		// the function should also return a RideSearching object
 		@SuppressWarnings("deprecation")
 		RideFactory rideFac = myUber.requireRide(cust,
-				new GPScoordinates(10,8),new Time(8,27,00));
+				new GPScoordinates(10,8),new Date(8,27,00));
 		try {		
 		Ride ride = rideFac.require(myUber,"uberX");
 		

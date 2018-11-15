@@ -6,6 +6,6 @@ import java.util.List;
 import customersAndDrivers.Driver;
 
 public interface DriverSorting {
-	public abstract ArrayList<Driver> sort();
+	public abstract ArrayList<Driver> sortDrivers(ArrayList<Driver> listDriverToSort);
 
 }

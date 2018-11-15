@@ -12,6 +12,7 @@ import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
 import customersAndDrivers.Driver;
 import GPS.GPScoordinates;
+import TimeOperation.TimeOperation;
 
 
 //Element interface
@@ -36,6 +37,8 @@ public abstract class Ride {
 		this.destinationPoint = destinationPoint;
 		this.startingDate = time;
 		this.traffic = traffic;
+		this.arrivalDate = new Date( this.startingDate.getTime()
+		+ TimeOperation.rideDurationTime(GPScoordinates.distance(destinationPoint, destinationPoint), this.traffic));
 	}
 	
 	public Date getStartingDate() {

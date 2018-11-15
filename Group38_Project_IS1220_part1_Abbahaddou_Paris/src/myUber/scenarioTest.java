@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import GPS.GPScoordinates;
 import Rides.Ride;
 import Rides.RideFactory;
+import Rides.UberPool;
 import customersAndDrivers.Customer;
 import customersAndDrivers.Driver;
 
@@ -32,7 +33,14 @@ class scenarioTest {
 				new GPScoordinates(10,8),new Date(2018,8,5,27,00));
 		try {		
 		Ride ride = rideFac.require(myUber,"uberX");
-		
+		if (ride instanceof UberPool) {
+			Pool pool = ride.getPool();
+			pool.getDriver();
+			myUber.confirm(driver, pool);
+			driver.startOne(pool); // start first ride
+			driver.finishOne(pool);
+		}
+		else {
 		Driver driver1 = ride.getDriver();
 		myUber.refuse(driver1,ride);
 
@@ -47,6 +55,7 @@ class scenarioTest {
 		driver2.finish(ride);
 		
 		cust.mark(ride,4);
+		}
 		}
 		catch(Exception e) {
 			System.out.println(e);

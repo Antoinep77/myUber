@@ -10,8 +10,8 @@ import customersAndDrivers.Customer;
 public class UberX extends Ride{
 	
 	public UberX(Customer customer, GPScoordinates startingPoint,
-			GPScoordinates destinationPoint, Time time) {
-		super(customer,startingPoint,destinationPoint,time);
+			GPScoordinates destinationPoint, Time time,TrafficCondition traffic) {
+		super(customer,startingPoint,destinationPoint,time, traffic);
 	}
 	
 	@Override

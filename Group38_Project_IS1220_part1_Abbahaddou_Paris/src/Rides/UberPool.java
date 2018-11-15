@@ -11,8 +11,8 @@ import customersAndDrivers.Driver;
 public class UberPool extends Ride{
 	
 	public UberPool(Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
-			Time time) {
-		super(customer,startingPoint,destinationPoint,time);
+			Time time,TrafficCondition traffic) {
+		super(customer,startingPoint,destinationPoint,time,traffic);
 	}
 	
 	@Override

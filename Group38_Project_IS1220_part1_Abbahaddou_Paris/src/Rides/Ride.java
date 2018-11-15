@@ -26,13 +26,15 @@ public abstract class Ride {
 	private ArrayList<Driver> refusingDriver = new ArrayList<Driver>();
 	private boolean marked = false;
 	private double cost;
+	private TrafficCondition traffic;
 	
 	public Ride(Customer customer, GPScoordinates startingPoint,
-			GPScoordinates destinationPoint,Time time) {
+			GPScoordinates destinationPoint,Time time, TrafficCondition traffic) {
 		this.customer = customer;
 		this.startingPoint = startingPoint;
 		this.destinationPoint = destinationPoint;
 		this.time = time;
+		this.traffic = traffic;
 	}
 	
 	public Time getTime() {

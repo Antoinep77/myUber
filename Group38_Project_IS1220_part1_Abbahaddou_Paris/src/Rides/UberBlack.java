@@ -11,8 +11,8 @@ import customersAndDrivers.Driver;
 public class UberBlack extends Ride{
 	
 	public UberBlack(Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
-			Time time) {
-		super(customer,startingPoint,destinationPoint,time);
+			Time time,TrafficCondition traffic) {
+		super(customer,startingPoint,destinationPoint,time,traffic);
 	}
 	
 	//basicRates returns the the basic rate in Euro/Km

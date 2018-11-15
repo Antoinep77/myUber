@@ -34,7 +34,7 @@ class scenarioTest {
 		Ride ride = rideFac.require(myUber,"uberX");
 		
 		Driver driver1 = ride.getDriver();
-		myUber.unconfirm(driver1,ride);
+		myUber.refuse(driver1,ride);
 
 
 		Driver driver2 = ride.getDriver();

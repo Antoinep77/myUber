@@ -40,32 +40,32 @@ public class RideFactory {
 			Ride ride = this.rides.stream().filter(r -> (r instanceof UberX))
 									.findFirst()
 									.get();
-			myUber.register(ride);
 			ride.getCustomer().addMessageToBox("You have selected an UberX ride.");
+			myUber.register(ride);
 			return ride;
 		}
 		if (nameOfRide.equals("uberPool")) {
 			Ride ride = this.rides.stream().filter(r -> (r instanceof UberPool))
 					.findFirst()
 					.get();
-			myUber.register(ride);
 			ride.getCustomer().addMessageToBox("You have selected an UberPool ride.");
+			myUber.register(ride);
 			return ride;
 		}
 		if (nameOfRide.equals("uberBlack")) {
 			Ride ride = this.rides.stream().filter(r -> (r instanceof UberBlack))
 					.findFirst()
 					.get();
-			myUber.register(ride);
 			ride.getCustomer().addMessageToBox("You have selected an UberBlack ride.");
+			myUber.register(ride);
 			return ride;
 		}
 		if (nameOfRide.equals("uberVan")) {
 			Ride ride = this.rides.stream().filter(r -> (r instanceof UberVan))
 					.findFirst()
 					.get();
-			myUber.register(ride);
 			ride.getCustomer().addMessageToBox("You have selected an UberVan ride.");
+			myUber.register(ride);
 			return ride;
 		}
 		throw new Exception("Invalid Type of Ride");

@@ -122,18 +122,17 @@ public class Driver {
 	public boolean changeStateTo(DriverState newdriverState, Date dateOfChange) {
 
 		boolean change;
-
 		DriverState previousState = this.driverState;
 		if(this.driverState == newdriverState) {
 			change = false;
-		}else if(this.driverState == DriverState.OFFDUTY && newdriverState != DriverState.OFFDUTY && this.car.getCarState() == CarState.TAKED) {
+		}else if(this.driverState == DriverState.OFFLINE  && this.car.getCarState() == CarState.TAKED) {
 			this.driverState = DriverState.OFFDUTY;
 			change =  false;
-		}else if(this.driverState == DriverState.OFFDUTY && newdriverState != DriverState.OFFDUTY && this.car.getCarState() == CarState.AVAILABLE) {
+		}else if(this.driverState == DriverState.OFFLINE && this.car.getCarState() == CarState.AVAILABLE) {
 			car.setCarState(CarState.TAKED);
 			this.driverState = newdriverState;
 			change = true;
-		}else if(this.driverState != DriverState.OFFDUTY && newdriverState == DriverState.OFFDUTY) {
+		}else if(this.driverState != DriverState.OFFLINE && newdriverState == DriverState.OFFDUTY) {
 			car.setCarState(CarState.AVAILABLE);
 			this.driverState = newdriverState;
 			change = true;

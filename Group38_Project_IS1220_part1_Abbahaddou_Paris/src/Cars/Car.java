@@ -12,13 +12,12 @@ public class Car {
 	
 	private GPScoordinates carPosition;  // the GPS coordinates of the car
 	private int numberFreeSeats;  // the number of seats
-	private String carID;   // the alphanumercial ID
-	private CarState carState;
+	private String carID;   // the alphanumerical ID
+	private CarState carState= CarState.AVAILABLE;
 	
 	public Car(GPScoordinates carPosition, String carID) {
 		this.carPosition = carPosition;
 		this.carID = carID;
-		this.carState = CarState.AVAILABLE;
 	}
 	
 	public GPScoordinates getCarPosition() {

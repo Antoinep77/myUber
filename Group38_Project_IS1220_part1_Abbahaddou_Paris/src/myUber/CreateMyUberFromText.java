@@ -45,10 +45,11 @@ public class CreateMyUberFromText {
 			
 			// Command "Driver NumberOfDriver" ex: "Driver 30" (the car is set randomly)
 			if(command[0].equals("Driver")) {
+				List<Car> carList = myUber.getCarList();
+				Collections.shuffle(carList);
 				for(int i=0; i< Integer.parseInt(command[1]);i++ ) {
-					List<Car> carList = myUber.getCarList();
-					Collections.shuffle(carList);
-					myUber.createDriver(carList.get(i%carList.size()), "driver"+i, "Surname").connect(new Date());;
+					Driver driver = myUber.createDriver(carList.get(i%carList.size()), "driver"+i, "Surname");
+					driver.connect(new Date());
 				}
 			}
 			// Command "Customer NumberOfCustomer"

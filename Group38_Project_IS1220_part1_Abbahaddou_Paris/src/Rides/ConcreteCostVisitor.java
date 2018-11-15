@@ -13,7 +13,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
 			break;	
-		case MEDUIM :trafficFactor = 1.1;
+		case MEDIUM :trafficFactor = 1.1;
 			break;	
 		case HEAVY :trafficFactor = 1.5;
 			break;	
@@ -34,7 +34,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
 			break;	
-		case MEDUIM :trafficFactor = 1.3;
+		case MEDIUM :trafficFactor = 1.3;
 			break;	
 		case HEAVY :trafficFactor = 1.6;
 			break;
@@ -55,7 +55,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
 			break;	
-		case MEDUIM :trafficFactor = 1.1;
+		case MEDIUM :trafficFactor = 1.1;
 			break;	
 		case HEAVY :trafficFactor = 1.2;
 			break;
@@ -76,7 +76,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
 			break;	
-		case MEDUIM :trafficFactor = 1.5;
+		case MEDIUM :trafficFactor = 1.5;
 			break;	
 		case HEAVY :trafficFactor = 1.8;
 			break;

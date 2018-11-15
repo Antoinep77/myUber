@@ -3,7 +3,7 @@ import java.sql.Time;
 
 public enum TrafficCondition {
 	LOW,
-	MEDUIM,
+	MEDIUM,
 	HEAVY;
 	
 	// we create a new constructor that takes the time as a parameter and returns the traffic condition
@@ -40,7 +40,7 @@ public enum TrafficCondition {
 		if(randomNumber < lowTrafficProbability) {
 			return TrafficCondition.LOW;
 		}else if(randomNumber >= lowTrafficProbability && randomNumber < lowTrafficProbability + meduimTrafficProbability) {
-			return TrafficCondition.MEDUIM;
+			return TrafficCondition.MEDIUM;
 		}else {
 			return TrafficCondition.HEAVY;
 		}

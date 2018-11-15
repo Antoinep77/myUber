@@ -6,7 +6,7 @@ public enum TrafficCondition {
 	MEDUIM,
 	HEAVY;
 	
-	// we create a new constructur that takes the time as a parameter and returns the traffic condition
+	// we create a new constructor that takes the time as a parameter and returns the traffic condition
 	public static TrafficCondition setTrafficCondition(Time time) {
 		Time time1 = new Time(7, 00, 00);
 		Time time2 = new Time(11, 00, 00);
@@ -44,7 +44,7 @@ public enum TrafficCondition {
 		}else {
 			return TrafficCondition.HEAVY;
 		}
-		
-        
+		  
+
 	}
 }

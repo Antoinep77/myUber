@@ -20,13 +20,15 @@ public class RideFactory {
 
 	//Return an ArrayList with all type of rides available
 	//The parameters are the parameters passes to the constructors
+	//The traffic condition of the ride is determined below
 	public static ArrayList<Ride> createAllRides(Customer cust, GPScoordinates startingPoint,
 			GPScoordinates endingPoint,Time time){
+		TrafficCondition traffic = TrafficCondition.setTrafficCondition(time);
 		ArrayList<Ride> listOfRides = new ArrayList<Ride>();
-		listOfRides.add(new UberX(cust,startingPoint,endingPoint,time));
-		listOfRides.add(new UberPool(cust,startingPoint,endingPoint,time));
-		listOfRides.add(new UberBlack(cust,startingPoint,endingPoint,time));
-		listOfRides.add(new UberVan(cust,startingPoint,endingPoint,time));
+		listOfRides.add(new UberX(cust,startingPoint,endingPoint,time,traffic));
+		listOfRides.add(new UberPool(cust,startingPoint,endingPoint,time,traffic));
+		listOfRides.add(new UberBlack(cust,startingPoint,endingPoint,time,traffic));
+		listOfRides.add(new UberVan(cust,startingPoint,endingPoint,time,traffic));
 		return listOfRides;
 	}
 	

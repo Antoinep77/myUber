@@ -95,6 +95,10 @@ public class MyUber {
 		else {
 			Driver driver = this.findClosestAvailableDriver(ride);
 			ride.setDriver(driver);
+			if (driver == null) {
+				ride.getCustomer().addMessageToBox("No available driver found your ride has been canceled");
+				ride.setStatus(RideStatus.CANCELED);
+			}
 		}
 	}
 	
@@ -138,6 +142,10 @@ public class MyUber {
 		if(ride.getDriver() == driver1 && ride.getStatus() == RideStatus.UNCONFIRMED) {
 			Driver driver2 = findClosestAvailableDriver(ride);
 			ride.setDriver(driver2);
+			if (driver2 == null) {
+				ride.getCustomer().addMessageToBox("No available driver found your ride has been canceled");
+				ride.setStatus(RideStatus.CANCELED);
+			}
 		}
 	}
 	//Change the status of the driver so that he can't receive new rides

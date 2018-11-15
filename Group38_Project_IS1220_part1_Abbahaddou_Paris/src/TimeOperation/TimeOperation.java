@@ -12,16 +12,16 @@ public class TimeOperation {
 	
 	//return time (in ms) to travel a distance with a traffic condition
 	public static long rideDurationTime(double distance, TrafficCondition traffic) {
-		double speed;
+		double speed ;
 		if(traffic == TrafficCondition.LOW) {
 			speed = 3000/3600;
 		}
-		if(traffic == TrafficCondition.MEDIUM) {
+		else if(traffic == TrafficCondition.MEDIUM) {
 			speed = 7500/3600;
 		}
-		if(traffic == TrafficCondition.HEAVY) {
+		else {
 			speed = 15000/3600;
 		}
 		return (long)(distance/speed);
-		
+	}
 }

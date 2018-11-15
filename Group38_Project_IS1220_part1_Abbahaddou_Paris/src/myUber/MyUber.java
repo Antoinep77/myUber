@@ -155,7 +155,7 @@ public class MyUber {
 	//only works if driver1 is the driver of ride and the ride is unconfirmed
 	public void confirm(Driver driver, Ride ride) {
 		if(ride.getDriver() == driver && ride.getStatus() == RideStatus.UNCONFIRMED
-				&& driver.changeStateTo(DriverState.ONARIDE,ride.getTime())) {
+				&& driver.changeStateTo(DriverState.ONARIDE,ride.getStartingDate())) {
 			ride.setStatus(RideStatus.CONFIRMED);
 			ride.getCustomer().addMessageToBox("Your ride has been confirmed. Your driver is arriving soon.");
 		}

@@ -108,7 +108,7 @@ public class Customer {
 	public void cancel(Ride ride) {
 		if(ride.getCustomer() == this && 
 				(ride.getStatus() == RideStatus.CONFIRMED || ride.getStatus() == RideStatus.UNCONFIRMED )
-				&& ride.getDriver().changeStateTo(DriverState.ONARIDE,ride.getTime())) {
+				&& ride.getDriver().changeStateTo(DriverState.ONARIDE,ride.getStartingDate())) {
 			ride.setStatus(RideStatus.CANCELED);
 		}
 	}

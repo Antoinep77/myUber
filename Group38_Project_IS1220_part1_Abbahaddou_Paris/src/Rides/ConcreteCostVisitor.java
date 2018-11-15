@@ -7,7 +7,7 @@ import customersAndDrivers.Customer;
 public class ConcreteCostVisitor implements CostVisitor{
 	@Override
 	public double visit(UberX uberX) {
-		Time time = uberX.getTime();
+		Time time = uberX.getStartingDate();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
@@ -28,7 +28,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 	}
 	@Override
 	public double visit(UberBlack uberBlack) {
-		Time time = uberBlack.getTime();
+		Time time = uberBlack.getStartingDate();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
@@ -49,7 +49,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 	
 	@Override
 	public double visit(UberVan uberVan) {
-		Time time = uberVan.getTime();
+		Time time = uberVan.getStartingDate();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
@@ -70,7 +70,7 @@ public class ConcreteCostVisitor implements CostVisitor{
 	
 	@Override
 	public double visit(UberPool uberPool) {
-		Time time = uberPool.getTime();
+		Time time = uberPool.getStartingDate();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {

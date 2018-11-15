@@ -68,35 +68,22 @@ public class Driver {
 	public double getDriverAmount() {
 		return driverAmount;
 	}
-	public void setDriverAmount(double driverAmount) {
-		this.driverAmount = driverAmount;
-	}
+	
 	public Map<String, Integer> getDriversTimes() {
 		return driversTimes;
-	}
-	public void setDriversTimes(Map<String, Integer> driversTimes) {
-		this.driversTimes = driversTimes;
-	}
-	
-	public static int getBiggestDriverID() {
-		return biggestDriverID;
 	}
 
 	public int getNumOfRides() {
 		return numOfRides;
 	}
-	public void setNumOfRides(int numOfRides) {
-		this.numOfRides = numOfRides;
-	}
-	
-	public ArrayList<Double> getDriverMarks() {
-		return driverMarks;
-	}
+
 	
 	//only works if this is the driver of ride and the ride is confirmed
 	//also credit the driver for the ride
 	public void start(Ride ride) {
 		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED) {
+			this.numOfRides++;
+			ride.getCustomer().spendAmount(ride.getCost());
 			this.addAmount(ride.getCost());
 			ride.setStatus(RideStatus.ONGOING);
 			ride.getCustomer().addMessageToBox("Your ride has started");
@@ -117,6 +104,7 @@ public class Driver {
 	public int getTimeInSeconde(Time t) {
 		return 3600*t.getHours() + 60*t.getMinutes() + t.getSeconds();
 	}
+	
 	public boolean changeStateTo(DriverState newdriverState, Time timeOfChange) {
 
 		boolean change;
@@ -161,6 +149,7 @@ public class Driver {
 		
 		return change;
 	}
+	
 	//toString   
 	@Override
 	public String toString() {
@@ -169,14 +158,10 @@ public class Driver {
 	}
 	//  method for adding a new amount
 	public void addAmount(double amount) {
-		
-		this.setDriverAmount(this.getDriverAmount() + amount);
+		this.driverAmount = (this.getDriverAmount() + amount);
 	} 
 	
-	// method for adding a new ride to the number of ride
-	public void addNewRide() {
-		this.setNumOfRides(this.getNumOfRides() +1 );
-	}
+
 	// method to add extra on-duty time
 	public void addOnDutyTime(int onDutyTime) {
 		int newOnDutyTime = this.driversTimes.get("on-dutty");

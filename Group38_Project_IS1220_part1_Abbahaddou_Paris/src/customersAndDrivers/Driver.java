@@ -94,7 +94,7 @@ public class Driver {
 	//Also change the position of the driver to the destination position
 	public void finish(Ride ride) {
 		if(ride.getDriver() == this && ride.getStatus() == RideStatus.ONGOING
-				&& this.changeStateTo(DriverState.ONDUTY,ride.getTime())) {
+				&& this.changeStateTo(DriverState.ONDUTY,ride.getStartingDate())) {
 		ride.setStatus(RideStatus.COMPLETED);
 		this.car.setCarPosition(ride.getDestinationPoint());
 		ride.getCustomer().setCustomerPosition(ride.getDestinationPoint());

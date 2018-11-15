@@ -20,7 +20,7 @@ public class RideFactory {
 
 	//Return an ArrayList with all type of rides available
 	//The parameters are the parameters passes to the constructors
-	//The traffic condition of the ride is determined below
+	//The same traffic condition for the 4 rides is also determined in this method
 	public static ArrayList<Ride> createAllRides(Customer cust, GPScoordinates startingPoint,
 			GPScoordinates endingPoint,Time time){
 		TrafficCondition traffic = TrafficCondition.setTrafficCondition(time);

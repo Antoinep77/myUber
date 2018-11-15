@@ -2,6 +2,7 @@ package Rides;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 
 import Cars.Berlin;
 import Cars.Car;
@@ -20,8 +21,8 @@ public abstract class Ride {
 	private Customer customer;
 	private GPScoordinates startingPoint;
 	private GPScoordinates destinationPoint;
-	private Time time;
-	private Time arrivalTime;
+	private Date startingDate;
+	private Date arrivalDate;
 	private RideStatus status = RideStatus.UNCONFIRMED;
 	private ArrayList<Driver> refusingDriver = new ArrayList<Driver>();
 	private boolean marked = false;
@@ -33,12 +34,12 @@ public abstract class Ride {
 		this.customer = customer;
 		this.startingPoint = startingPoint;
 		this.destinationPoint = destinationPoint;
-		this.time = time;
+		this.startingDate = time;
 		this.traffic = traffic;
 	}
 	
-	public Time getTime() {
-		return time;
+	public Date getStartingDate() {
+		return startingDate;
 	}
 
 	public Driver getDriver() {
@@ -108,12 +109,8 @@ public abstract class Ride {
 	
 	public abstract double basicRates();
 
-	public Time getArrivalTime() {
-		return arrivalTime;
-	}
-
-	public void setArrivalTime(Time arrivalTime) {
-		this.arrivalTime = arrivalTime;
+	public Date getArrivalDate() {
+		return arrivalDate;
 	}
 
 

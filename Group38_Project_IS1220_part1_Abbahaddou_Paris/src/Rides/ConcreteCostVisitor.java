@@ -7,13 +7,13 @@ import customersAndDrivers.Customer;
 public class ConcreteCostVisitor implements CostVisitor{
 	@Override
 	public double visit(UberX uberX) {
-		Time time = uberX.getTime();
+		Time time = uberX.getStartingDate();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
 			break;	
-		case MEDUIM :trafficFactor = 1.1;
+		case MEDIUM :trafficFactor = 1.1;
 			break;	
 		case HEAVY :trafficFactor = 1.5;
 			break;	
@@ -28,13 +28,13 @@ public class ConcreteCostVisitor implements CostVisitor{
 	}
 	@Override
 	public double visit(UberBlack uberBlack) {
-		Time time = uberBlack.getTime();
+		Time time = uberBlack.getStartingDate();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
 			break;	
-		case MEDUIM :trafficFactor = 1.3;
+		case MEDIUM :trafficFactor = 1.3;
 			break;	
 		case HEAVY :trafficFactor = 1.6;
 			break;
@@ -49,13 +49,13 @@ public class ConcreteCostVisitor implements CostVisitor{
 	
 	@Override
 	public double visit(UberVan uberVan) {
-		Time time = uberVan.getTime();
+		Time time = uberVan.getStartingDate();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
 			break;	
-		case MEDUIM :trafficFactor = 1.1;
+		case MEDIUM :trafficFactor = 1.1;
 			break;	
 		case HEAVY :trafficFactor = 1.2;
 			break;
@@ -70,13 +70,13 @@ public class ConcreteCostVisitor implements CostVisitor{
 	
 	@Override
 	public double visit(UberPool uberPool) {
-		Time time = uberPool.getTime();
+		Time time = uberPool.getStartingDate();
 		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
 			break;	
-		case MEDUIM :trafficFactor = 1.5;
+		case MEDIUM :trafficFactor = 1.5;
 			break;	
 		case HEAVY :trafficFactor = 1.8;
 			break;

@@ -10,7 +10,7 @@ import Cars.CarState;
 
 import Rides.Ride;
 import Rides.RideStatus;
-
+import TimeOperation.TimeOperation;
 
 public class Driver {
 	 
@@ -100,10 +100,7 @@ public class Driver {
 		ride.getCustomer().addMessageToBox("Your ride is finished");
 		}
 	}
-	
-	public int getTimeInSeconde(Time t) {
-		return 3600*t.getHours() + 60*t.getMinutes() + t.getSeconds();
-	}
+
 	
 	public boolean changeStateTo(DriverState newdriverState, Time timeOfChange) {
 
@@ -128,7 +125,7 @@ public class Driver {
 			change = true;
 		}
 
-		int differenceOfTime = getTimeInSeconde(this.lastTimeOfLastStateChange) - getTimeInSeconde(timeOfChange);
+		int differenceOfTime = TimeOperation.getTimeInSeconde(this.lastTimeOfLastStateChange) - getTimeInSeconde(timeOfChange);
 		
 		if(change == true) {
 			this.lastTimeOfLastStateChange = timeOfChange;

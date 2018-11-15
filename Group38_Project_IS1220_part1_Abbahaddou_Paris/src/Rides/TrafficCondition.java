@@ -45,11 +45,6 @@ public enum TrafficCondition {
 			return TrafficCondition.HEAVY;
 		}
 		  
-	}
-	
-	public static Time durationTime(double distance, TrafficCondition traffic) {
-		if(traffic == TrafficCondition.LOW) {
-			return 
-		}
+
 	}
 }

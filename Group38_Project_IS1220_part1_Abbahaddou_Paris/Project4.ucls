@@ -5,24 +5,32 @@
     project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
     file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/customersAndDrivers/Driver.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="167" y="148"/>    
+    <position height="-1" width="-1" x="385" y="150"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="customersAndDrivers.Customer" 
+  <enumeration id="2" language="java" name="customersAndDrivers.DriverState" 
     project="Group38_Project_IS1220_part1_Abbahaddou_Paris" 
-    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/customersAndDrivers/Customer.java" binary="false" 
+    file="/Group38_Project_IS1220_part1_Abbahaddou_Paris/src/customersAndDrivers/DriverState.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="694" y="95"/>    
+    <position height="-1" width="-1" x="103" y="116"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </class>  
+  </enumeration>  
+  <association id="3">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="4" name="driverState"/>      
+      <multiplicity id="5" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

@@ -14,7 +14,7 @@ public class Customer {
 	private int creditCardNumber;  // the number of the credit card
 	private ArrayList<String> Messagebox = new ArrayList<String>();   // ArrayList of strings containing the received messages  
 	public static int biggestCustomerID;
-	private double totaleAmountRetreived = 0;
+	private double totaleAmountPaid  = 0;
 	private int numOfRide = 0;
 	
 
@@ -78,8 +78,8 @@ public class Customer {
 	
 	
 
-	public double getTotaleAmountRetreived() {
-		return totaleAmountRetreived;
+	public double getTotaleAmountPaid() {
+		return totaleAmountPaid;
 	}
 
 
@@ -89,18 +89,14 @@ public class Customer {
 		this.Messagebox.add(message);
 	}
 	
-	//add one ride to the total number of ride
-	public void addOneRide() {
+	// ad the amound to the total amount and add one ride to the total number of ride
+
+	public void spendAmount(double amount) {
+		this.totaleAmountPaid = this.totaleAmountPaid + amount;
 		this.numOfRide = this.numOfRide + 1;
-		
 	}
 	
-	//
-	public void retreiveAmount(double amount) {
-		this.totaleAmountRetreived = this.totaleAmountRetreived - amount;
-	}
-	
-	//Give a mark to the driver of one of their rides 
+	//Give a mark to the driver of one of their ride
 	// work only if the customer has taken the ride, the ride is completed and the ride hasn't already be marked
 	public void mark(Ride ride, double newmark) {
 		if (this == ride.getCustomer() && ride.getStatus() == RideStatus.COMPLETED && !ride.isMarked()) {

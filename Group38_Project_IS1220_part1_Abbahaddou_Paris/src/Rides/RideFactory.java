@@ -40,6 +40,7 @@ public class RideFactory {
 			Ride ride = this.rides.stream().filter(r -> (r instanceof UberX))
 									.findFirst()
 									.get();
+			ride.getCustomer().addMessageToBox("You have selected an UberX ride.");
 			myUber.register(ride);
 			return ride;
 		}
@@ -47,6 +48,7 @@ public class RideFactory {
 			Ride ride = this.rides.stream().filter(r -> (r instanceof UberPool))
 					.findFirst()
 					.get();
+			ride.getCustomer().addMessageToBox("You have selected an UberPool ride.");
 			myUber.register(ride);
 			return ride;
 		}
@@ -54,6 +56,7 @@ public class RideFactory {
 			Ride ride = this.rides.stream().filter(r -> (r instanceof UberBlack))
 					.findFirst()
 					.get();
+			ride.getCustomer().addMessageToBox("You have selected an UberBlack ride.");
 			myUber.register(ride);
 			return ride;
 		}
@@ -61,6 +64,7 @@ public class RideFactory {
 			Ride ride = this.rides.stream().filter(r -> (r instanceof UberVan))
 					.findFirst()
 					.get();
+			ride.getCustomer().addMessageToBox("You have selected an UberVan ride.");
 			myUber.register(ride);
 			return ride;
 		}

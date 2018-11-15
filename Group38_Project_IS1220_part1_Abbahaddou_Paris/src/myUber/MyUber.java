@@ -27,23 +27,28 @@ public class MyUber {
 	private List<Ride> rideList = new ArrayList<Ride>();
 	
 	//Constructor with no argument to test the other method with a few customer, driver etc...
-	public MyUber() {
+	public MyUber(String test) {
 		Car car1 = createCar("Standard",new GPScoordinates(9, 6));
 		Car car2 = createCar("Berlin",new GPScoordinates(3, 2));
 		createDriver(car1,"D1","NOMD1");
 		createDriver(car2,"D2","NOMD2");
 	}
-
-	public MyUber(int nc, int nd, int nu) {
-		// TODO Auto-generated constructor stub
-		rideList = new ArrayList<Ride>();
-	}
 	
-	//Generate a myUber instance with a text file as scenario
-	public MyUber(String filepath) {
-		
-	}
+	public MyUber() {}
 	
+	
+	public List<Customer> getCustomerList() {
+		return customerList;
+	}
+	public List<Driver> getDriverList() {
+		return driverList;
+	}
+	public List<Car> getCarList() {
+		return carList;
+	}
+	public List<Ride> getRideList() {
+		return rideList;
+	}
 	public Car createCar(String type,GPScoordinates carPosition) {
 		Car car = CarFactory.create(type, carPosition);
 		this.carList.add(car);
@@ -140,9 +145,10 @@ public class MyUber {
 	}
 	
 	//only works if driver1 is the driver of ride and the ride is unconfirmed
-	public void unconfirm(Driver driver1, Ride ride) {
+	public void refuse(Driver driver1, Ride ride) {
 		if(ride.getDriver() == driver1 && ride.getStatus() == RideStatus.UNCONFIRMED) {
 			ride.addRefusingDriver(driver1);
+			ride.getCustomer().addMessageToBox("One driver refused the ride.");
 			Driver driver2 = findClosestAvailableDriver(ride);
 			ride.setDriver(driver2);
 			if (driver2 == null) {

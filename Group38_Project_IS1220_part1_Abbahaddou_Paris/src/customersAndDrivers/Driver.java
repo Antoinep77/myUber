@@ -96,19 +96,21 @@ public class Driver {
 	//only works if this is the driver of ride and the ride is confirmed
 	//also credit the driver for the ride
 	public void start(Ride ride) {
-		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED 
-				&& this.changeStateTo(DriverState.ONARIDE,ride.getTime())) {
+		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED) {
 			this.addAmount(ride.getCost());
+			ride.setStatus(RideStatus.ONGOING);
+			ride.getCustomer().addMessageToBox("Your ride has started");
 		}
 	}
 	//only works if this is the driver of ride and the ride is confirmed
-	//Also change the position of the driver to the destination postion
+	//Also change the position of the driver to the destination position
 	public void finish(Ride ride) {
 		if(ride.getDriver() == this && ride.getStatus() == RideStatus.ONGOING
-				&& this.changeStateTo(DriverState.ONARIDE,ride.getTime())) {
+				&& this.changeStateTo(DriverState.ONDUTY,ride.getTime())) {
 		ride.setStatus(RideStatus.COMPLETED);
 		this.car.setCarPosition(ride.getDestinationPoint());
 		ride.getCustomer().setCustomerPosition(ride.getDestinationPoint());
+		ride.getCustomer().addMessageToBox("Your ride is finished");
 		}
 	}
 	
@@ -137,7 +139,6 @@ public class Driver {
 			this.driverState = newdriverState;
 			change = true;
 		}
-		System.out.println(change);
 
 		int differenceOfTime = getTimeInSeconde(this.lastTimeOfLastStateChange) - getTimeInSeconde(timeOfChange);
 		

@@ -121,8 +121,11 @@ public class MyUber {
 		GPScoordinates startingPoint = ride.getStartingPoint();
 		ArrayList<Driver> onDutyList = onDutyDrive(ride);
 		List<Driver> filteredList = onDutyList.stream()
-				.filter(d -> Ride.isCompatibleWithTheRide(ride, d.getCar()) == true && ride.getRefusingDriver().contains(d) == false)
+				.filter(d -> Ride.isCompatibleWithTheRide(ride, d.getCar()) && !ride.getRefusingDriver().contains(d))
 				.collect(Collectors.toList());
+		if(filteredList.size()==0) {
+			return null;
+		}
 		Driver closestOnDutyDriver = filteredList.get(0);
 		Double minDistance = GPScoordinates.distance(closestOnDutyDriver.getCar().getCarPosition(), startingPoint);
 		for(Driver d : filteredList) {
@@ -133,13 +136,13 @@ public class MyUber {
 				
 			}
 		}
-		System.out.println(closestOnDutyDriver);
 		return closestOnDutyDriver;
 	}
 	
 	//only works if driver1 is the driver of ride and the ride is unconfirmed
 	public void unconfirm(Driver driver1, Ride ride) {
 		if(ride.getDriver() == driver1 && ride.getStatus() == RideStatus.UNCONFIRMED) {
+			ride.addRefusingDriver(driver1);
 			Driver driver2 = findClosestAvailableDriver(ride);
 			ride.setDriver(driver2);
 			if (driver2 == null) {
@@ -154,7 +157,7 @@ public class MyUber {
 		if(ride.getDriver() == driver && ride.getStatus() == RideStatus.UNCONFIRMED
 				&& driver.changeStateTo(DriverState.ONARIDE,ride.getTime())) {
 			ride.setStatus(RideStatus.CONFIRMED);
-			ride.getCustomer().addMessageToBox("Your ride as been confirmed. Your driver is arriving soon.");
+			ride.getCustomer().addMessageToBox("Your ride has been confirmed. Your driver is arriving soon.");
 		}
 	}
 	

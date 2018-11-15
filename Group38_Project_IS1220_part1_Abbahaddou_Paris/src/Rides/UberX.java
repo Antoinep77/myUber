@@ -30,8 +30,7 @@ public class UberX extends Ride{
 
 	@Override
 	public void accept(CostVisitor costVisitor) {
-		double cost = costVisitor.visit(this);
-		this.setCost(cost);
+		this.setCost(costVisitor.visit(this));
 	}
 
 }

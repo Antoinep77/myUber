@@ -21,6 +21,7 @@ public abstract class Ride {
 	private GPScoordinates startingPoint;
 	private GPScoordinates destinationPoint;
 	private Time time;
+	private Time arrivalTime;
 	private RideStatus status = RideStatus.UNCONFIRMED;
 	private ArrayList<Driver> refusingDriver = new ArrayList<Driver>();
 	private boolean marked = false;
@@ -57,9 +58,9 @@ public abstract class Ride {
 	public ArrayList<Driver> getRefusingDriver() {
 		return refusingDriver;
 	}
-
-	public void setRefusingDriver(ArrayList<Driver> refusingDriver) {
-		this.refusingDriver = refusingDriver;
+	
+	public void addRefusingDriver(Driver driver) {
+		refusingDriver.add(driver);
 	}
 
 	// check if the ride and the car are compatible 
@@ -104,6 +105,14 @@ public abstract class Ride {
 	public abstract void accept(CostVisitor costVisitor);
 	
 	public abstract double basicRates();
+
+	public Time getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public void setArrivalTime(Time arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
 
 
 }

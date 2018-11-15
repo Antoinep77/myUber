@@ -2,6 +2,7 @@
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,9 +24,9 @@ public class Driver {
 	private double driverAmount = 0.0;  // total amount cashed by the driver
 	private int numOfRides = 0;    // number of rides done by the driver
 	private ArrayList<Double> driverMarks = new ArrayList<Double>();
-	private Map<String, Integer> driversTimes = new HashMap<String, Integer>();
+	private Map<String, Long> driversTimes = new HashMap<String, Long>(); //the time are in ms.
 	
-	private Time lastTimeOfLastStateChange;
+	private Date lastTimeOfLastStateChange;
 	
 	//  Constructor 
 	public Driver(Car car, String driverName, String driverSurName) {
@@ -34,10 +35,10 @@ public class Driver {
 		this.driverSurName = driverSurName;
 		this.driverID = biggestDriverID + 1;
 		biggestDriverID++; 
-		driversTimes.put("on-dutty", 0);   
-		driversTimes.put("off-duty", 0);
-		driversTimes.put("on-a-ride", 0);
-		this.lastTimeOfLastStateChange = new Time(0,0,0);
+		driversTimes.put("on-dutty", (long) 0);   
+		driversTimes.put("off-duty", (long) 0);
+		driversTimes.put("on-a-ride", (long) 0);
+		this.lastTimeOfLastStateChange = new Date(0,0,0);
 	}
 	//   Setters and getters 
 	
@@ -69,7 +70,7 @@ public class Driver {
 		return driverAmount;
 	}
 	
-	public Map<String, Integer> getDriversTimes() {
+	public Map<String, Long> getDriversTimes() {
 		return driversTimes;
 	}
 
@@ -102,7 +103,7 @@ public class Driver {
 	}
 
 	
-	public boolean changeStateTo(DriverState newdriverState, Time timeOfChange) {
+	public boolean changeStateTo(DriverState newdriverState, Date dateOfChange) {
 
 		boolean change;
 
@@ -125,18 +126,18 @@ public class Driver {
 			change = true;
 		}
 
-		int differenceOfTime = TimeOperation.getTimeInSeconde(this.lastTimeOfLastStateChange) - TimeOperation.getTimeInSeconde(timeOfChange);
+		long differenceOfTime = this.lastTimeOfLastStateChange.getTime() - dateOfChange.getTime();
 		
 		if(change == true) {
-			this.lastTimeOfLastStateChange = timeOfChange;
+			this.lastTimeOfLastStateChange = dateOfChange;
 			switch(previousState) {
 			case OFFLINE:
 				break;
-			case OFFDUTY:driversTimes.put("off-duty", differenceOfTime);
+			case OFFDUTY:addOffDutyTime(differenceOfTime);
 				break;
-			case ONARIDE:driversTimes.put("on-a-ride", differenceOfTime);
+			case ONARIDE:addOnRideTime(differenceOfTime);
 				break;
-			case ONDUTY:driversTimes.put("on-dutty", differenceOfTime);   
+			case ONDUTY:addOnDutyTime(differenceOfTime);   
 				break;
 			default:
 				break;
@@ -160,19 +161,19 @@ public class Driver {
 	
 
 	// method to add extra on-duty time
-	public void addOnDutyTime(int onDutyTime) {
-		int newOnDutyTime = this.driversTimes.get("on-dutty");
+	public void addOnDutyTime(long onDutyTime) {
+		long newOnDutyTime = this.driversTimes.get("on-dutty") + onDutyTime;
 		this.driversTimes.put("on-dutty", newOnDutyTime);
 	}
 	
 	
-	public void addOffDutyTime(int offDutyTime) {
-		int newOffDutyTime = this.driversTimes.get("off-duty");
+	public void addOffDutyTime(long offDutyTime) {
+		long newOffDutyTime = this.driversTimes.get("off-duty") +offDutyTime;
 		this.driversTimes.put("off-duty", newOffDutyTime);
 	}
 	
-	public void addOnRideTime(int onRideTime) {
-		int newOnRideTime = this.driversTimes.get("on-a-ride");
+	public void addOnRideTime(long onRideTime) {
+		long newOnRideTime = this.driversTimes.get("on-a-ride") + onRideTime;
 		this.driversTimes.put("on-a-ride", newOnRideTime);
 	}
 	

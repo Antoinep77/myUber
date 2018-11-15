@@ -89,8 +89,7 @@ public class Customer {
 		this.Messagebox.add(message);
 	}
 	
-	// ad the amound to the total amount and add one ride to the total number of ride
-
+	// ad the amount to the total amount and add one ride to the total number of ride
 	public void spendAmount(double amount) {
 		this.totaleAmountPaid = this.totaleAmountPaid + amount;
 		this.numOfRide = this.numOfRide + 1;
@@ -98,9 +97,13 @@ public class Customer {
 	
 	//Give a mark to the driver of one of their ride
 	// work only if the customer has taken the ride, the ride is completed and the ride hasn't already be marked
-	public void mark(Ride ride, double newmark) {
-		if (this == ride.getCustomer() && ride.getStatus() == RideStatus.COMPLETED && !ride.isMarked()) {
+	public void mark(Ride ride, int newmark) {
+		if (this == ride.getCustomer() && ride.getStatus() == RideStatus.COMPLETED && !ride.isMarked() &&
+				newmark <= 5 && newmark >= 0) {
 			ride.getDriver().addOneMark(newmark);
+			addMessageToBox("You rated your Driver with a " + newmark +" star mark.");
+		}else {
+			addMessageToBox("Invalid mark, your mark must be beetween 0 and 5");
 		}
 	}
 	
@@ -110,6 +113,7 @@ public class Customer {
 				(ride.getStatus() == RideStatus.CONFIRMED || ride.getStatus() == RideStatus.UNCONFIRMED )
 				&& ride.getDriver().changeStateTo(DriverState.ONARIDE,ride.getStartingDate())) {
 			ride.setStatus(RideStatus.CANCELED);
+			addMessageToBox("Your ride has been canceled");
 		}
 	}
 

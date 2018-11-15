@@ -36,10 +36,9 @@ class scenarioTest {
 		Driver driver1 = ride.getDriver();
 		myUber.unconfirm(driver1,ride);
 
-		System.out.println(driver1);
+
 		Driver driver2 = ride.getDriver();
 		myUber.confirm(driver2,ride);
-		System.out.println(driver2);
 		
 		driver2.start(ride);
 		

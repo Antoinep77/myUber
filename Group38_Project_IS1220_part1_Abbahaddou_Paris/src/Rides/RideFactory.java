@@ -41,6 +41,7 @@ public class RideFactory {
 									.findFirst()
 									.get();
 			myUber.register(ride);
+			ride.getCustomer().addMessageToBox("You have selected an UberX ride.");
 			return ride;
 		}
 		if (nameOfRide.equals("uberPool")) {
@@ -48,6 +49,7 @@ public class RideFactory {
 					.findFirst()
 					.get();
 			myUber.register(ride);
+			ride.getCustomer().addMessageToBox("You have selected an UberPool ride.");
 			return ride;
 		}
 		if (nameOfRide.equals("uberBlack")) {
@@ -55,6 +57,7 @@ public class RideFactory {
 					.findFirst()
 					.get();
 			myUber.register(ride);
+			ride.getCustomer().addMessageToBox("You have selected an UberBlack ride.");
 			return ride;
 		}
 		if (nameOfRide.equals("uberVan")) {
@@ -62,6 +65,7 @@ public class RideFactory {
 					.findFirst()
 					.get();
 			myUber.register(ride);
+			ride.getCustomer().addMessageToBox("You have selected an UberVan ride.");
 			return ride;
 		}
 		throw new Exception("Invalid Type of Ride");

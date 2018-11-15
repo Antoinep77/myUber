@@ -87,7 +87,7 @@ public class Driver {
 			ride.getCustomer().spendAmount(ride.getCost());
 			this.addAmount(ride.getCost());
 			ride.setStatus(RideStatus.ONGOING);
-			ride.getCustomer().addMessageToBox("Your ride has started");
+			ride.getCustomer().addMessageToBox("Your ride has started, you have been charged for the ride");
 		}
 	}
 	//only works if this is the driver of ride and the ride is confirmed
@@ -98,7 +98,7 @@ public class Driver {
 		ride.setStatus(RideStatus.COMPLETED);
 		this.car.setCarPosition(ride.getDestinationPoint());
 		ride.getCustomer().setCustomerPosition(ride.getDestinationPoint());
-		ride.getCustomer().addMessageToBox("Your ride is finished");
+		ride.getCustomer().addMessageToBox("Your ride is finished, you can now rate your driver.");
 		}
 	}
 

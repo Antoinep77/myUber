@@ -125,7 +125,7 @@ public class Driver {
 			change = true;
 		}
 
-		int differenceOfTime = TimeOperation.getTimeInSeconde(this.lastTimeOfLastStateChange) - getTimeInSeconde(timeOfChange);
+		int differenceOfTime = TimeOperation.getTimeInSeconde(this.lastTimeOfLastStateChange) - TimeOperation.getTimeInSeconde(timeOfChange);
 		
 		if(change == true) {
 			this.lastTimeOfLastStateChange = timeOfChange;

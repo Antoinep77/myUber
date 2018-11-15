@@ -17,9 +17,7 @@ public class Customer {
 	private double totaleAmountRetreived = 0;
 	private int numOfRide = 0;
 	
-	//private int NumOfPerson; ??
-	
-	//   constructor  
+
 	
 	public Customer(String customerName, String customerSurName, GPScoordinates customerPosition,
 			int creditCardNumber) {

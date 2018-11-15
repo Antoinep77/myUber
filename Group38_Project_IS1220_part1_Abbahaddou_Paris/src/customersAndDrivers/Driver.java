@@ -23,7 +23,7 @@ public class Driver {
 	private DriverState driverState = DriverState.ONDUTY;  // the state of the driver --> off-duty, on-duty, off-line on on-a-ride
 	private double driverAmount = 0.0;  // total amount cashed by the driver
 	private int numOfRides = 0;    // number of rides done by the driver
-	private ArrayList<Double> driverMarks = new ArrayList<Double>();
+	private ArrayList<Integer> driverMarks = new ArrayList<Integer>();
 	private Map<String, Long> driversTimes = new HashMap<String, Long>(); //the time are in ms.
 	
 	private Date lastTimeOfLastStateChange;
@@ -207,7 +207,7 @@ public class Driver {
 			return 0.0;
 		}
 	}
-	public void addOneMark(double newMark) {
+	public void addOneMark(int newMark) {
 		driverMarks.add(newMark);
 	}
 	

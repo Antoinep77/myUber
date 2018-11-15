@@ -21,6 +21,7 @@ public enum TrafficCondition {
 			lowTrafficProbability = 0.05;
 			meduimTrafficProbability = 0.20;
 			heavyTrafficProbabitiy = 0.75;
+			//
 			
 			
 		}else if(time.after(time2) && time.before(time3)){

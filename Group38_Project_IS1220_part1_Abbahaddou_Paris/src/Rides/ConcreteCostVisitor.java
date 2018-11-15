@@ -1,14 +1,16 @@
 package Rides;
 
-import java.sql.Time;
+
+
+import java.util.Date;
 
 import customersAndDrivers.Customer;
 
 public class ConcreteCostVisitor implements CostVisitor{
 	@Override
 	public double visit(UberX uberX) {
-		Time time = uberX.getStartingDate();
-		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
+		Date date = uberX.getStartingDate();
+		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(date);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
@@ -28,8 +30,8 @@ public class ConcreteCostVisitor implements CostVisitor{
 	}
 	@Override
 	public double visit(UberBlack uberBlack) {
-		Time time = uberBlack.getStartingDate();
-		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
+		Date date = uberBlack.getStartingDate();
+		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(date);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
@@ -49,8 +51,8 @@ public class ConcreteCostVisitor implements CostVisitor{
 	
 	@Override
 	public double visit(UberVan uberVan) {
-		Time time = uberVan.getStartingDate();
-		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
+		Date date = uberVan.getStartingDate();
+		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(date);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;
@@ -70,8 +72,8 @@ public class ConcreteCostVisitor implements CostVisitor{
 	
 	@Override
 	public double visit(UberPool uberPool) {
-		Time time = uberPool.getStartingDate();
-		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(time);
+		Date date = uberPool.getStartingDate();
+		TrafficCondition currentTrafficCondition = TrafficCondition.setTrafficCondition(date);
 		double trafficFactor = 1;
 		switch(currentTrafficCondition) {
 		case LOW :trafficFactor = 1;

@@ -1,6 +1,7 @@
 package Rides;
 
 import java.sql.Time;
+import java.util.Date;
 
 import Cars.Car;
 import GPS.GPScoordinates;
@@ -11,8 +12,8 @@ import customersAndDrivers.Driver;
 public class UberBlack extends Ride{
 	
 	public UberBlack(Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
-			Time time,TrafficCondition traffic) {
-		super(customer,startingPoint,destinationPoint,time,traffic);
+			Date date,TrafficCondition traffic) {
+		super(customer,startingPoint,destinationPoint,date,traffic);
 	}
 	
 	//basicRates returns the the basic rate in Euro/Km

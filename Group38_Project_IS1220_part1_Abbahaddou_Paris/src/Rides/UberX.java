@@ -1,6 +1,7 @@
 package Rides;
 
 import java.sql.Time;
+import java.util.Date;
 
 import Cars.Car;
 import GPS.GPScoordinates;
@@ -10,8 +11,8 @@ import customersAndDrivers.Customer;
 public class UberX extends Ride{
 	
 	public UberX(Customer customer, GPScoordinates startingPoint,
-			GPScoordinates destinationPoint, Time time,TrafficCondition traffic) {
-		super(customer,startingPoint,destinationPoint,time, traffic);
+			GPScoordinates destinationPoint, Date date,TrafficCondition traffic) {
+		super(customer,startingPoint,destinationPoint,date , traffic);
 	}
 	
 	@Override

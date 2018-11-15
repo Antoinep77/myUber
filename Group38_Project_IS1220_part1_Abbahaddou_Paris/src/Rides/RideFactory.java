@@ -2,6 +2,7 @@ package Rides;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import GPS.GPScoordinates;
@@ -22,13 +23,13 @@ public class RideFactory {
 	//The parameters are the parameters passes to the constructors
 	//The same traffic condition for the 4 rides is also determined in this method
 	public static ArrayList<Ride> createAllRides(Customer cust, GPScoordinates startingPoint,
-			GPScoordinates endingPoint,Time time){
-		TrafficCondition traffic = TrafficCondition.setTrafficCondition(time);
+			GPScoordinates endingPoint,Date date){
+		TrafficCondition traffic = TrafficCondition.setTrafficCondition(date);
 		ArrayList<Ride> listOfRides = new ArrayList<Ride>();
-		listOfRides.add(new UberX(cust,startingPoint,endingPoint,time,traffic));
-		listOfRides.add(new UberPool(cust,startingPoint,endingPoint,time,traffic));
-		listOfRides.add(new UberBlack(cust,startingPoint,endingPoint,time,traffic));
-		listOfRides.add(new UberVan(cust,startingPoint,endingPoint,time,traffic));
+		listOfRides.add(new UberX(cust,startingPoint,endingPoint,date,traffic));
+		listOfRides.add(new UberPool(cust,startingPoint,endingPoint,date,traffic));
+		listOfRides.add(new UberBlack(cust,startingPoint,endingPoint,date,traffic));
+		listOfRides.add(new UberVan(cust,startingPoint,endingPoint,date,traffic));
 		return listOfRides;
 	}
 	

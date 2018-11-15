@@ -1,6 +1,6 @@
 package Rides;
 
-import java.sql.Time;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -30,11 +30,11 @@ public abstract class Ride {
 	private TrafficCondition traffic;
 	
 	public Ride(Customer customer, GPScoordinates startingPoint,
-			GPScoordinates destinationPoint,Time time, TrafficCondition traffic) {
+			GPScoordinates destinationPoint,Date date, TrafficCondition traffic) {
 		this.customer = customer;
 		this.startingPoint = startingPoint;
 		this.destinationPoint = destinationPoint;
-		this.startingDate = time;
+		this.startingDate = date;
 		this.traffic = traffic;
 	}
 	

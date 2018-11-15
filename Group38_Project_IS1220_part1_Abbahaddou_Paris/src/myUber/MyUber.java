@@ -1,7 +1,7 @@
 package myUber;
 
-import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,10 +74,10 @@ public class MyUber {
 		return null;
 	}
 	
-	public RideFactory requireRide(Customer cust,GPScoordinates endingPoint, Time t ) {
+	public RideFactory requireRide(Customer cust,GPScoordinates endingPoint, Date d ) {
 		GPScoordinates startingPoint = cust.getCustomerPosition();
 		CostVisitor visitor = new ConcreteCostVisitor();
-		ArrayList<Ride> listOfRides = RideFactory.createAllRides(cust, startingPoint, endingPoint, t);
+		ArrayList<Ride> listOfRides = RideFactory.createAllRides(cust, startingPoint, endingPoint, d);
 		
 		for(Ride ride: listOfRides) {
 			//accept send a message to cust but also edit also edit ride.cost

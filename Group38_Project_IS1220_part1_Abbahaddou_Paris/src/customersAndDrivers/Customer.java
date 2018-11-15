@@ -98,7 +98,7 @@ public class Customer {
 		this.numOfRide = this.numOfRide + 1;
 	}
 	
-	//Give a mark to the driver of one of their rides 
+	//Give a mark to the driver of one of their ride
 	// work only if the customer has taken the ride, the ride is completed and the ride hasn't already be marked
 	public void mark(Ride ride, double newmark) {
 		if (this == ride.getCustomer() && ride.getStatus() == RideStatus.COMPLETED && !ride.isMarked()) {

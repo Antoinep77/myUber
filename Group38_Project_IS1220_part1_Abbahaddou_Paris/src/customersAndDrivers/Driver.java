@@ -20,7 +20,7 @@ public class Driver {
 	private String driverName;   // the name of the driver
 	private String driverSurName;  // the surname of the driver
 	private int driverID;            // numerical ID of the driver
-	private DriverState driverState = DriverState.ONDUTY;  // the state of the driver --> off-duty, on-duty, off-line on on-a-ride
+	private DriverState driverState = DriverState.OFFLINE;  // the state of the driver --> off-duty, on-duty, off-line on on-a-ride
 	private double driverAmount = 0.0;  // total amount cashed by the driver
 	private int numOfRides = 0;    // number of rides done by the driver
 	private ArrayList<Integer> driverMarks = new ArrayList<Integer>();
@@ -100,6 +100,22 @@ public class Driver {
 		ride.getCustomer().setCustomerPosition(ride.getDestinationPoint());
 		ride.getCustomer().addMessageToBox("Your ride is finished, you can now rate your driver.");
 		}
+	}
+	
+	public void connect(Date date) {
+		this.changeStateTo(DriverState.ONDUTY, date);
+	}
+	
+	public void disconnect(Date date) {
+		this.changeStateTo(DriverState.OFFDUTY, date);
+	}
+	
+	public void pause(Date date) {
+		this.changeStateTo(DriverState.OFFDUTY, date);
+	}
+	
+	public void unpause(Date date) {
+		this.changeStateTo(DriverState.ONDUTY, date);
 	}
 
 	

@@ -48,7 +48,7 @@ public class CreateMyUberFromText {
 				for(int i=0; i< Integer.parseInt(command[1]);i++ ) {
 					List<Car> carList = myUber.getCarList();
 					Collections.shuffle(carList);
-					myUber.createDriver(carList.get(i%carList.size()), "driver"+i, "Surname");
+					myUber.createDriver(carList.get(i%carList.size()), "driver"+i, "Surname").connect(new Date());;
 				}
 			}
 			// Command "Customer NumberOfCustomer"
@@ -67,10 +67,7 @@ public class CreateMyUberFromText {
 				for(int i=0;i< Integer.parseInt(command[1]);i++ ) {
 					Customer cust = custList.get(new Random().nextInt(custList.size()));
 					GPScoordinates coords = new GPScoordinates(Math.random()*positionMax, Math.random()*positionMax);
-					Date date1 = new Date(2018,11,1);
-					Date date2 = new Date(2018,11,30);
-					Date date = new Date(date1.getTime() + (long)(Math.random()*(date2.getTime()- date1.getTime())) );
-					RideFactory rideFac = myUber.requireRide(cust,coords,date);
+					RideFactory rideFac = myUber.requireRide(cust,coords,new Date());
 					
 					double random = Math.random();
 					Ride ride;

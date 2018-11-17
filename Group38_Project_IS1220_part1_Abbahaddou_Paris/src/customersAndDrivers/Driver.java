@@ -126,13 +126,12 @@ public class Driver {
 		if(this.driverState == newdriverState) {
 			change = false;
 		}else if(this.driverState == DriverState.OFFLINE  && this.car.getCarState() == CarState.TAKED) {
-			this.driverState = DriverState.OFFDUTY;
 			change =  false;
 		}else if(this.driverState == DriverState.OFFLINE && this.car.getCarState() == CarState.AVAILABLE) {
 			car.setCarState(CarState.TAKED);
 			this.driverState = newdriverState;
 			change = true;
-		}else if(this.driverState != DriverState.OFFLINE && newdriverState == DriverState.OFFDUTY) {
+		}else if(this.driverState != DriverState.OFFLINE && newdriverState == DriverState.OFFLINE) {
 			car.setCarState(CarState.AVAILABLE);
 			this.driverState = newdriverState;
 			change = true;

@@ -56,7 +56,6 @@ class scenarioTest {
 		
 		cust.mark(ride,4);
 		
-		System.out.println("");
 		}
 		}
 		catch(Exception e) {

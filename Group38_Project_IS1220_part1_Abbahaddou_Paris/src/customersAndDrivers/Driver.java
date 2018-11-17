@@ -35,7 +35,7 @@ public class Driver {
 		this.driverSurName = driverSurName;
 		this.driverID = biggestDriverID + 1;
 		biggestDriverID++; 
-		driversTimes.put("on-dutty", (long) 0);   
+		driversTimes.put("on-duty", (long) 0);   
 		driversTimes.put("off-duty", (long) 0);
 		driversTimes.put("on-a-ride", (long) 0);
 		this.lastTimeOfLastStateChange = new Date(0,0,0);
@@ -140,7 +140,7 @@ public class Driver {
 			change = true;
 		}
 
-		long differenceOfTime = this.lastTimeOfLastStateChange.getTime() - dateOfChange.getTime();
+		long differenceOfTime = dateOfChange.getTime() - this.lastTimeOfLastStateChange.getTime() ;
 		
 		if(change == true) {
 			this.lastTimeOfLastStateChange = dateOfChange;
@@ -177,8 +177,8 @@ public class Driver {
 
 	// method to add extra on-duty time
 	public void addOnDutyTime(long onDutyTime) {
-		long newOnDutyTime = this.driversTimes.get("on-dutty") + onDutyTime;
-		this.driversTimes.put("on-dutty", newOnDutyTime);
+		long newOnDutyTime = this.driversTimes.get("on-duty") + onDutyTime;
+		this.driversTimes.put("on-duty", newOnDutyTime);
 	}
 	
 	

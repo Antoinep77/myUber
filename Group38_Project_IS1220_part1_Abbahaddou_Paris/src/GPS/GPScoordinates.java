@@ -14,6 +14,39 @@ public class GPScoordinates {
 		this.x = x;
 		this.y = y;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(x);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(y);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GPScoordinates other = (GPScoordinates) obj;
+		if (Double.doubleToLongBits(x) != Double.doubleToLongBits(other.x))
+			return false;
+		if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
+			return false;
+		return true;
+	}
+
+
+
 	// Setter & getters
 	public double getX() {
 		return x;
@@ -38,6 +71,7 @@ public class GPScoordinates {
 		return dist;
 	}
 	
+
 	public static GPScoordinates ClosestPointFrom(ArrayList<GPScoordinates> listOfPoints, Driver d) {
 		GPScoordinates point = d.getCar().getCarPosition();
 		ArrayList<GPScoordinates> sortedListOfPoints = new ArrayList<GPScoordinates>(listOfPoints);

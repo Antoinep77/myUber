@@ -35,7 +35,7 @@ class scenarioTest {
 		Ride ride = rideFac.require(myUber,"uberX");
 		if (ride instanceof UberPool) {
 			Pool pool = ride.getPool();
-			pool.getDriver();
+			Driver driver = pool.getDriver();
 			myUber.confirm(driver, pool);
 			driver.startOne(pool); // start first ride
 			driver.finishOne(pool);
@@ -55,6 +55,8 @@ class scenarioTest {
 		driver2.finish(ride);
 		
 		cust.mark(ride,4);
+		
+		System.out.println("");
 		}
 		}
 		catch(Exception e) {

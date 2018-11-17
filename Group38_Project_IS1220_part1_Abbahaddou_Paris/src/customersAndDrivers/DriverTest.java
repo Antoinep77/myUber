@@ -87,4 +87,30 @@ class DriverTest {
 		driver.changeStateTo(DriverState.OFFLINE, new Date(2018,11,15,11,3));
 		assertEquals((double)(driver.getDriversTimes().get("on-duty")),(double)180000);
 	}
+	
+	@Test
+	void whenAddingOffDutyTimeThenTimeIsAdded() {
+		Car car = new Standard(new GPScoordinates(0, 1));
+		Driver driver = new Driver(car, "prenom", "nom");
+		driver.addOffDutyTime(340);
+		assertEquals((double)(driver.getDriversTimes().get("off-duty")),(double)340);
+	}
+	
+	@Test
+	void whenAddingOnDutyTimeThenTimeIsAdded() {
+		Car car = new Standard(new GPScoordinates(0, 1));
+		Driver driver = new Driver(car, "prenom", "nom");
+		driver.addOnDutyTime(340);
+		assertEquals((double)(driver.getDriversTimes().get("on-duty")),(double)340);
+	}
+	@Test
+	void whenAddingOnARideTimeThenTimeIsAdded() {
+		Car car = new Standard(new GPScoordinates(0, 1));
+		Driver driver = new Driver(car, "prenom", "nom");
+		driver.addOnRideTime(340);
+		assertEquals((double)(driver.getDriversTimes().get("on-a-ride")),(double)340);
+	}
+	
+	
+	
 }

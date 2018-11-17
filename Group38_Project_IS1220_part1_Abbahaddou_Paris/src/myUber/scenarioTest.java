@@ -55,6 +55,8 @@ class scenarioTest {
 		driver2.finish(ride);
 		
 		cust.mark(ride,4);
+		
+		System.out.println("");
 		}
 		}
 		catch(Exception e) {

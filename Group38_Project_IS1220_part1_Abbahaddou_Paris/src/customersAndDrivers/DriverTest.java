@@ -71,11 +71,20 @@ class DriverTest {
 	}
 	
 	@Test
-	void whenChangingBackToOffdutyThenCarIsAvailable() {
+	void whenChangingBackToOfflineThenCarIsAvailable() {
 		Car car = new Standard(new GPScoordinates(0, 1));
 		Driver driver = new Driver(car, "prenom", "nom");
 		driver.changeStateTo(DriverState.ONDUTY, new Date());	
 		driver.changeStateTo(DriverState.OFFLINE, new Date());
 		assertEquals(driver.getCar().getCarState(),CarState.AVAILABLE);
+	}
+	
+	@Test
+	void whenChangingStateThenStateTimeIsStored() {
+		Car car = new Standard(new GPScoordinates(0, 1));
+		Driver driver = new Driver(car, "prenom", "nom");
+		driver.changeStateTo(DriverState.ONDUTY, new Date(2018,11,15,11,0));	
+		driver.changeStateTo(DriverState.OFFLINE, new Date(2018,11,15,11,3));
+		assertEquals((double)(driver.getDriversTimes().get("on-duty")),(double)180000);
 	}
 }

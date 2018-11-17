@@ -190,11 +190,11 @@ public class Driver {
 	public void addOnRideTime(long onRideTime) {
 		long newOnRideTime = this.driversTimes.get("on-a-ride") + onRideTime;
 		this.driversTimes.put("on-a-ride", newOnRideTime);
-	}
+	} 
 	
 	public double getOnDutyRateOfDriving() {
 		double numerator = this.driversTimes.get("on-a-ride");
-		double denominator = this.driversTimes.get("on-dutty");
+		double denominator = this.driversTimes.get("on-duty");
 		if(denominator != 0) {
 			return numerator/denominator;
 		}else {
@@ -203,8 +203,8 @@ public class Driver {
 	}
 	
 	public double getRateOfActivity() {
-		double numerator = this.driversTimes.get("on-dutty") + this.driversTimes.get("on-a-ride");
-		double denominator = this.driversTimes.get("on-dutty") + this.driversTimes.get("on-a-ride") + this.driversTimes.get("off-duty");
+		double numerator = this.driversTimes.get("on-duty") + this.driversTimes.get("on-a-ride");
+		double denominator = this.driversTimes.get("on-duty") + this.driversTimes.get("on-a-ride") + this.driversTimes.get("off-duty");
 		if(denominator != 0) {
 			return numerator/denominator;
 		}else {
@@ -213,7 +213,7 @@ public class Driver {
 	}
 	
 	public double getOccupationRate() {
-		double numerator = this.driversTimes.get("on-dutty");
+		double numerator = this.driversTimes.get("on-duty");
 		double denominator = this.driversTimes.get("on-a-ride") ;
 		if(denominator != 0) {
 			return numerator/denominator;

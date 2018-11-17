@@ -95,6 +95,7 @@ public abstract class Ride {
 	public void setStatus(RideStatus status) {
 		this.status = status;
 	}
+	
 	// getLength return the the length of the ride
 	public double getLentgh() {
 		return GPScoordinates.distance(startingPoint, destinationPoint);

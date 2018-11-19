@@ -33,12 +33,12 @@ class scenarioTest {
 				new GPScoordinates(10,8),new Date(2018,8,5,27,00));
 		try {		
 		Ride ride = rideFac.require(myUber,"uberX");
-		if (ride instanceof UberPool) {
+		if (ride instanceof UberPool) {/*
 			Pool pool = ride.getPool();
 			Driver driver = pool.getDriver();
 			myUber.confirm(driver, pool);
 			driver.startOne(pool); // start first ride
-			driver.finishOne(pool);
+			driver.finishOne(pool);*/
 		}
 		else {
 		Driver driver1 = ride.getDriver();

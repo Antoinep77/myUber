@@ -10,6 +10,7 @@ import Cars.CarFactory;
 import GPS.GPScoordinates;
 import Rides.ConcreteCostVisitor;
 import Rides.CostVisitor;
+import Rides.Pool;
 import Rides.Ride;
 import Rides.RideFactory;
 import Rides.RideStatus;
@@ -96,6 +97,15 @@ public class MyUber {
 		this.rideList.add(ride);
 		if(ride instanceof UberPool) {
 			// TODO
+			/*
+			Pool pool = new Pool(new ArrayList<Ride>());
+			ArrayList<Driver> listDriv = new ArrayList<Driver>(this.driverList) ;
+			Driver driver = pool.getDriver(listDriv);
+			ride.setDriver(driver);
+			if (driver == null) {
+				ride.getCustomer().addMessageToBox("No available driver found your ride has been canceled");
+				ride.setStatus(RideStatus.CANCELED);
+			}*/
 		}
 		else {
 			Driver driver = this.findClosestAvailableDriver(ride);

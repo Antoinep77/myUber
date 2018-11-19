@@ -22,6 +22,32 @@ public class CreateMyUberFromText {
 
 	/*do a random scenario from text
 	Look below for more detail of instruction available*/
+	/**
+	 * 
+	 * Create an instance of MyUber with a text file.
+	 * This text file should contain a list of lines with the following structure. 
+	 * The first word specify the type of operation to do.
+	 * <p>
+	 * They can be 'Car', 'Customer','Driver' or 'Rides'.
+	 * <p>
+	 * The 'Car' keyword can be used to create a number N of car of type Type with the following syntax : "Car Type N", ex: "Car Standard 50".
+	 * <p>
+	 * The 'Driver' and 'Customer' keywords can be used the same way to create a number N of driver with the following syntax : "Driver N", ex: "Customer 30".
+	 * <p>
+	 * The 'Rides' keyword can be used to require and complete (if not canceled) a number N of ride. You have then to specify the probability that the ride is an instance of UberX, of UberBlack and of UberVan 
+	 * and the probability that a ride is canceled or refuse.
+	 * The probability of a UberVan Ride is 1 minus the other
+	 * with the following syntax : "Rides N pUberX pUberPool pUberBlack pRefused pCanceled"
+	 * ex: "Rides 1000 0.25 0.25 0.25 0.3 0.1"
+	 * 
+	 * In case of a sum of probability greater than 1,
+	 *  the probability will be respected in this order : UberX, UberPool, UberBlack, UberVan.
+	 * 
+	 * 
+	 * @param filePath the path of the text file to load
+	 * @return the MyUber instance after all operations on the text file have been done using random values
+	 * @throws Exception if the file could not be found.
+	 */
 	public static MyUber executeScenarioFromText(String filePath) throws Exception {
 		FileReader file = new FileReader(filePath);
 		BufferedReader reader = new BufferedReader(file);

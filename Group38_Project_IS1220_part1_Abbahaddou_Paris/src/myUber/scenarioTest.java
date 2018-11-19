@@ -41,20 +41,18 @@ class scenarioTest {
 			driver.finishOne(pool);*/
 		}
 		else {
-		Driver driver1 = ride.getDriver();
-		myUber.refuse(driver1,ride);
 
+		myUber.refuse(ride);
 
-		Driver driver2 = ride.getDriver();
-		myUber.confirm(driver2,ride);
+		myUber.confirm(ride);
 		
-		driver2.start(ride);
+		myUber.start(ride);
 		
-		cust.cancel(ride);
+		myUber.cancel(ride);
 		
-		driver2.finish(ride);
+		myUber.finish(ride);
 		
-		cust.mark(ride,4);
+		myUber.mark(ride,4);
 		
 		}
 		}

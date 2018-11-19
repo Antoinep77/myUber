@@ -92,19 +92,19 @@ public class CreateMyUberFromText {
 						double random2 = Math.random();
 						
 						if(random1<Double.parseDouble(command[6])) {
-							cust.cancel(ride);
+							myUber.cancel(ride);
 						}
 						if(random2<Double.parseDouble(command[5])) {
-							myUber.refuse(driver, ride);
+							myUber.refuse(ride);
 						}
 						else {
-							myUber.confirm(driver,ride);
+							myUber.confirm(ride);
 						}
 					}
 					if(ride.getStatus()==RideStatus.CONFIRMED) {
-						driver.start(ride);
-						driver.finish(ride);
-						cust.mark(ride, new Random().nextInt(6));
+						myUber.start(ride);
+						myUber.finish(ride);
+						myUber.mark(ride, new Random().nextInt(6));
 					}
 				}
 				

@@ -154,9 +154,10 @@ public class MyUber {
 		return closestOnDutyDriver;
 	}
 	
-	//only works if driver1 is the driver of ride and the ride is unconfirmed
-	public void refuse(Driver driver1, Ride ride) {
-		if(ride.getDriver() == driver1 && ride.getStatus() == RideStatus.UNCONFIRMED) {
+	//only works if the ride is unconfirmed
+	public void refuse(Ride ride) {
+		Driver driver1 = ride.getDriver();
+		if(ride.getStatus() == RideStatus.UNCONFIRMED) {
 			ride.addRefusingDriver(driver1);
 			ride.getCustomer().addMessageToBox("One driver refused the ride.");
 			Driver driver2 = findClosestAvailableDriver(ride);
@@ -168,12 +169,65 @@ public class MyUber {
 		}
 	}
 	//Change the status of the driver so that he can't receive new rides
-	//only works if driver1 is the driver of ride and the ride is unconfirmed
-	public void confirm(Driver driver, Ride ride) {
-		if(ride.getDriver() == driver && ride.getStatus() == RideStatus.UNCONFIRMED
+	//only works if the ride is unconfirmed
+	public void confirm(Ride ride) {
+		Driver driver = ride.getDriver();
+		if(ride.getStatus() == RideStatus.UNCONFIRMED
 				&& driver.changeStateTo(DriverState.ONARIDE,ride.getStartingDate())) {
 			ride.setStatus(RideStatus.CONFIRMED);
 			ride.getCustomer().addMessageToBox("Your ride has been confirmed. Your driver is arriving soon.");
+		}
+	}
+	
+	//Give a mark to the driver of one of their ride
+	// work only if the ride is completed and the ride hasn't already be marked
+	public void mark(Ride ride, int newmark) {
+		Customer cust = ride.getCustomer();
+		if (ride.getStatus() == RideStatus.COMPLETED && !ride.isMarked() &&
+				newmark <= 5 && newmark >= 0) {
+			ride.getDriver().addOneMark(newmark);
+			cust.addMessageToBox("You rated your Driver with a " + newmark +" star mark.");
+		}else {
+			cust.addMessageToBox("Invalid mark, your mark must be beetween 0 and 5");
+		}
+	}
+	
+	//only works if the ride is confirmed or unconfirmed 
+	public void cancel(Ride ride) {
+		Customer cust = ride.getCustomer();
+		if(ride.getStatus() == RideStatus.CONFIRMED || ride.getStatus() == RideStatus.UNCONFIRMED) {
+			ride.getDriver().changeStateTo(DriverState.ONDUTY,ride.getStartingDate());
+			ride.setStatus(RideStatus.CANCELED);
+			cust.addMessageToBox("Your ride has been canceled");
+		}
+		else {
+			cust.addMessageToBox("You can not cancel this ride");
+		}
+	}
+	
+	
+	//only works if the ride is confirmed
+	//also credit the driver for the ride
+	public void start(Ride ride) {
+		Driver driver = ride.getDriver();
+		if( ride.getStatus() == RideStatus.CONFIRMED) {
+			driver.addOneRide();
+			ride.getCustomer().spendAmount(ride.getCost());
+			driver.addAmount(ride.getCost());
+			ride.setStatus(RideStatus.ONGOING);
+			ride.getCustomer().addMessageToBox("Your ride has started, you have been charged for the ride");
+		}
+	}
+	//only works if the ride is ongoing
+	//Also change the position of the driver to the destination position
+	public void finish(Ride ride) {
+		Driver driver = ride.getDriver();
+		if(ride.getStatus() == RideStatus.ONGOING
+				&& driver.changeStateTo(DriverState.ONDUTY,ride.getArrivalDate())) {
+		ride.setStatus(RideStatus.COMPLETED);
+		driver.getCar().setCarPosition(ride.getDestinationPoint());
+		ride.getCustomer().setCustomerPosition(ride.getDestinationPoint());
+		ride.getCustomer().addMessageToBox("Your ride is finished, you can now rate your driver.");
 		}
 	}
 	

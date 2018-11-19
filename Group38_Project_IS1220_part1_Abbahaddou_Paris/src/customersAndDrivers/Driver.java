@@ -77,29 +77,9 @@ public class Driver {
 	public int getNumOfRides() {
 		return numOfRides;
 	}
-
 	
-	//only works if this is the driver of ride and the ride is confirmed
-	//also credit the driver for the ride
-	public void start(Ride ride) {
-		if(ride.getDriver() == this && ride.getStatus() == RideStatus.CONFIRMED) {
-			this.numOfRides++;
-			ride.getCustomer().spendAmount(ride.getCost());
-			this.addAmount(ride.getCost());
-			ride.setStatus(RideStatus.ONGOING);
-			ride.getCustomer().addMessageToBox("Your ride has started, you have been charged for the ride");
-		}
-	}
-	//only works if this is the driver of ride and the ride is confirmed
-	//Also change the position of the driver to the destination position
-	public void finish(Ride ride) {
-		if(ride.getDriver() == this && ride.getStatus() == RideStatus.ONGOING
-				&& this.changeStateTo(DriverState.ONDUTY,ride.getArrivalDate())) {
-		ride.setStatus(RideStatus.COMPLETED);
-		this.car.setCarPosition(ride.getDestinationPoint());
-		ride.getCustomer().setCustomerPosition(ride.getDestinationPoint());
-		ride.getCustomer().addMessageToBox("Your ride is finished, you can now rate your driver.");
-		}
+	public void addOneRide() {
+		numOfRides++;
 	}
 	
 	public void connect(Date date) {

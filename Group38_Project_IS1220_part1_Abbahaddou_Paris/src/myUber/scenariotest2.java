@@ -53,7 +53,7 @@ public class scenariotest2 {
 		for (Ride ride3 : poolList) {
 			ride3.setStatus(RideStatus.CONFIRMED);
 			ride3.setDriver(driver);
-			myUber.confirm(driver,ride3);
+			myUber.confirm(ride3);
 			
 		}
 		
@@ -64,7 +64,7 @@ public class scenariotest2 {
 		
 		for (Ride ride3 : poolListStart) {
 			
-			driver.start(ride3);
+			myUber.start(ride3);
 		}/*
 		for (Ride ride3 : poolListEnd) {
 			//System.out.println(ride3.getCustomer().getCreditCardNumber());
@@ -80,17 +80,17 @@ public class scenariotest2 {
 		
 		poolListEnd.get(0).setStatus(RideStatus.ONGOING);
 		//System.out.println(poolListEnd.get(0).getCustomer().getCustomerName());
-		driver.finish(poolListEnd.get(0));
+		myUber.finish(poolListEnd.get(0));
 		poolListEnd.get(0).setStatus(RideStatus.COMPLETED);
-		poolListEnd.get(0).getCustomer().mark(poolListEnd.get(0),4);
+		myUber.mark(poolListEnd.get(0),4);
 		
 		driver.changeStateTo(DriverState.ONARIDE, poolListEnd.get(0).getArrivalDate());
 		
 		poolListEnd.get(1).setStatus(RideStatus.ONGOING);
 		//System.out.println(poolListEnd.get(1).getCustomer().getCustomerName());
-		driver.finish(poolListEnd.get(1));
+		myUber.finish(poolListEnd.get(1));
 		poolListEnd.get(1).setStatus(RideStatus.COMPLETED);
-		poolListEnd.get(1).getCustomer().mark(poolListEnd.get(1),2);
+		myUber.mark(poolListEnd.get(1),2);
 		
 		// add mark  
 		}

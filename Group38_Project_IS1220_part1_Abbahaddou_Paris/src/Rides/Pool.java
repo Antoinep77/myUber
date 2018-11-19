@@ -10,12 +10,10 @@ import myUber.MyUber;
 
 public class Pool {
 	private ArrayList<UberPool> listPoolRide = new ArrayList<UberPool>();
-	static ArrayList<Pool> listPool = new ArrayList<Pool>();
 
 	public Pool(ArrayList<UberPool> listPoolRide) {
 		super();
 		this.listPoolRide = listPoolRide;
-		listPool.add(this);
 	}
 	public void addOneRide(UberPool ride) {
 		this.listPoolRide.add(ride);
@@ -111,17 +109,7 @@ public class Pool {
 			}
 				
 		});
-		return listDriverPool.get(0);
-		
+		return listDriverPool.get(0);	
 	}
-	public static Pool getPool(UberPool ride) {
-		Pool pool = new Pool(new ArrayList<UberPool>());
-		for (Pool pool1 : listPool) {
-			if(pool1.listPoolRide.contains(ride)) {
-				pool = pool1;
-			}
-		}
-		return pool;
-	}
-	
+
 }

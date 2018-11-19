@@ -26,6 +26,7 @@ public class MyUber {
 	private List<Driver> driverList = new ArrayList<Driver>(); 
 	private List<Car> carList = new ArrayList<Car>();
 	private List<Ride> rideList = new ArrayList<Ride>();
+	private ArrayList<Pool> listPool = new ArrayList<Pool>();
 	
 	//Constructor with no argument to test the other method with a few customer, driver etc...
 	public MyUber(String test) throws Exception {
@@ -50,10 +51,21 @@ public class MyUber {
 	public List<Ride> getRideList() {
 		return rideList;
 	}
+	
+	public ArrayList<Pool> getListPool() {
+		return listPool;
+	}
+
 	public Car createCar(String type,GPScoordinates carPosition) throws Exception {
 		Car car = CarFactory.create(type, carPosition);
 		this.carList.add(car);
 		return car;
+	}
+	
+	public Pool createPool(ArrayList<UberPool> listPoolRide) {
+		Pool pool = new Pool(listPoolRide);
+		listPool.add(pool);
+		return pool;
 	}
 	
 	public Customer createCustomer(String customerName, String customerSurName, GPScoordinates customerPosition,

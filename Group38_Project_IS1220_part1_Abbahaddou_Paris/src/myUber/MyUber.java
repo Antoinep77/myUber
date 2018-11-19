@@ -136,7 +136,7 @@ public class MyUber {
 		GPScoordinates startingPoint = ride.getStartingPoint();
 		ArrayList<Driver> onDutyList = onDutyDrive(ride);
 		List<Driver> filteredList = onDutyList.stream()
-				.filter(d -> Ride.isCompatibleWithTheRide(ride, d.getCar()) && !ride.getRefusingDriver().contains(d))
+				.filter(d -> d.getCar().isCompatibleWithTheRide(ride) && !ride.getRefusingDriver().contains(d))
 				.collect(Collectors.toList());
 		if(filteredList.size()==0) {
 			return null;

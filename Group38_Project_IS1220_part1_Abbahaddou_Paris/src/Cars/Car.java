@@ -8,16 +8,21 @@ import Rides.UberVan;
 import Rides.UberX;
 import customersAndDrivers.Driver;
 
+
 /**
  * @author yassine & Antoine
  *
  */
-public class Car {
+
+
+public abstract class Car {
+
 	
 	/**
 	 * GPScoordinates GPS coordinates of the car
 	 */
 	private GPScoordinates carPosition;  // the GPS coordinates of the car
+
 	/**
 	 * Int the number of seats 
 	 */
@@ -29,15 +34,20 @@ public class Car {
 	/**
 	 * CarState the state of the car
 	 */
+
+
 	private CarState carState= CarState.AVAILABLE;
 	
+
 	/**
 	 * @param carPosition  the position of the car 
 	 * @param carID the alphanumerical ID of the car
 	 */
-	public Car(GPScoordinates carPosition, String carID) {
+
+
+	public Car(GPScoordinates carPosition) {
+
 		this.carPosition = carPosition;
-		this.carID = carID;
 	}
 	
 	/**
@@ -67,9 +77,8 @@ public class Car {
 		this.carState = carState;
 	}
 	
-			
+	// check if the ride and the car are compatible 
+	public abstract boolean isCompatibleWithTheRide(Ride ride);
+				
 	
-
-	
-
 }

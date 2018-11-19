@@ -9,15 +9,13 @@ import customersAndDrivers.DriverState;
 import myUber.MyUber;
 
 public class Pool {
-	private ArrayList<Ride> listPoolRide = new ArrayList<Ride>();
-	static ArrayList<Pool> listPool = new ArrayList<Pool>();
+	private ArrayList<UberPool> listPoolRide = new ArrayList<UberPool>();
 
-	public Pool(ArrayList<Ride> listPoolRide) {
+	public Pool(ArrayList<UberPool> listPoolRide) {
 		super();
 		this.listPoolRide = listPoolRide;
-		listPool.add(this);
 	}
-	public void addOneRide(Ride ride) {
+	public void addOneRide(UberPool ride) {
 		this.listPoolRide.add(ride);
 	}
 	public Ride ClosestRideInStarting(GPScoordinates position, ArrayList<Ride> allRides) {
@@ -111,17 +109,7 @@ public class Pool {
 			}
 				
 		});
-		return listDriverPool.get(0);
-		
+		return listDriverPool.get(0);	
 	}
-	public static Pool getPool(Ride ride) {
-		Pool pool = new Pool(new ArrayList<Ride>());
-		for (Pool pool1 : listPool) {
-			if(pool1.listPoolRide.contains(ride)) {
-				pool = pool1;
-			}
-		}
-		return pool;
-	}
-	
+
 }

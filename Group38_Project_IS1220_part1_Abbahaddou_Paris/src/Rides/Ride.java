@@ -73,21 +73,7 @@ public abstract class Ride {
 		return traffic;
 	}
 
-	// check if the ride and the car are compatible 
-	public static boolean isCompatibleWithTheRide(Ride ride, Car car) {
-		if(ride instanceof UberBlack && car instanceof Berlin) {
-			return true;
-		}else if(ride instanceof UberX && car instanceof Standard) {
-			return true;
-		}else if(ride instanceof UberVan && car instanceof Van) {
-			return true;
-		}else if(ride instanceof UberPool && car instanceof Standard) {
-			return true;
-		}else {
-			return false;
-		}
-				
-	}
+
 
 	public RideStatus getStatus() {
 		return status;

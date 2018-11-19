@@ -35,9 +35,9 @@ public class scenariotest2 {
 		RideFactory rideFac = myUber.requireRide(cust,new GPScoordinates(10,8),new Date(2018,8,5,27,00));
 		RideFactory rideFac2 = myUber.requireRide(cust2,new GPScoordinates(11,15),new Date(2018,8,5,27,00));
 		try {		
-		Ride ride = rideFac.require(myUber,"uberPool");
-		Ride ride2 = rideFac2.require(myUber,"uberPool");
-		ArrayList<Ride> poolList = new ArrayList<Ride>();
+		UberPool ride = (UberPool) rideFac.require(myUber,"uberPool");
+		UberPool ride2 = (UberPool)rideFac2.require(myUber,"uberPool");
+		ArrayList<UberPool> poolList = new ArrayList<UberPool>();
 		poolList.add(ride);
 		poolList.add(ride2);
 		Pool pool1 = new Pool(poolList);

@@ -12,7 +12,7 @@ public class TimeOperation {
 	 * return time (in ms) to travel a distance with a traffic condition
 	 * @param distance the distance to travel
 	 * @param traffic the traffic condition (because the speed of the car depends on the traffic condition
-	 * @return the duration of the travel in ms
+	 * @return the duration of the travel in msecondes
 	 */
 	public static long rideDurationTime(double distance, TrafficCondition traffic) {
 		double speed ;

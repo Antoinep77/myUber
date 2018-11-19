@@ -18,8 +18,8 @@ import customersAndDrivers.DriverState;
 
 public class scenariotest2 {
 	@Test
-	void getARide() {
-		
+	void getARide() throws Exception {
+
 		MyUber myUber = new MyUber();
 
 		Customer cust = myUber.createCustomer("Antoine", "Paris", new GPScoordinates(5, 3), 534);

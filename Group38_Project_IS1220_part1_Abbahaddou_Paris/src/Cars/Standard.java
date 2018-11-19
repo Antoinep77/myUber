@@ -8,6 +8,10 @@ public class Standard extends Car{
 	private GPScoordinates carPosition;
 	private final int numberFreeSeats = 4;
 	// no carID as attribut because we know that the carID is StandardN
+	
+	/**
+	 * @param carPosition Constuctor
+	 */
 	public Standard(GPScoordinates carPosition) {
 		super(carPosition, "Standard" + Integer.toString(StandardNumber+1));
 		StandardNumber++;

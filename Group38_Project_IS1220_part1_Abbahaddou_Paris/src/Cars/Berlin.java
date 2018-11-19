@@ -8,6 +8,10 @@ public class Berlin extends Car{
 	private GPScoordinates carPosition;
 	private final int numberFreeSeats = 4;
 	// no carID as attribut because we know that the carID is BerlinN
+	
+	/**
+	 * @param carPosition Constuctor 
+	 */
 	public Berlin(GPScoordinates carPosition) {
 		super(carPosition, "Berlin" + Integer.toString(BerlinNumber+1));
 		BerlinNumber++;

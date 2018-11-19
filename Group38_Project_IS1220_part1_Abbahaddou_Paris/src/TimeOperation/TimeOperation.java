@@ -6,11 +6,14 @@ import Rides.TrafficCondition;
 
 public class TimeOperation {
 	
-	public static int getTimeInSeconde(Time t) {
-		return 3600*t.getHours() + 60*t.getMinutes() + t.getSeconds();
-	}
-	
+
 	//return time (in ms) to travel a distance with a traffic condition
+	/**
+	 * return time (in ms) to travel a distance with a traffic condition
+	 * @param distance the distance to travel
+	 * @param traffic the traffic condition (because the speed of the car depends on the traffic condition
+	 * @return the duration of the travel in ms
+	 */
 	public static long rideDurationTime(double distance, TrafficCondition traffic) {
 		double speed ;
 		if(traffic == TrafficCondition.LOW) {

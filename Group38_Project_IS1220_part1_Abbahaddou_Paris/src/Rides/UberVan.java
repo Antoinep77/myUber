@@ -10,6 +10,13 @@ import customersAndDrivers.Customer;
 //concrete element
 public class UberVan extends Ride{
 	
+	/**
+	 * @param customer customer the customer booking the ride
+	 * @param startingPoint the starting point of the ride
+	 * @param destinationPoint the destination of the ride
+	 * @param date the date of booking
+	 * @param traffic the traffic condition 
+	 */
 	public UberVan(Customer customer, GPScoordinates startingPoint, GPScoordinates destinationPoint,
 			Date date,TrafficCondition traffic) {
 		super(customer,startingPoint,destinationPoint,date, traffic);

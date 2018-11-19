@@ -9,15 +9,32 @@ import customersAndDrivers.DriverState;
 import myUber.MyUber;
 
 public class Pool {
+	/**
+	 * The list of shared rides
+	 */
 	private ArrayList<UberPool> listPoolRide = new ArrayList<UberPool>();
 
+	/**
+	 * Constuctor
+	 * @param listPoolRide The list of shared rides
+	 */
 	public Pool(ArrayList<UberPool> listPoolRide) {
 		super();
 		this.listPoolRide = listPoolRide;
 	}
+	/**
+	 * method to add a uber pool ride to the list of shared rides
+	 * @param ride add a UberPool ride to the list of shared rides
+	 */
 	public void addOneRide(UberPool ride) {
 		this.listPoolRide.add(ride);
 	}
+	/**
+	 * method that determine which ride has the nearest starting point to a position
+	 * @param position 
+	 * @param allRides 
+	 * @return the ride has the nearest starting point to a position
+	 */
 	public Ride ClosestRideInStarting(GPScoordinates position, ArrayList<Ride> allRides) {
 		ArrayList<Ride> listRide = new ArrayList<Ride>(allRides);
 		listRide.sort((Ride r1, Ride r2) -> {
@@ -33,6 +50,12 @@ public class Pool {
 		});
 		return listRide.get(0);
 	}
+	/**
+	 * method that determine which ride has the nearest destination point to a position
+	 * @param position
+	 * @param allRides
+	 * @return the ride has the nearest destination point to a position
+	 */
 	public Ride ClosestRideInEnding(GPScoordinates position, ArrayList<Ride> allRides) {
 		ArrayList<Ride> listRide = new ArrayList<Ride>(allRides);
 		listRide.sort((Ride r1, Ride r2) -> {
@@ -48,6 +71,11 @@ public class Pool {
 		});
 		return listRide.get(0);
 	}
+	/**
+	 * method that gives the right order for taking the customers from their starting point 
+	 * @param driver
+	 * @return an array list of rides the right order for taking the customers from their starting point 
+	 */
 	public ArrayList<Ride> startingPoolOrder(Driver driver){
 		ArrayList<Ride> listRide = new ArrayList<Ride>(listPoolRide);
 		ArrayList<Ride> listRideInOrder = new ArrayList<Ride>();
@@ -62,6 +90,11 @@ public class Pool {
 		return listRideInOrder;
 		
 	}
+	/**
+	 * method that gives the right order for dropping off the customers in their destination
+	 * @param driver 
+	 * @return an array list of rides the right order for dropping off the customers from their destination
+	 */
 	public ArrayList<Ride> endingPoolOrder(Driver driver){
 		ArrayList<Ride> listRide = new ArrayList<Ride>(listPoolRide);
 		ArrayList<Ride> listRideInOrder = new ArrayList<Ride>();
@@ -76,6 +109,10 @@ public class Pool {
 		return listRideInOrder;
 		
 	}
+	/**
+	 * @param driver
+	 * @return the minimum cost form all possible odrers
+	 */
 	public double minCost(Driver driver) {		
 		double cost = 0;
 		ArrayList<Ride> liststart = new ArrayList<Ride>(startingPoolOrder(driver));
@@ -92,6 +129,11 @@ public class Pool {
 		}
 		return cost;
 	}
+	/**
+	 * method to determine the driver with the minimum cost
+	 * @param listDrivers a list of drivers
+	 * @return the driver with the minimum cost
+	 */
 	public Driver getDriver(ArrayList<Driver> listDrivers) {
 		ArrayList<Driver> listDriverPool = new ArrayList<Driver>(listDrivers);
 		for (Driver driver : listDriverPool) {

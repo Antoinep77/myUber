@@ -5,6 +5,12 @@ import GPS.GPScoordinates;
 public class CarFactory {
 	
 	//return null if the type doesn't match
+	/**
+	 * @param type the type of car to create as string ("Standard","Berlin", "Van")
+	 * @param carPosition
+	 * @return
+	 * @throws Exception
+	 */
 	public static Car create(String type,GPScoordinates carPosition) throws Exception {
 		if (type.equals("Standard")) {
 			return new Standard(carPosition);

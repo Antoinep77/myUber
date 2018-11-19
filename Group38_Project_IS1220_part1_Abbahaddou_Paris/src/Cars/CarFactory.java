@@ -5,7 +5,7 @@ import GPS.GPScoordinates;
 public class CarFactory {
 	
 	//return null if the type doesn't match
-	public static Car create(String type,GPScoordinates carPosition) {
+	public static Car create(String type,GPScoordinates carPosition) throws Exception {
 		if (type.equals("Standard")) {
 			return new Standard(carPosition);
 		}
@@ -15,6 +15,7 @@ public class CarFactory {
 		if (type.equals("Van")) {
 			return new Van(carPosition);
 		}
-		return null;
+		throw new Exception("Invalid Type of Car");
+
 	}
 }

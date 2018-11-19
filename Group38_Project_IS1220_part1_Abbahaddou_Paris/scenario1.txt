@@ -3,7 +3,7 @@ Car Berlin 20
 Car Van 20
 Driver 100
 Customer 30
-Rides 100000 0.33 0 0.34 0.3 0.1
+Rides 1000 0.33 0 0.34 0.3 0.1
 
 
 

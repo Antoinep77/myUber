@@ -27,7 +27,7 @@ public class MyUber {
 	private List<Ride> rideList = new ArrayList<Ride>();
 	
 	//Constructor with no argument to test the other method with a few customer, driver etc...
-	public MyUber(String test) {
+	public MyUber(String test) throws Exception {
 		Car car1 = createCar("Standard",new GPScoordinates(9, 6));
 		Car car2 = createCar("Berlin",new GPScoordinates(3, 2));
 		createDriver(car1,"D1","NOMD1");
@@ -49,7 +49,7 @@ public class MyUber {
 	public List<Ride> getRideList() {
 		return rideList;
 	}
-	public Car createCar(String type,GPScoordinates carPosition) {
+	public Car createCar(String type,GPScoordinates carPosition) throws Exception {
 		Car car = CarFactory.create(type, carPosition);
 		this.carList.add(car);
 		return car;

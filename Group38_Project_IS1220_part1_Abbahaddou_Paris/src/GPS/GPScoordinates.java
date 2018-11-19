@@ -72,19 +72,5 @@ public class GPScoordinates {
 	}
 	
 
-	public static GPScoordinates ClosestPointFrom(ArrayList<GPScoordinates> listOfPoints, Driver d) {
-		GPScoordinates point = d.getCar().getCarPosition();
-		ArrayList<GPScoordinates> sortedListOfPoints = new ArrayList<GPScoordinates>(listOfPoints);
-		sortedListOfPoints.sort((GPScoordinates p1, GPScoordinates p2) -> {
-			if(GPScoordinates.distance(p1, point) < GPScoordinates.distance(p2, point)) {
-				return -1;
-			}
-			if(GPScoordinates.distance(p1, point) > GPScoordinates.distance(p2, point)) {
-				return 1;
-			}
-			return 0;
-		});
-		return sortedListOfPoints.get(0);
-		
-	}
+
 }

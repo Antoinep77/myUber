@@ -86,10 +86,6 @@ public class MyUber {
 		}
 
 	}
-	
-	public static void main(String[] args) {
-		System.out.println(new MyUber("e"));
-	}
 
 
 	@Override

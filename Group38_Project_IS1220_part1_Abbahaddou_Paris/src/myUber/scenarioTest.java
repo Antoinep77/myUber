@@ -53,7 +53,7 @@ class scenarioTest {
 		myUber.finish(ride);
 		
 		myUber.mark(ride,4);
-		
+		System.out.println(myUber);
 		}
 		}
 		catch(Exception e) {

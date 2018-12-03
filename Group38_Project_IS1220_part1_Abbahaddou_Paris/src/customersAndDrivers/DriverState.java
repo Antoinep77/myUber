@@ -2,14 +2,15 @@ package customersAndDrivers;
 
 public enum DriverState {
 	OFFLINE("offline"),
-	ONDUTY("on-duty"),
+	ONDUTY("onduty"),
 	ONARIDE("on-a-ride"),
-	OFFDUTY("off-duty");
+	OFFDUTY("offduty");
 	final private String state;
 
 	private DriverState(String state) {
 		this.state = state;
 	}
+	
 
 	public String getState() {
 		return state;

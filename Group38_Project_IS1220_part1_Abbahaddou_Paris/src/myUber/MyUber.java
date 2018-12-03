@@ -66,23 +66,27 @@ public class MyUber {
 
 				Car car = this.createCar("standard",
 						new GPScoordinates((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 100));
-				this.createDriver(car, "driverStandard" + 1 + "Name", "driverStandard" + 1 + "SurName");
+				Driver d = this.createDriver(car, "driverStandard" + 1 + "Name", "driverStandard" + 1 + "SurName");
+				d.changeStateTo(DriverState.OFFDUTY, new Date());
 			}
 			for (int i = 0; i < nBerlinCars; i++) {
 				Car car = this.createCar("berline",
 						new GPScoordinates((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 100));
-				this.createDriver(car, "driverBerlin" + 1 + "Name", "driverBerlin" + 1 + "SurName");
+				Driver d = this.createDriver(car, "driverBerlin" + 1 + "Name", "driverBerlin" + 1 + "SurName");
+				d.changeStateTo(DriverState.OFFDUTY, new Date());
 			}
 			for (int i = 0; i < nVanCars; i++) {
 				Car car = this.createCar("van",
 						new GPScoordinates((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 100));
-				this.createDriver(car, "driverVan" + 1 + "Name", "driverVan" + 1 + "SurName");
+				Driver d = this.createDriver(car, "driverVan" + 1 + "Name", "driverVan" + 1 + "SurName");
+				d.changeStateTo(DriverState.OFFDUTY, new Date());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
+
 
 	/**
 	 * @return the list of all customers of this instance of myUber
@@ -179,18 +183,35 @@ public class MyUber {
 	// return null if the id doesn't correspond with a customer in customerList
 
 	/**
-	 * Get a customer with his id
+	 * Get a car with his id
 	 * 
-	 * @param i the id of the customer to be found
-	 * @return the customer if he has been found, else the function returns null
+	 * @param id the id of the car to be found
+	 * @return the car if it has been found
+	 * @throws Exception if car is not found
 	 */
-	public Customer getCustomerWithId(int i) {
-		for (Customer cust : customerList) {
-			if (cust.getCustomerID() == i) {
-				return cust;
+	public Car getCarWithId(String id) throws Exception {
+		for (Car car : carList) {
+			if (car.getCarID().equals(id)) {
+				return car;
 			}
 		}
-		return null;
+		throw new Exception();
+	}
+	
+	/**
+	 * Find a driver with his name and surname
+	 * @param name
+	 * @param surname
+	 * @return the driver
+	 * @throws Exception if no driver can be found
+	 */
+	public Driver getDriverWithNames(String name, String surname) throws Exception {
+		for (Driver driver : driverList) {
+			if (driver.getDriverName().equals(name) && driver.getDriverSurName().equals(surname)) {
+				return driver;
+			}
+		}
+		throw new Exception();
 	}
 
 	/**

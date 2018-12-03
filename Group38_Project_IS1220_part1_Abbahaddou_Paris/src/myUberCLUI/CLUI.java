@@ -5,9 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
+import Cars.Car;
 import GPS.GPScoordinates;
+import customersAndDrivers.Driver;
+import customersAndDrivers.DriverState;
 import myUber.MyUber;
 
 public class CLUI {
@@ -70,14 +74,62 @@ public class CLUI {
 			}
 		}
 		
-		else if(command[0].equals("addCustomer") && command.length == 3) {
-			this.myUber.createCustomer(command[1], command[2], 
-					new GPScoordinates((Math.random()-0.5)*10, (Math.random()-0.5)*100), 0);
-			System.out.println("List of Cars :");
-			System.out.println(myUber.getCarList());
-			System.out.println("List of Drivers :");
-			System.out.println(myUber.getDriverList());
+		else if(command[0].equals("addDriver") && command.length == 4) {
+			
+			try {
+				Car car = this.myUber.getCarWithId(command[3]);
+				this.myUber.createDriver(car,command[1], command[2]);
+				System.out.println("List of Cars :");
+				System.out.println(myUber.getCarList());
+				System.out.println("List of Drivers :");
+				System.out.println(myUber.getDriverList());
+			} catch (Exception e) {
+				System.out.println("No car with this ID");
+			}
 		}
+		
+		else if(command[0].equals("setDriverStatus") && command.length == 4) {
+			try {
+				Driver driver = this.myUber.getDriverWithNames(command[1], command[2]);
+				if(driver.changeStateTo(DriverState.valueOf(command[3]), new Date())) {
+					System.out.println("List of Drivers :");
+					System.out.println(myUber.getDriverList());
+				}
+				else {
+					System.out.println("This driver can not change to this state. His car may already be taken.");
+				}
+			} catch (Exception e) {
+				System.out.println("No driver with this name");
+			}
+		}
+		
+		else if(command[0].equals("moveCar") && command.length == 4) {
+			try {
+				this.myUber.getCarWithId(command[1]).setCarPosition(new GPScoordinates(
+						Double.parseDouble(command[2]),Double.parseDouble(command[3])));
+				System.out.println("List of Cars :");
+				System.out.println(myUber.getCarList());
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid Parameters.");
+			} catch (Exception e) {
+				System.out.println("No car with this ID");
+			}
+		}
+		
+		else if(command[0].equals("moveCustomer") && command.length == 4) {
+			try {
+				this.myUber.getCustomerWithId(command[1]).setCarPosition(new GPScoordinates(
+						Double.parseDouble(command[2]),Double.parseDouble(command[3])));
+				System.out.println("List of Customers :");
+				System.out.println(myUber.getCustomerList());
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid Parameters.");
+			} catch (Exception e) {
+				System.out.println("No customer with this ID");
+			}
+		}
+		
+		
 	
 		
 		

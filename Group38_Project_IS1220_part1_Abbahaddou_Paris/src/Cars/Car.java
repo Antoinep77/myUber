@@ -31,6 +31,10 @@ public abstract class Car {
 	 * String the alphanumerical ID of the car
 	 */
 	private String carID;   // the alphanumerical ID
+	public String getCarID() {
+		return carID;
+	}
+
 	/**
 	 * CarState the state of the car
 	 */

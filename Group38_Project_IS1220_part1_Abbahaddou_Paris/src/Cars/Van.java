@@ -16,7 +16,7 @@ public class Van extends Car{
 	 * @param carPosition Constructor of Van car
 	 */
 	public Van(GPScoordinates carPosition) {
-		super(carPosition);
+		super(carPosition, "Van" + Integer.toString(VanNumber+1));
 		carID = "Van" + Integer.toString(VanNumber+1);
 		VanNumber++;
 		
@@ -27,5 +27,6 @@ public class Van extends Car{
 	public boolean isCompatibleWithTheRide(Ride ride) {
 		return 	ride instanceof UberVan;
 	}
+	
 	
 	}

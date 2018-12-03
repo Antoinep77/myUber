@@ -44,12 +44,20 @@ public abstract class Car {
 	 * @param carID the alphanumerical ID of the car
 	 */
 
-
+/*
 	public Car(GPScoordinates carPosition) {
 
 		this.carPosition = carPosition;
 	}
+	*/
 	
+	public Car(GPScoordinates carPosition,String carID) {
+		super();
+		this.carID = carID;
+		this.carPosition = carPosition;
+	}
+
+
 	/**
 	 * @return return the position of the car
 	 */
@@ -73,12 +81,22 @@ public abstract class Car {
 	/**
 	 * @param carState to set the state of the car
 	 */
+	
 	public void setCarState(CarState carState) {
 		this.carState = carState;
 	}
 	
+	
+
+	public String getCarID() {
+		return carID;
+	}
+
+
 	// check if the ride and the car are compatible 
 	public abstract boolean isCompatibleWithTheRide(Ride ride);
-				
+	
+	
+	
 	
 }

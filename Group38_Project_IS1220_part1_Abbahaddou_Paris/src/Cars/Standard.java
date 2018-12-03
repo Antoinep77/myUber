@@ -17,7 +17,7 @@ public class Standard extends Car{
 	 * @param carPosition Constuctor
 	 */
 	public Standard(GPScoordinates carPosition) {
-		super(carPosition);
+		super(carPosition, "Standard" + Integer.toString(StandardNumber+1));
 		carID =  "Standard" + Integer.toString(StandardNumber+1);
 		StandardNumber++;
 		

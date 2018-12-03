@@ -31,6 +31,8 @@ public abstract class Car {
 	 * String the alphanumerical ID of the car
 	 */
 	private String carID;   // the alphanumerical ID
+	
+
 	/**
 	 * CarState the state of the car
 	 */
@@ -42,20 +44,28 @@ public abstract class Car {
 	/**
 	 * @param carPosition  the position of the car 
 	 * @param carID the alphanumerical ID of the car
+
 	 */
 
-/*
+
 	public Car(GPScoordinates carPosition) {
 
 		this.carPosition = carPosition;
 	}
-	*/
-	
+
 	public Car(GPScoordinates carPosition,String carID) {
 		super();
 		this.carID = carID;
 		this.carPosition = carPosition;
 	}
+
+	
+	@Override
+	public String toString() {
+		return "\n position=" + carPosition + ", ID =" + carID + ", status =" + carState;
+	}
+
+
 
 
 	/**

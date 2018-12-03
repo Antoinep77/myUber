@@ -63,8 +63,19 @@ public class Customer {
 		this.creditCardNumber = creditCardNumber;
 		biggestCustomerID++;
 	}
+	
+	
+	
 	// Setters and getters  
 	
+	@Override
+	public String toString() {
+		return "\n name=" + customerName + ", surname =" + customerSurName + ", ID ="
+				+ customerID + ", position=" + customerPosition + ", total paid =" + totaleAmountPaid
+				+ ", number of rides =" + numOfRide;
+	}
+
+
 
 	/**
 	 * @return return the name of the customer
@@ -79,7 +90,7 @@ public class Customer {
 	public String getCustomerSurName() {
 		return customerSurName;
 	}
-
+	
 
 
 	/**

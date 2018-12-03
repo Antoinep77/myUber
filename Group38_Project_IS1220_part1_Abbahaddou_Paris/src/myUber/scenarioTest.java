@@ -21,7 +21,7 @@ class scenarioTest {
 	@Test
 	void getARide() {
 		
-		MyUber myUber = new MyUber();
+		MyUber myUber = new MyUber("a");
 
 		Customer cust = myUber.createCustomer("Antoine", "Paris", 
 				new GPScoordinates(5, 3), 534);
@@ -42,18 +42,18 @@ class scenarioTest {
 		}
 		else {
 
-		myUber.refuse(ride);
+		//myUber.refuse(ride);
 
 		myUber.confirm(ride);
 		
 		myUber.start(ride);
 		
-		myUber.cancel(ride);
+		//myUber.cancel(ride);
 		
 		myUber.finish(ride);
 		
 		myUber.mark(ride,4);
-		
+		System.out.println(myUber);
 		}
 		}
 		catch(Exception e) {

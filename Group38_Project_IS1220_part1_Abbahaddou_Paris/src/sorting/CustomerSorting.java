@@ -12,6 +12,6 @@ public interface CustomerSorting {
 	 * @param listCustomerToSort the list of customers to sort
 	 * @return the list of drivers sorted
 	 */
-	public abstract ArrayList<Customer> sortCustomers(ArrayList<Customer> listCustomerToSort);
+	public abstract ArrayList<Customer> sortCustomers(List<Customer> listCustomerToSort);
 	
 	}

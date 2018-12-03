@@ -240,9 +240,11 @@ public class Driver {
 	 */
 	@Override
 	public String toString() {
-		return "Driver : driverName=" + driverName + ", driverSurName=" + driverSurName + ", driverID=" + driverID
-				+ ", driverState=" + driverState;
+		return "\n name =" + driverName + ", surname=" + driverSurName + ", ID =" + driverID
+				+ ", status =" + driverState + ", total cashed =" + driverAmount + ", number of rides =" + numOfRides;
 	}
+	
+	
 	//  method for adding a new amount
 	/**
 	 * method for adding an amount to the total amount 

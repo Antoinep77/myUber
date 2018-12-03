@@ -11,6 +11,6 @@ public interface DriverSorting {
 	 * @param listDriverToSort the list of drivers to sort
 	 * @return the list of drivers sorted 
 	 */
-	public abstract ArrayList<Driver> sortDrivers(ArrayList<Driver> listDriverToSort);
+	public abstract ArrayList<Driver> sortDrivers(List<Driver> listDriverToSort);
 
 }

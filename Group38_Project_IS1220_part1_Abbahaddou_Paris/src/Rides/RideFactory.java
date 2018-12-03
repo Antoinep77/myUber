@@ -51,7 +51,7 @@ public class RideFactory {
 	/**
 	 * Constructor for creating a new ride and adding it in the myUber system
 	 * @param myUber
-	 * @param nameOfRide the type of ride to create ("UberBlack","UberVan","UberX","UberPool")
+	 * @param nameOfRide the type of ride to create ("uberBlack","uberVan","uberX","uberPool")
 	 * @return a new ride 
 	 * @throws Exception if the string doesn't much with the strings "UberBlack","UberVan","UberX","UberPool"
 	 */
@@ -92,5 +92,6 @@ public class RideFactory {
 		throw new Exception("Invalid Type of Ride");
 		
 	}
+	
 
 }

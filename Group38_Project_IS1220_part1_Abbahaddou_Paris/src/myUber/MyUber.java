@@ -41,8 +41,8 @@ public class MyUber {
 	 */
 	public MyUber(String test) {
 		try {
-			Car car1 = createCar("Standard", new GPScoordinates(9, 6));
-			Car car2 = createCar("Berlin", new GPScoordinates(3, 2));
+			Car car1 = createCar("standard", new GPScoordinates(9, 6));
+			Car car2 = createCar("berline", new GPScoordinates(3, 2));
 			createDriver(car1, "D1", "NOMD1");
 			createDriver(car2, "D2", "NOMD2");
 		} catch (Exception e) {
@@ -86,7 +86,16 @@ public class MyUber {
 		}
 
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(new MyUber("e"));
+	}
 
+
+	@Override
+	public String toString() {
+		return "The customer list : " + customerList + "\n The driver list : " + driverList + " \nThe car list : " + carList;
+	}
 
 	/**
 	 * @return the list of all customers of this instance of myUber

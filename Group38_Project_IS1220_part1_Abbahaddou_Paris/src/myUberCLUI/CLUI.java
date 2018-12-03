@@ -118,7 +118,7 @@ public class CLUI {
 		
 		else if(command[0].equals("moveCustomer") && command.length == 4) {
 			try {
-				this.myUber.getCustomerWithId(command[1]).setCarPosition(new GPScoordinates(
+				this.myUber.getCustomerWithId(Integer.parseInt(command[1])).setCustomerPosition(new GPScoordinates(
 						Double.parseDouble(command[2]),Double.parseDouble(command[3])));
 				System.out.println("List of Customers :");
 				System.out.println(myUber.getCustomerList());
@@ -129,6 +129,15 @@ public class CLUI {
 			}
 		}
 		
+		else if(command[0].equals("displayState") && command.length == 1) {
+			System.out.println("The current state of the system is :");
+			System.out.println(this.myUber);
+		}
+		
+		// The destination parameters is actually 2 parameters the x-coordinate and the y-coordinate
+		else if(command[0].equals("ask4price") && command.length == 5) {
+			
+		}
 		
 	
 		

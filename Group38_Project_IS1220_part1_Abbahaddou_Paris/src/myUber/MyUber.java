@@ -199,6 +199,23 @@ public class MyUber {
 	}
 	
 	/**
+	 * Get a customer with his id
+	 * 
+	 * @param id the id of the customer to be found
+	 * @return the customer if it has been found
+	 * @throws Exception if customer can not be found
+	 */
+	public Customer getCustomerWithId(int id) throws Exception {
+		for (Customer cust : customerList) {
+			if (cust.getCustomerID() == id) {
+				return cust;
+			}
+		}
+		throw new Exception();
+	}
+	
+	
+	/**
 	 * Find a driver with his name and surname
 	 * @param name
 	 * @param surname

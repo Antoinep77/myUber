@@ -215,13 +215,14 @@ public class CLUI {
 				allUberPoolRides.put(numUberPoolRides, ride);
 				allUberPoolMarks.put(numUberPoolRides, Integer.parseInt(command[6]));
 				numUberPoolRides = numUberPoolRides+1;
-				
+				System.out.println(uberPoolRequests);
 			} catch (Exception e) {
 				System.out.println("Customer could not be found");
 			}
 		}
 		// start and finish an uber pool ride
 		else if(command[0].equals("simAllPool") && command.length == 1) {
+			
 			try {
 				
 				

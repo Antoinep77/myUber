@@ -337,7 +337,12 @@ public class Driver {
 	      for (int i=0; i< driverMarks.size(); i++) {
 	            sum += driverMarks.get(i);
 	      }
-	      return sum / driverMarks.size();
+	      if(driverMarks.size()==0) {
+	    	  return 0;
+	    	  
+	      }else {
+	    	  return sum / driverMarks.size();
+	      }
 	}
 	
 }

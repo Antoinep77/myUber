@@ -3,6 +3,7 @@ package sorting;
 import java.util.ArrayList;
 import java.util.List;
 
+import GPS.GPScoordinates;
 import customersAndDrivers.Customer;
 import customersAndDrivers.Driver;
 
@@ -13,5 +14,6 @@ public interface CustomerSorting {
 	 * @return the list of drivers sorted
 	 */
 	public abstract ArrayList<Customer> sortCustomers(List<Customer> listCustomerToSort);
+	
 	
 	}

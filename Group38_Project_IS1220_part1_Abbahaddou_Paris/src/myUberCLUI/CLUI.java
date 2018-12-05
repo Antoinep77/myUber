@@ -90,6 +90,10 @@ public class CLUI {
 					Integer.parseInt(command[3]),Integer.parseInt(command[4]));
 		}
 		
+		else if(myUber == null) {
+			System.out.println("You have to use the setup command before using another command.");
+		}
+	
 		else if(command[0].equals("addCustomer") && command.length == 3) {
 			this.myUber.createCustomer(command[1], command[2], 
 					new GPScoordinates((Math.random()-0.5)*10, (Math.random()-0.5)*100), 0);
@@ -216,6 +220,8 @@ public class CLUI {
 				numUberPoolRides = numUberPoolRides+1;
 				
 			} catch (Exception e) {
+				System.out.println(e);
+
 				System.out.println("Customer could not be found");
 			}
 		}
@@ -308,15 +314,10 @@ public class CLUI {
 					myUber.mark(allUberPoolRides.get(i),allUberPoolMarks.get(i));
 					
 				}
-				//myUber.confirm(ride);
-				//myUber.start(ride);
-				//myUber.finish(ride);
-				//myUber.mark(ride,Integer.parseInt(command[6]));
-				//Driver driver = ride.getDriver();
-				//System.out.println("The ride executed with the driver : "+driver.getDriverID()+ " and the car : " + driver.getCar().getCarID());
-				//System.out.println("The ride started at "+ ride.getStartingDate() + " and finished at "+ ride.getArrivalDate());
-				//System.out.println("The customer has been charged : " + ride.getCost());
+
 			} catch (Exception e) {
+				System.out.println(e);
+
 				System.out.println("Uber Pool ride connot be done");
 			}
 		}

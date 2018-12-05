@@ -1,6 +1,7 @@
 package PoolObseerver;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import GPS.GPScoordinates;
@@ -11,20 +12,20 @@ import customersAndDrivers.DriverState;
 import myUber.MyUber;
 
 public class ConcreteObservable implements Observable{
-	private ArrayList<Observer> observers = new ArrayList<Observer>();
+	private ArrayList<ObserverPool> observers = new ArrayList<ObserverPool>();
 	
-	public ConcreteObservable(ArrayList<Observer> observers) {
+	public ConcreteObservable(ArrayList<ObserverPool> observers) {
 		super();
 		this.observers = observers;
 		
 	}
 	
-	public ArrayList<Observer> getObservers() {
+	public ArrayList<ObserverPool> getObservers() {
 		return observers;
 	}
 
 	@Override
-	public void registerObserver(Observer observer) {
+	public void registerObserver(ObserverPool observer) {
 	
 	observers.add(observer);
 	if (observer instanceof ConcreteObserver) {
@@ -35,7 +36,7 @@ public class ConcreteObservable implements Observable{
 	
 	}
 	@Override
-	public void removeObserver(Observer observer) {
+	public void removeObserver(ObserverPool observer) {
 	observers.remove(observer);
 	
 	}
@@ -48,7 +49,7 @@ public class ConcreteObservable implements Observable{
 	
 	public ArrayList<Ride> listOfRides(){
 		ArrayList<Ride> r = new ArrayList<Ride>();
-		for (Observer observer : observers) {
+		for (ObserverPool observer : observers) {
 			if(observer instanceof ConcreteObserver) {
 				r.add(((ConcreteObserver) observer).getRide());
 			}
@@ -135,8 +136,8 @@ public class ConcreteObservable implements Observable{
 		return cost;
 	}
 	
-	public Driver getDriver(ArrayList<Driver> listDrivers) {
-		ArrayList<Driver> listDriverPool = new ArrayList<Driver>(listDrivers);
+	public Driver getDriver(ArrayList<Driver> list) {
+		ArrayList<Driver> listDriverPool = new ArrayList<Driver>(list);
 		for (Driver driver : listDriverPool) {
 			if(driver.getDriverState() != DriverState.ONDUTY) {
 				listDriverPool.remove(driver);

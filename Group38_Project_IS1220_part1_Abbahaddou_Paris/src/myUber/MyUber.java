@@ -66,19 +66,19 @@ public class MyUber {
 
 				Car car = this.createCar("standard",
 						new GPScoordinates((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 100));
-				Driver d = this.createDriver(car, "driverStandard" + 1 + "Name", "driverStandard" + 1 + "SurName");
+				Driver d = this.createDriver(car, "driver" + i , "Standard");
 				d.changeStateTo(DriverState.OFFDUTY, new Date());
 			}
 			for (int i = 0; i < nBerlinCars; i++) {
 				Car car = this.createCar("berline",
 						new GPScoordinates((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 100));
-				Driver d = this.createDriver(car, "driverBerlin" + 1 + "Name", "driverBerlin" + 1 + "SurName");
+				Driver d = this.createDriver(car, "driver" + i , "Berline");
 				d.changeStateTo(DriverState.OFFDUTY, new Date());
 			}
 			for (int i = 0; i < nVanCars; i++) {
 				Car car = this.createCar("van",
 						new GPScoordinates((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 100));
-				Driver d = this.createDriver(car, "driverVan" + 1 + "Name", "driverVan" + 1 + "SurName");
+				Driver d = this.createDriver(car, "driver" + i , "Van");
 				d.changeStateTo(DriverState.OFFDUTY, new Date());
 			}
 		} catch (Exception e) {
@@ -364,14 +364,16 @@ public class MyUber {
 	 * 
 	 * @param ride - the ride to be accepted
 	 */
-	public void confirm(Ride ride) {
+	public Boolean confirm(Ride ride) {
 		Driver driver = ride.getDriver();
 		// Change the status of the driver so that he can't receive new rides
-		if (ride.getStatus() == RideStatus.UNCONFIRMED
+		if (ride.getStatus() == RideStatus.UNCONFIRMED && driver != null
 				&& driver.changeStateTo(DriverState.ONARIDE, ride.getStartingDate())) {
 			ride.setStatus(RideStatus.CONFIRMED);
 			ride.getCustomer().addMessageToBox("Your ride has been confirmed. Your driver is arriving soon.");
+		return true;
 		}
+		return false;
 	}
 
 	/**

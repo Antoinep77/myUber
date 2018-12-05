@@ -62,7 +62,7 @@ public abstract class Car {
 	
 	@Override
 	public String toString() {
-		return "\n position=" + carPosition + ", ID =" + carID + ", status =" + carState;
+		return "\n ID =" + carID +", position=" + carPosition + ", status =" + carState;
 	}
 
 

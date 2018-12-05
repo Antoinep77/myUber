@@ -30,6 +30,7 @@ public class CLUI {
 	private MyUber myUber;
 	
 	public static void main(String[] args) {
+
 		new CLUI();
 	}
 	
@@ -44,7 +45,6 @@ public class CLUI {
 		while (!command.equals("stop")) {
 			System.out.println("Enter a command: ");
 			command = reader.nextLine();
-			String[] list = command.split(" ");
 			this.executeCommand(command.split(" "),reader);
 		}
 		reader.close();
@@ -55,6 +55,12 @@ public class CLUI {
 	 * @param command the list of the keyword and the parameter
 	 */
 	private void executeCommand(String[] command,Scanner reader) {
+		System.out.print("Your command : ");
+		for (String c: command) {
+			System.out.print(c+" ");
+		}
+		System.out.println("");
+		
 		if(command[0].equals("init") && command.length == 2) {
 			try {
 				this.executeFile(command[1],reader);
@@ -116,7 +122,13 @@ public class CLUI {
 				else {
 					System.out.println("This driver can not change to this state. His car may already be taken.");
 				}
-			} catch (Exception e) {
+			} 
+			catch (IllegalArgumentException e) {
+				System.out.println("This status does not exist");
+			}
+			catch (Exception e) {
+				System.out.println(e);
+
 				System.out.println("No driver with this name");
 			}
 		}
@@ -165,7 +177,12 @@ public class CLUI {
 				for(String message: cust.getMessagebox()) {
 					System.out.println(message);
 				}
-			} catch (Exception e) {
+				cust.clearMessagebox();
+			}
+			catch (NumberFormatException e) {
+				System.out.println("Invalid parameters");
+			} 
+			catch (Exception e) {
 				System.out.println("Customer could not be found");
 			}
 		}
@@ -178,18 +195,29 @@ public class CLUI {
 				if(0<=time && time<= 23) {
 					date.setHours(time);
 				}
-				Ride ride;
-				ride = myUber.requireRide(cust,new GPScoordinates(Double.parseDouble(command[2])
+				
+				Ride ride = myUber.requireRide(cust,new GPScoordinates(Double.parseDouble(command[2])
 						,Double.parseDouble(command[3])),date).require(myUber, command[5]);
-				myUber.confirm(ride);
-				myUber.start(ride);
-				myUber.finish(ride);
-				myUber.mark(ride,Integer.parseInt(command[6]));
-				Driver driver = ride.getDriver();
-				System.out.println("The ride executed with the driver : "+driver.getDriverID()+ " and the car : " + driver.getCar().getCarID());
-				System.out.println("The ride started at "+ ride.getStartingDate() + " and finished at "+ ride.getArrivalDate());
-				System.out.println("The customer has been charged : " + ride.getCost());
-			} catch (Exception e) {
+				if(myUber.confirm(ride)) {
+					myUber.start(ride);
+					myUber.finish(ride);
+					myUber.mark(ride,Integer.parseInt(command[6]));
+					Driver driver = ride.getDriver();
+					System.out.println(cust.getMessagebox());
+					cust.clearMessagebox();
+					System.out.println("The ride executed with the driver : "+driver.getDriverID()+ " and the car : " + driver.getCar().getCarID());
+					System.out.println("The ride started at "+ ride.getStartingDate() + " and finished at "+ ride.getArrivalDate());
+					System.out.println("The customer has been charged : " + ride.getCost());
+				}
+				else {
+					System.out.println("No driver onduty found");
+				}
+			}
+			catch (NumberFormatException e) {
+				System.out.println("Invalid parameters");
+			} 
+			catch (Exception e) {
+				System.out.println(e);
 				System.out.println("Customer could not be found");
 			}
 		}
@@ -219,30 +247,35 @@ public class CLUI {
 							System.out.println("Invalid type of ride.");
 						}
 					}
-					myUber.confirm(ride);
-					myUber.start(ride);
-					myUber.finish(ride);
-					
-					Driver driver = ride.getDriver();
-					System.out.println("The ride executed with the driver : "+driver.getDriverID()+ " and the car : " + driver.getCar().getCarID());
-					System.out.println("The ride started at "+ ride.getStartingDate() + " and finished at "+ ride.getArrivalDate());
-					System.out.println("The customer has been charged : " + ride.getCost());
-					
-					Boolean markIsOk = false;
-					int mark = 0;
-					while(!markIsOk) {
-						System.out.println("Please enter a mark.");	
-						mark = reader.nextInt();
-						if (0<=mark && mark<=5) {
-							markIsOk = true;
+					if(myUber.confirm(ride)) {
+						myUber.start(ride);
+						myUber.finish(ride);
+						
+						Driver driver = ride.getDriver();
+						System.out.println("The ride executed with the driver : "+driver.getDriverID()+ " and the car : " + driver.getCar().getCarID());
+						System.out.println("The ride started at "+ ride.getStartingDate() + " and finished at "+ ride.getArrivalDate());
+						System.out.println("The customer has been charged : " + ride.getCost());
+						
+						Boolean markIsOk = false;
+						int mark = 0;
+						while(!markIsOk) {
+							System.out.println("Please enter a mark.");	
+							mark = reader.nextInt();
+							if (0<=mark && mark<=5) {
+								markIsOk = true;
+							}
+							else {
+								System.out.println("Invalid mark. Your mark must be between 0 and 5.");
+							}
 						}
-						else {
-							System.out.println("Invalid mark. Your mark must be between 0 and 5.");
-						}
+						
+						myUber.mark(ride,mark);
+						cust.clearMessagebox();
+						System.out.println(myUber);
 					}
-					
-					myUber.mark(ride,mark);
-					System.out.println(myUber);
+					else {
+						System.out.println("No driver onduty found");
+					}
 
 				} catch (Exception e) {
 					System.out.println("Customer could not be found");
@@ -310,7 +343,7 @@ public class CLUI {
 		while ((command=reader1.readLine()) != null) {
 			this.executeCommand(command.split(" "),reader);
 		}
-		reader.close();
+		reader1.close();
 		
 	}
 	

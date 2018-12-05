@@ -241,7 +241,8 @@ public class Driver {
 	@Override
 	public String toString() {
 		return "\n name =" + driverName + ", surname=" + driverSurName + ", ID =" + driverID
-				+ ", status =" + driverState + ", total cashed =" + driverAmount + ", number of rides =" + numOfRides;
+				+ ", status =" + driverState + ", total cashed =" + driverAmount + ", number of rides =" + numOfRides +
+				", average mark=" + avrageOfMarks();
 	}
 	
 	

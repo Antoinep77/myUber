@@ -7,6 +7,8 @@ import Rides.Ride;
 import Rides.RideStatus;
 
 public class Customer {
+	
+	private Boolean printMessageBox = false;
 	/**
 	 * the name of the customer
 	 */
@@ -102,7 +104,7 @@ public class Customer {
 
 
 	/**
-	 * @return return the poisiton (GPScoordinates) of the customer
+	 * @return return the position (GPScoordinates) of the customer
 	 */
 	public GPScoordinates getCustomerPosition() {
 		return customerPosition;
@@ -139,6 +141,10 @@ public class Customer {
 	public ArrayList<String> getMessagebox() {
 		return Messagebox;
 	}
+	
+	public void clearMessagebox() {
+		Messagebox = new ArrayList<String>();
+	}
 
 	
 	/**
@@ -163,7 +169,9 @@ public class Customer {
 	 * @param message the message to add in the customer message box
 	 */
 	public void addMessageToBox(String message){
-		System.out.println(this.customerName + " : " +message);
+		if(printMessageBox) {
+			System.out.println(this.customerName + " : " +message);
+		}
 		this.Messagebox.add(message);
 	}
 	

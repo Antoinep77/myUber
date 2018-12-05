@@ -210,6 +210,7 @@ public class CLUI {
 				Ride ride;
 				ride = myUber.requireRide(cust,new GPScoordinates(Double.parseDouble(command[2])
 						,Double.parseDouble(command[3])),date).require(myUber, command[5]);
+				System.out.println(cust.getMessagebox());
 				uberPoolRequests.add(ride);
 				allUberPoolRides.put(numUberPoolRides, ride);
 				allUberPoolMarks.put(numUberPoolRides, Integer.parseInt(command[6]));
@@ -255,7 +256,7 @@ public class CLUI {
 						uberPoolRequests.remove(0);
 						uberPoolRequests.remove(1);
 						uberPoolRequests.remove(2);
-					}
+						}
 					}
 					if(uberPoolRequests.size()==2) {
 						ConcreteObserver o0_2 = new ConcreteObserver(uberPoolRequests.get(0));

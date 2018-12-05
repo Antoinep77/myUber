@@ -1,8 +1,10 @@
-package GPS;
+package JUNITtests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import GPS.GPScoordinates;
 
 class GPScoordinatesTest {
 

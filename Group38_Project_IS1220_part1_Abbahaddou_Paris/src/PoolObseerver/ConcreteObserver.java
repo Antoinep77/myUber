@@ -2,7 +2,7 @@ package PoolObseerver;
 
 import Rides.Ride;
 
-public class ConcreteObserver implements Observer{
+public class ConcreteObserver implements ObserverPool{
 	private Ride ride;
 	
 	public ConcreteObserver(Ride ride) {
@@ -20,7 +20,7 @@ public class ConcreteObserver implements Observer{
 	public void update(Observable observable) {
 		if(observable instanceof ConcreteObservable) {
 			int n = ((ConcreteObservable) observable).listOfRides().size();
-			for(Observer o : ((ConcreteObservable) observable).getObservers()) {
+			for(ObserverPool o : ((ConcreteObservable) observable).getObservers()) {
 				if(n==1) {
 					((ConcreteObserver) o).ride.getCustomer().addMessageToBox("You are the first customer in this pool ride");
 				}else {

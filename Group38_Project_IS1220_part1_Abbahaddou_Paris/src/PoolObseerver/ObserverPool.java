@@ -1,5 +1,5 @@
 package PoolObseerver;
 
-public interface Observer {
+public interface ObserverPool {
 	public void update(Observable observable);
 }

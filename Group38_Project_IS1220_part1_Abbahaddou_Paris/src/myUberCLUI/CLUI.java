@@ -29,7 +29,13 @@ public class CLUI {
 	
 	private MyUber myUber;
 	
+	public static void main(String[] args) {
+		new CLUI();
+	}
+	
+	
 	/**
+	 * 
 	 * Run an instance of the myUberCLUI
 	 */
 	public CLUI() {
@@ -37,7 +43,8 @@ public class CLUI {
 		String command = "";
 		while (!command.equals("stop")) {
 			System.out.println("Enter a command: ");
-			command = reader.next();
+			command = reader.nextLine();
+			String[] list = command.split(" ");
 			this.executeCommand(command.split(" "),reader);
 		}
 		reader.close();
@@ -48,7 +55,6 @@ public class CLUI {
 	 * @param command the list of the keyword and the parameter
 	 */
 	private void executeCommand(String[] command,Scanner reader) {
-		
 		if(command[0].equals("init") && command.length == 2) {
 			try {
 				this.executeFile(command[1],reader);

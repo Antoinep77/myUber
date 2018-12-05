@@ -63,6 +63,10 @@ public class GPScoordinates {
 	}
 
 
+	@Override
+	public String toString() {
+		return "(" + x + ", " + y + ")";
+	}
 
 	// Setter & getters
 	/**

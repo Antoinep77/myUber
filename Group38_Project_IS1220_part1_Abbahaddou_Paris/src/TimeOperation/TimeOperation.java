@@ -17,14 +17,14 @@ public class TimeOperation {
 	public static long rideDurationTime(double distance, TrafficCondition traffic) {
 		double speed ;
 		if(traffic == TrafficCondition.LOW) {
-			speed = 3000/3600;
+			speed = 15;
 		}
 		else if(traffic == TrafficCondition.MEDIUM) {
-			speed = 7500/3600;
+			speed = 7.5;
 		}
 		else {
-			speed = 15000/3600;
+			speed = 3;
 		}
-		return (long)(distance/speed);
+		return (long)(distance/speed*3600*1000);
 	}
 }

@@ -82,8 +82,8 @@ public abstract class Ride {
 		this.destinationPoint = destinationPoint;
 		this.startingDate = date;
 		this.traffic = traffic;
-		this.arrivalDate = new Date( this.startingDate.getTime()
-		+ TimeOperation.rideDurationTime(GPScoordinates.distance(destinationPoint, destinationPoint), this.traffic));
+		this.arrivalDate = new Date( date.getTime()
+		+ TimeOperation.rideDurationTime(GPScoordinates.distance(startingPoint, destinationPoint), this.traffic));
 	}
 	
 	/**

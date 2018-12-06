@@ -318,6 +318,7 @@ public class CLUI {
 							System.out.println("The ride started at "+ r.getStartingDate() + " and finished at "+ r.getArrivalDate());
 							System.out.println("The customer has been charged : " + r.getCost());
 							}
+						System.out.println("------------------------------------------------");
 						poolRide.startPoolRide(driver, myUber);
 						poolRide.finishPoolRide(driver, myUber);
 						uberPoolRequests.remove(0);
@@ -349,6 +350,7 @@ public class CLUI {
 							System.out.println("The ride started at "+ r.getStartingDate() + " and finished at "+ r.getArrivalDate());
 							System.out.println("The customer has been charged : " + r.getCost());
 							}	
+						System.out.println("------------------------------------------------");
 						poolRide_2.startPoolRide(driver_2, myUber);
 						poolRide_2.finishPoolRide(driver_2, myUber);
 						uberPoolRequests.remove(0);
@@ -379,6 +381,7 @@ public class CLUI {
 						System.out.println("The ride started at "+ r.getStartingDate() + " and finished at "+ r.getArrivalDate());
 						System.out.println("The customer has been charged : " + r.getCost());
 						}
+					System.out.println("------------------------------------------------");
 					poolRide_1.startPoolRide(driver_1, myUber);
 					poolRide_1.finishPoolRide(driver_1, myUber);
 					uberPoolRequests.remove(0);

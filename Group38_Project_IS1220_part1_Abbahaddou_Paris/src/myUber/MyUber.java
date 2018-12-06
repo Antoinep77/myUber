@@ -424,6 +424,7 @@ public class MyUber {
 			driver.addAmount(ride.getCost());
 			ride.setStatus(RideStatus.ONGOING);
 			ride.getCustomer().addMessageToBox("Your ride has started, you have been charged for the ride");
+			ride.getCustomer().addOneRide();
 		}
 	}
 

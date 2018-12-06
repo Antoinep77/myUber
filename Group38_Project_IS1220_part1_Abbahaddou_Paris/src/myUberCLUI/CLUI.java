@@ -86,8 +86,13 @@ public class CLUI {
 		} 
 		
 		else if(command[0].equals("setup") && command.length == 5) {
+			try {
 			this.myUber = new MyUber(Integer.parseInt(command[1]),Integer.parseInt(command[2]),
 					Integer.parseInt(command[3]),Integer.parseInt(command[4]));
+			}
+			catch (NumberFormatException e) {
+				System.out.println("Invalid parameters");
+			} 
 		}
 		
 		else if(myUber == null) {
@@ -139,6 +144,9 @@ public class CLUI {
 				else {
 					System.out.println("This driver can not change to this state. His car may already be taken.");
 				}
+			} 
+			catch (NumberFormatException e) {
+				System.out.println("Invalid parameters");
 			} 
 			catch (IllegalArgumentException e) {
 				System.out.println("This status does not exist");
@@ -219,7 +227,11 @@ public class CLUI {
 				allUberPoolMarks.put(numUberPoolRides, Integer.parseInt(command[6]));
 				numUberPoolRides = numUberPoolRides+1;
 				
-			} catch (Exception e) {
+			}
+			catch (NumberFormatException e) {
+				System.out.println("Invalid parameters");
+			} 
+			catch (Exception e) {
 				System.out.println(e);
 
 				System.out.println("Customer could not be found");
@@ -315,7 +327,11 @@ public class CLUI {
 					
 				}
 
-			} catch (Exception e) {
+			}
+			catch (NumberFormatException e) {
+				System.out.println("Invalid parameters");
+			} 	
+			catch (Exception e) {
 				System.out.println(e);
 
 				System.out.println("Uber Pool ride connot be done");

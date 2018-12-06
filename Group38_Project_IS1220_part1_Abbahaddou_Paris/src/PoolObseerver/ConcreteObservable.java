@@ -138,11 +138,12 @@ public class ConcreteObservable implements Observable{
 	
 	public Driver getDriver(ArrayList<Driver> list) {
 		ArrayList<Driver> listDriverPool = new ArrayList<Driver>(list);
+		/*
 		for (Driver driver : listDriverPool) {
 			if(driver.getDriverState() != DriverState.ONDUTY) {
 				listDriverPool.remove(driver);
 			}
-		}
+		}*/
 		listDriverPool.sort((Driver d1 , Driver d2) -> {
 			if(minCost(d1) < minCost(d2)) {
 				return -1;

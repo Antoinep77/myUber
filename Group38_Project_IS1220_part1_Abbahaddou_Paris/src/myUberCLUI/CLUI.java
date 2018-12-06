@@ -267,7 +267,7 @@ public class CLUI {
 				allUberPoolMarks.put(numUberPoolRides, Integer.parseInt(command[6]));
 				numUberPoolRides = numUberPoolRides+1;
 
-				System.out.println(uberPoolRequests);
+				
 			}
 			catch (NumberFormatException e) {
 				System.out.println("Invalid parameters");
@@ -305,10 +305,12 @@ public class CLUI {
 						ArrayList<Driver> driversList = (ArrayList<Driver>)myUber.getDriverList();
 						System.out.println(driversList);
 						Driver driver = poolRide.getDriver(driversList);
-						
+						System.out.println("------------------------------------------------");
+						System.out.println("------------------new uber Pool ride---------------");
 						System.out.println("The following customer share the same uberPool ride");
 						for(Ride r : pool) {
 							System.out.println("------------------------------------------------");
+							System.out.println("Customer  :"+r.getCustomer().getCustomerName() + "  " + r.getCustomer().getCustomerSurName());
 							r.setStatus(RideStatus.CONFIRMED);
 							r.setDriver(driver);
 							myUber.confirm(r);
@@ -334,9 +336,12 @@ public class CLUI {
 						pool_2.add(uberPoolRequests.get(0));
 						pool_2.add(uberPoolRequests.get(1));
 						Driver driver_2 =poolRide_2.getDriver((ArrayList<Driver>)myUber.getDriverList());
+						System.out.println("------------------------------------------------");
+						System.out.println("------------------new uber Pool ride---------------");
 						System.out.println("The following customer share the same uberPool ride");
 						for(Ride r : uberPoolRequests) {
 							System.out.println("------------------------------------------------");
+							System.out.println("Customer  :"+r.getCustomer().getCustomerName() + "  " + r.getCustomer().getCustomerSurName());
 							r.setStatus(RideStatus.CONFIRMED);
 							r.setDriver(driver_2);
 							myUber.confirm(r);
@@ -360,10 +365,13 @@ public class CLUI {
 					ArrayList<Ride> pool_1 = new ArrayList<Ride>();
 					pool_1.add(uberPoolRequests.get(0));
 					Driver driver_1 =poolRide_1.getDriver((ArrayList<Driver>)myUber.getDriverList());
-					System.out.println(3);
+					
+					System.out.println("------------------------------------------------");
+					System.out.println("------------------new uber Pool ride---------------");
 					System.out.println("The following customer share the same uberPool ride");
 					for(Ride r : uberPoolRequests) {
 						System.out.println("------------------------------------------------");
+						System.out.println("Customer  :"+r.getCustomer().getCustomerName() + "  " + r.getCustomer().getCustomerSurName());
 						r.setStatus(RideStatus.CONFIRMED);
 						r.setDriver(driver_1);
 						myUber.confirm(r);

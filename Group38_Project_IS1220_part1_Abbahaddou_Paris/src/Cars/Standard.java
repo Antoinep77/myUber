@@ -8,8 +8,17 @@ import Rides.UberX;
 import customersAndDrivers.Driver;
 
 public class Standard extends Car{
+	/**
+	 * the number of Standar cars
+	 */
 	static int StandardNumber = 0;
+	/**
+	 * The ID of the car
+	 */
 	private String carID;
+	/**
+	 * the number of free seats
+	 */
 	private final int numberFreeSeats = 4;
 	// no carID as attribut because we know that the carID is StandardN
 	

@@ -183,7 +183,9 @@ public class Customer {
 		this.totaleAmountPaid = this.totaleAmountPaid + amount;
 		this.numOfRide = this.numOfRide + 1;
 	}
-
+	/**
+	 * increase the number of rides of the customer by 1
+	 */
 	public void addOneRide() {
 		this.numOfRide = this.numOfRide + 1;
 	}

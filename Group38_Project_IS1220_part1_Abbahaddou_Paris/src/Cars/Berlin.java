@@ -24,8 +24,8 @@ public class Berlin extends Car{
 	// carID as attribut because we know that the carID is BerlinN
 
 	public Berlin(GPScoordinates carPosition) {
-		super(carPosition, "Berlin" + Integer.toString(BerlinNumber+1));
-		carID = "Berlin" + Integer.toString(BerlinNumber+1);
+		super(carPosition, "Berline" + Integer.toString(BerlinNumber+1));
+		carID = "Berline" + Integer.toString(BerlinNumber+1);
 		BerlinNumber++;
 	}
 	

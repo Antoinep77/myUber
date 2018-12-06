@@ -45,11 +45,10 @@ public class CLUI {
 	
 	public static void main(String[] args) {
 
-		new CLUI();
+		new CLUI("src/eval/scenario1.ini");
 	}
 	
 	/**
-	 * 
 	 * Run an instance of the myUberCLUI
 	 */
 	public CLUI() {
@@ -64,6 +63,23 @@ public class CLUI {
 	}
 
 	/**
+	 * Run an instance of the myUberCLUI
+	 */
+	public CLUI(String iniFilePath) {
+		Scanner reader = new Scanner(System.in);  
+		String command = "";
+		String[] initCommand = {"init",iniFilePath};
+		this.executeCommand(initCommand,reader);
+		while (!command.equals("stop")) {
+			System.out.println("Enter a command: ");
+			command = reader.nextLine();
+			this.executeCommand(command.split(" "),reader);
+		}
+		
+		reader.close();
+	}
+	
+	/**
 	 * Execute one of the command. If the command does not match a message is printed.
 	 * @param command the list of the keyword and the parameter
 	 */
@@ -74,10 +90,30 @@ public class CLUI {
 		}
 		System.out.println("");
 		
-		if((command[0].equals("init")|| command[0].equals("runtest") )&& command.length == 2) {
+		if(command[0].equals("init") && command.length == 2) {
 			try {
-				this.executeFile(command[1],reader);
+				try {
+					this.executeFile(command[1],reader);
+				}
+				catch(FileNotFoundException e) {
+					this.executeFile("src/eval/"+command[1],reader);
+				}
 				System.out.println(myUber);
+			} catch (FileNotFoundException e) {
+				System.out.println("The file " + command[1] + " could not be found.");
+			} catch (IOException e) {
+				System.out.println("An error occured while reading the file.");
+			}
+		} 
+		
+		if( command[0].equals("runtest") && command.length == 2) {
+			try {
+				try {
+					this.executeFile(command[1],reader);
+				}
+				catch(FileNotFoundException e) {
+					this.executeFile("src/eval/"+command[1],reader);
+				}
 			} catch (FileNotFoundException e) {
 				System.out.println("The file " + command[1] + " could not be found.");
 			} catch (IOException e) {
@@ -199,7 +235,10 @@ public class CLUI {
 					date.setHours(time);
 				}
 				myUber.requireRide(cust,new GPScoordinates(Double.parseDouble(command[2]),Double.parseDouble(command[3])),date);
-				for(String message: cust.getMessagebox()) {
+				
+				List<String> listMessage = cust.getMessagebox().subList(0,cust.getMessagebox().size());
+				Collections.reverse(listMessage);
+				for(String message: listMessage.subList(0, 4)) {
 					System.out.println(message);
 				}
 				cust.clearMessagebox();
@@ -353,7 +392,11 @@ public class CLUI {
 					myUber.finish(ride);
 					myUber.mark(ride,Integer.parseInt(command[6]));
 					Driver driver = ride.getDriver();
-					System.out.println(cust.getMessagebox());
+					List<String> listMessage = cust.getMessagebox().subList(0,cust.getMessagebox().size());
+					Collections.reverse(listMessage);
+					for(String message: listMessage.subList(0, 4)) {
+						System.out.println(message);
+					}
 					cust.clearMessagebox();
 					System.out.println("The ride executed with the driver : "+driver.getDriverID()+ " and the car : " + driver.getCar().getCarID());
 					System.out.println("The ride started at "+ ride.getStartingDate() + " and finished at "+ ride.getArrivalDate());
@@ -382,7 +425,9 @@ public class CLUI {
 					}
 					RideFactory rideFac = myUber.requireRide(cust,new GPScoordinates(Double.parseDouble(command[2])
 							,Double.parseDouble(command[3])),date);
-					for(String message: cust.getMessagebox()) {
+					List<String> listMessage = cust.getMessagebox().subList(0,cust.getMessagebox().size());
+					Collections.reverse(listMessage);
+					for(String message: listMessage.subList(0, 4)) {
 						System.out.println(message);
 					}
 					Boolean rideTypeIsOk = false;
@@ -478,6 +523,8 @@ public class CLUI {
 		else {
 			System.out.println("The command keyword or the number of parameters do not match with any command.");
 		}
+		
+		System.out.println("");
 		
 	}
 

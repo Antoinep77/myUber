@@ -159,17 +159,23 @@ public class ConcreteObservable implements Observable{
 	
 	public void startPoolRide(Driver driver, MyUber myUber) {
 		ArrayList<Ride> poolListStart = new ArrayList<Ride>(this.startingPoolOrder(driver));
+		String s = new String("the order of starting points is  ---> ");
 		for (Ride ride3 : poolListStart) {
-			
+			s = s + ride3.getCustomer().getCustomerName();
+			s = s + " ---> ";
 			myUber.start(ride3);
 		}
+		System.out.println(s);
 	}
 	
 	
 	public void finishPoolRide(Driver driver, MyUber myUber) {
 		ArrayList<Ride> poolListEnd = new ArrayList<Ride>(this.endingPoolOrder(driver));
 		int n = this.listOfRides().size();
+		String s = new String("the order of destination points is  ---> ");
 		for (int i = 0; i < n; i++) {
+			s = s + poolListEnd.get(i).getCustomer().getCustomerName();
+			s = s + " ---> ";
 			poolListEnd.get(i).setStatus(RideStatus.ONGOING);
 			//System.out.println(poolListEnd.get(0).getCustomer().getCustomerName());
 			myUber.finish(poolListEnd.get(i));
@@ -180,5 +186,6 @@ public class ConcreteObservable implements Observable{
 			int randomNum = ThreadLocalRandom.current().nextInt(0, 6);
 			myUber.mark(poolListEnd.get(i),randomNum);
 		}
+		System.out.println(s);
 	}
 }

@@ -517,7 +517,7 @@ public class CLUI {
 			System.out.println("The total cashed is : "+ total);
 		}
 		
-	
+		else if(command[0].equals("stop")) {}
 		
 		
 		else {

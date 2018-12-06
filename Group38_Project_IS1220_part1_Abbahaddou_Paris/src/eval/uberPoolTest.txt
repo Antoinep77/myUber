@@ -3,7 +3,17 @@ addToPool 2 45 82 -1 uberPool 5
 addToPool 3 10 20 -1 uberPool 5
 addToPool 4 -15 30 -1 uberPool 5
 simAllPool
+
 addToPool 1 45 82 -1 uberPool 5
 addToPool 2 10 20 -1 uberPool 5
 addToPool 3 -15 30 -1 uberPool 5
+simAllPool
+
+addToPool 1 45 82 -1 uberPool 5
+addToPool 2 45 82 -1 uberPool 2
+addToPool 3 45 82 -1 uberPool 4
+addToPool 4 45 82 -1 uberPool 5
+addToPool 5 45 82 -1 uberPool 5
+addToPool 6 45 82 -1 uberPool 1
+addToPool 7 45 82 -1 uberPool 3
 simAllPool

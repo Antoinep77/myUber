@@ -1,9 +1,14 @@
-package Cars;
+package JUNITtests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import Cars.Berlin;
+import Cars.Car;
+import Cars.CarFactory;
+import Cars.Standard;
+import Cars.Van;
 import GPS.GPScoordinates;
 import Rides.UberX;
 

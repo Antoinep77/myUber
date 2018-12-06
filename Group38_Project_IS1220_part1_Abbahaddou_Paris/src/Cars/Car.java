@@ -97,13 +97,21 @@ public abstract class Car {
 	}
 	
 	
-
+	/**
+	 * Setter
+	 * @return the ID of the car
+	 */
 	public String getCarID() {
 		return carID;
 	}
 
 
 	// check if the ride and the car are compatible 
+	/**
+	 * methods checks if the ride and the car are compatible 
+	 * @param ride
+	 * @return true if the ride is compatible with the car, otherwise it returns false
+	 */
 	public abstract boolean isCompatibleWithTheRide(Ride ride);
 	
 	

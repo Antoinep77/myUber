@@ -42,7 +42,7 @@ public class Customer {
 	 */
 	private double totaleAmountPaid  = 0;
 	/**
-	 * the number of time the cusomer seats in a uber car
+	 * the number of time the customer seats in a uber car
 	 */
 	private int numOfRide = 0;
 	
@@ -183,7 +183,12 @@ public class Customer {
 		this.totaleAmountPaid = this.totaleAmountPaid + amount;
 		this.numOfRide = this.numOfRide + 1;
 	}
-
+	/**
+	 * increase the number of rides of the customer by 1
+	 */
+	public void addOneRide() {
+		this.numOfRide = this.numOfRide + 1;
+	}
 
 
 

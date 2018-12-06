@@ -261,11 +261,13 @@ public class CLUI {
 				Ride ride;
 				ride = myUber.requireRide(cust,new GPScoordinates(Double.parseDouble(command[2])
 						,Double.parseDouble(command[3])),date).require(myUber, command[5]);
+				System.out.println(cust.getMessagebox());
 				uberPoolRequests.add(ride);
 				allUberPoolRides.put(numUberPoolRides, ride);
 				allUberPoolMarks.put(numUberPoolRides, Integer.parseInt(command[6]));
 				numUberPoolRides = numUberPoolRides+1;
-				
+
+				System.out.println(uberPoolRequests);
 			}
 			catch (NumberFormatException e) {
 				System.out.println("Invalid parameters");
@@ -278,17 +280,19 @@ public class CLUI {
 		}
 		// start and finish an uber pool ride
 		else if(command[0].equals("simAllPool") && command.length == 1) {
+			
 			try {
 				
 				
 				if(uberPoolRequests.size() == 0) {
 					
 				}
-				if(uberPoolRequests.size()>3) {
-					while(uberPoolRequests.size()>3) {
+				if(uberPoolRequests.size()>=3) {
+					while(uberPoolRequests.size()>=3) {
 						ConcreteObserver o0 = new ConcreteObserver(uberPoolRequests.get(0));
 						ConcreteObserver o1 = new ConcreteObserver(uberPoolRequests.get(1));
 						ConcreteObserver o2 = new ConcreteObserver(uberPoolRequests.get(2));
+						
 						ArrayList<ObserverPool> observers = new ArrayList<ObserverPool>();
 						observers.add(o0);
 						observers.add(o1);
@@ -298,8 +302,13 @@ public class CLUI {
 						pool.add(uberPoolRequests.get(0));
 						pool.add(uberPoolRequests.get(1));
 						pool.add(uberPoolRequests.get(2));
-						Driver driver =poolRide.getDriver((ArrayList<Driver>)myUber.getDriverList());
-						for(Ride r : uberPoolRequests) {
+						ArrayList<Driver> driversList = (ArrayList<Driver>)myUber.getDriverList();
+						System.out.println(driversList);
+						Driver driver = poolRide.getDriver(driversList);
+						
+						System.out.println("The following customer share the same uberPool ride");
+						for(Ride r : pool) {
+							System.out.println("------------------------------------------------");
 							r.setStatus(RideStatus.CONFIRMED);
 							r.setDriver(driver);
 							myUber.confirm(r);
@@ -310,9 +319,9 @@ public class CLUI {
 						poolRide.startPoolRide(driver, myUber);
 						poolRide.finishPoolRide(driver, myUber);
 						uberPoolRequests.remove(0);
-						uberPoolRequests.remove(1);
-						uberPoolRequests.remove(2);
-					}
+						uberPoolRequests.remove(0);
+						uberPoolRequests.remove(0);
+						}
 					}
 					if(uberPoolRequests.size()==2) {
 						ConcreteObserver o0_2 = new ConcreteObserver(uberPoolRequests.get(0));
@@ -325,7 +334,9 @@ public class CLUI {
 						pool_2.add(uberPoolRequests.get(0));
 						pool_2.add(uberPoolRequests.get(1));
 						Driver driver_2 =poolRide_2.getDriver((ArrayList<Driver>)myUber.getDriverList());
+						System.out.println("The following customer share the same uberPool ride");
 						for(Ride r : uberPoolRequests) {
+							System.out.println("------------------------------------------------");
 							r.setStatus(RideStatus.CONFIRMED);
 							r.setDriver(driver_2);
 							myUber.confirm(r);
@@ -336,18 +347,23 @@ public class CLUI {
 						poolRide_2.startPoolRide(driver_2, myUber);
 						poolRide_2.finishPoolRide(driver_2, myUber);
 						uberPoolRequests.remove(0);
-						uberPoolRequests.remove(1);
+						uberPoolRequests.remove(0);
 					
 					
-				}else {
+				}if(uberPoolRequests.size()==1) {
+					Ride ride = uberPoolRequests.get(0);
 					ConcreteObserver o0_1 = new ConcreteObserver(uberPoolRequests.get(0));
 					ArrayList<ObserverPool> observers_1 = new ArrayList<ObserverPool>();
 					observers_1.add(o0_1);
 					ConcreteObservable poolRide_1 = new ConcreteObservable(observers_1);
+					
 					ArrayList<Ride> pool_1 = new ArrayList<Ride>();
 					pool_1.add(uberPoolRequests.get(0));
 					Driver driver_1 =poolRide_1.getDriver((ArrayList<Driver>)myUber.getDriverList());
+					System.out.println(3);
+					System.out.println("The following customer share the same uberPool ride");
 					for(Ride r : uberPoolRequests) {
+						System.out.println("------------------------------------------------");
 						r.setStatus(RideStatus.CONFIRMED);
 						r.setDriver(driver_1);
 						myUber.confirm(r);

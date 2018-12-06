@@ -1,10 +1,11 @@
-package customersAndDrivers;
+package JUNITtests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
 import GPS.GPScoordinates;
+import customersAndDrivers.Customer;
 
 class CustomerTest {
 	

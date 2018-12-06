@@ -1,4 +1,4 @@
-package customersAndDrivers;
+package JUNITtests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,6 +11,8 @@ import Cars.Car;
 import Cars.CarState;
 import Cars.Standard;
 import GPS.GPScoordinates;
+import customersAndDrivers.Driver;
+import customersAndDrivers.DriverState;
 
 class DriverTest {
 

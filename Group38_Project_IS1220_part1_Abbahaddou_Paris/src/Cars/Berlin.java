@@ -40,8 +40,8 @@ public class Berlin extends Car{
 	 * @param carPosition the position of the car
 	 */
 	public Berlin(GPScoordinates carPosition) {
-		super(carPosition, "Berlin" + Integer.toString(BerlinNumber+1));
-		carID = "Berlin" + Integer.toString(BerlinNumber+1);
+		super(carPosition, "Berline" + Integer.toString(BerlinNumber+1));
+		carID = "Berline" + Integer.toString(BerlinNumber+1);
 		BerlinNumber++;
 	}
 	

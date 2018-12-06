@@ -3,14 +3,23 @@ package PoolObseerver;
 import Rides.Ride;
 
 public class ConcreteObserver implements ObserverPool{
+	/**
+	 * attributes of the object
+	 */
 	private Ride ride;
-	
+	/**
+	 * Constuctor
+	 * @param ride uber pool ride 
+	 */
 	public ConcreteObserver(Ride ride) {
 		super();
 		this.ride = ride;
 	}
 	
-
+	/**
+	 * getter
+	 * @return the ride of the observer
+	 */
 	public Ride getRide() {
 		return ride;
 	}

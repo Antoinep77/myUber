@@ -12,14 +12,23 @@ import customersAndDrivers.DriverState;
 import myUber.MyUber;
 
 public class ConcreteObservable implements Observable{
+	/**
+	 * list of all observers
+	 */
 	private ArrayList<ObserverPool> observers = new ArrayList<ObserverPool>();
-	
+	/**
+	 * Constructor of a concrete observable
+	 * @param observers
+	 */
 	public ConcreteObservable(ArrayList<ObserverPool> observers) {
 		super();
 		this.observers = observers;
 		
 	}
-	
+	/**
+	 * getter
+	 * @return the list of observers
+	 */
 	public ArrayList<ObserverPool> getObservers() {
 		return observers;
 	}
@@ -46,7 +55,10 @@ public class ConcreteObservable implements Observable{
 		observers.get(0).update(this);
 		
 	}
-	
+	/**
+	 * 
+	 * @return the list of rides of the obsevers
+	 */
 	public ArrayList<Ride> listOfRides(){
 		ArrayList<Ride> r = new ArrayList<Ride>();
 		for (ObserverPool observer : observers) {
@@ -56,7 +68,12 @@ public class ConcreteObservable implements Observable{
 		}
 		return r;
 	}
-	
+	/**
+	 * display the ride with the nearst stratring point to the position 
+	 * @param position position of the car
+	 * @param allRides list of rides
+	 * @return the ride with the nearst stratring point to the position 
+	 */
 	public Ride ClosestRideInStarting(GPScoordinates position, ArrayList<Ride> allRides) {
 		ArrayList<Ride> listRide = new ArrayList<Ride>(allRides);
 		listRide.sort((Ride r1, Ride r2) -> {
@@ -72,7 +89,12 @@ public class ConcreteObservable implements Observable{
 		});
 		return listRide.get(0);
 	}
-	
+	/**
+	 * display the ride with the nearst stratring point to the last starting point 
+	 * @param position position position of the car
+	 * @param allRides list of rides
+	 * @return the ride with the nearst stratring point to the last starting point 
+	 */
 	public Ride ClosestRideInEnding(GPScoordinates position, ArrayList<Ride> allRides) {
 		ArrayList<Ride> listRide = new ArrayList<Ride>(allRides);
 		listRide.sort((Ride r1, Ride r2) -> {
@@ -88,7 +110,11 @@ public class ConcreteObservable implements Observable{
 		});
 		return listRide.get(0);
 	}
-	
+	/**
+	 * 
+	 * @param driver driver of the shared car
+	 * @return list of ride in the order
+	 */
 	public ArrayList<Ride> startingPoolOrder(Driver driver){
 		ArrayList<Ride> listRide = new ArrayList<Ride>(this.listOfRides());
 		ArrayList<Ride> listRideInOrder = new ArrayList<Ride>();
@@ -103,7 +129,11 @@ public class ConcreteObservable implements Observable{
 		return listRideInOrder;
 		
 	}
-	
+	/**
+	 * 
+	 * @param driver driver of the shared car
+	 * @return list of ride in the order
+	 */
 	public ArrayList<Ride> endingPoolOrder(Driver driver){
 		ArrayList<Ride> listRide = new ArrayList<Ride>(this.listOfRides());
 		ArrayList<Ride> listRideInOrder = new ArrayList<Ride>();
@@ -118,7 +148,11 @@ public class ConcreteObservable implements Observable{
 		return listRideInOrder;
 		
 	}
-	
+	/**
+	 * 
+	 * @param driver driver of the car
+	 * @return the cost of the optimal trajectory
+	 */
 	public double minCost(Driver driver) {		
 		double cost = 0;
 		ArrayList<Ride> liststart = new ArrayList<Ride>(startingPoolOrder(driver));
@@ -135,7 +169,11 @@ public class ConcreteObservable implements Observable{
 		}
 		return cost;
 	}
-	
+	/**
+	 * 
+	 * @param list list of all the drivers
+	 * @return the driver (optimal driver) with the minimum cost
+	 */
 	public Driver getDriver(ArrayList<Driver> list) {
 		ArrayList<Driver> listDriverPool = new ArrayList<Driver>(list);
 		/*
@@ -157,6 +195,11 @@ public class ConcreteObservable implements Observable{
 		return listDriverPool.get(0);	
 	}
 	
+	/**
+	 * start all the ride of the observers
+	 * @param driver driver of the car
+	 * @param myUber
+	 */
 	public void startPoolRide(Driver driver, MyUber myUber) {
 		ArrayList<Ride> poolListStart = new ArrayList<Ride>(this.startingPoolOrder(driver));
 		String s = new String("the order of starting points is  ---> ");
@@ -168,7 +211,11 @@ public class ConcreteObservable implements Observable{
 		System.out.println(s);
 	}
 	
-	
+	/**
+	 * finish all the rides
+	 * @param driver driver of the shared car
+	 * @param myUber
+	 */
 	public void finishPoolRide(Driver driver, MyUber myUber) {
 		ArrayList<Ride> poolListEnd = new ArrayList<Ride>(this.endingPoolOrder(driver));
 		int n = this.listOfRides().size();

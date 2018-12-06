@@ -1,0 +1,8 @@
+addToPool 1 45 82 -1 uberPool 5
+addToPool 2 45 82 -1 uberPool 5
+addToPool 3 45 82 -1 uberPool 5
+simAllPool
+displayState
+displayDrivers mostappreciated
+displayDrivers mostoccupied
+totalCashed

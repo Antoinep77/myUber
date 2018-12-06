@@ -22,7 +22,7 @@ class BerlinTest {
 		Car car3 = new Berlin(new GPScoordinates(6, 22));
 		Car car4 = new Standard(new GPScoordinates(7, 7));
 		Car car5 = new Standard(new GPScoordinates(11, 6));
-		assertEquals(car3.getCarID(),"Berlin3");
+		assertEquals(car3.getCarID(),"Berline3");
 	}
 
 }

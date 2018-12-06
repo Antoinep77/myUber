@@ -74,7 +74,7 @@ public class CLUI {
 		}
 		System.out.println("");
 		
-		if(command[0].equals("init") && command.length == 2) {
+		if((command[0].equals("init")|| command[0].equals("runtest") )&& command.length == 2) {
 			try {
 				this.executeFile(command[1],reader);
 				System.out.println(myUber);

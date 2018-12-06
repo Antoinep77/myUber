@@ -266,11 +266,8 @@ public class CLUI {
 				allUberPoolRides.put(numUberPoolRides, ride);
 				allUberPoolMarks.put(numUberPoolRides, Integer.parseInt(command[6]));
 				numUberPoolRides = numUberPoolRides+1;
-<<<<<<< HEAD
+
 				System.out.println(uberPoolRequests);
-			} catch (Exception e) {
-=======
-				
 			}
 			catch (NumberFormatException e) {
 				System.out.println("Invalid parameters");
@@ -278,7 +275,6 @@ public class CLUI {
 			catch (Exception e) {
 				System.out.println(e);
 
->>>>>>> branch 'master' of git@github.com:Antoinep77/myUber.git
 				System.out.println("Customer could not be found");
 			}
 		}
